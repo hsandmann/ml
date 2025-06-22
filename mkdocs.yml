@@ -1,0 +1,137 @@
+site_name: Machine Learning
+site_author: Sandmann, H.
+site_url: https://hsandmann.github.io/ml
+repo_url: https://github.com/hsandmann/ml
+repo_name: hsandmann/ml
+
+theme:
+  name: material
+  palette:
+    # primary: grey
+    # Light mode
+    - scheme: default
+      primary: grey
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: grey
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: grey
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: grey
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to system preference
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - content.tooltips
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.top
+    - navigation.path
+    - navigation.tracking
+  icon:
+    # logo: assets/images/devops
+    admonition:
+      note: fontawesome/solid/note-sticky
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
+  # logo: assets/images/devops.png
+  logo: assets/images/insper.svg
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - markdown_grid_tables:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      url_download: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - footnotes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - tables
+
+
+plugins:
+  - glightbox
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-authors
+  - git-committers:
+      repository: hsandmann/ml
+      branch: main
+      token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
+  - search
+  - minify:
+      minify_html: true
+  - badges
+  - markdown-exec
+  - render_swagger:
+      allow_arbitrary_locations : true
+  - termynal:
+      prompt_literal_start:
+        - "$"
+        - ">"
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - Ementa: index.md
+  - 2025.2: versions/2025.2.md
+  - Versions:
+    - 2025.2: ./versions/2025.2.md
