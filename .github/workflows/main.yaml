@@ -1,0 +1,34 @@
+name: ci
+on:
+  - push
+  - pull_request
+  
+# Environment
+env:
+  CI: true
+  PYTHON_VERSION: 3.12
+
+# Jobs to run
+jobs:
+     
+  # Build and deploy documentation site
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout source form GitHub
+      - uses: actions/checkout@v4
+
+      # Install Python runtime and dependencies
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      # pip
+      - run: |
+          pip install -r requirements.txt
+          
+      # deploy
+      - run: |
+          mkdocs gh-deploy --force
