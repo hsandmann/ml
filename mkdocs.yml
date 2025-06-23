@@ -158,20 +158,19 @@ nav:
     - Algoritmos de Agrupamento: .ml/agrupamento.md
 
   - Cluster Analysis:
-    - Introdução ao Cluster Analysis: .cluster_analysis/introducao.md
-    - Algoritmos de Cluster Analysis: .cluster_analysis/algoritmos.md
-    - Pré-processamento de Dados: .cluster_analysis/preprocessamento.md
-    - KNN Clustering: .cluster_analysis/knn.md
+    - Introdução: .cluster_analysis/introducao.md
+    - Algoritmos: .cluster_analysis/algoritmos.md
+    - KNN Clustering: .cluster/knn.md
     - K-Means Clustering: .cluster_analysis/kmeans.md
     - Hierarchical Clustering: .cluster_analysis/hierarchical.md
     - DBSCAN Clustering: .cluster_analysis/dbscan.md
     - Avaliação de Clusters: .cluster_analysis/avaliacao.md
 
   - Árvores de Decisão:
-    - Introdução às Árvores de Decisão: .arvores_decisao/introducao.md
-    - Construção de Árvores de Decisão: .arvores_decisao/construcao.md
-    - Poda de Árvores de Decisão: .arvores_decisao/poda.md
-    - Avaliação de Árvores de Decisão: .arvores_decisao/avaliacao.md
+    - Introdução às Árvores de Decisão: .decision_tree/introducao.md
+    - Construção de Árvores de Decisão: .decision_tree/construcao.md
+    - Poda de Árvores de Decisão: .decision_tree/poda.md
+    - Avaliação de Árvores de Decisão: .decision_tree/avaliacao.md
 
   - Random Forest:
     - Introdução ao Random Forest: .random_forest/introducao.md
