@@ -144,9 +144,9 @@ nav:
     - DBSCAN Clustering: .cluster_analysis/dbscan.md
     - Avaliação de Clusters: .cluster_analysis/avaliacao.md
 
-  - Árvores de Decisão: ./decision_tree.md
+  - Decision Tree: ./decision_tree.md
   - Random Forest: ./random_forest.md
-  - SVM (Support Vector Machines): ./svm.md
+  - Support Vector Machines: ./svm.md
 
   - Page Rank:
     - Introdução ao Page Rank: .pagerank/introducao.md
