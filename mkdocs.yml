@@ -134,7 +134,7 @@ nav:
   - Ementa: index.md
   - 2025.2: versions/2025.2.md
   - KDD: ./kdd.md
-  - Machine Learning: ml.md
+  - Machine Learning: ./ml.md
   - Cluster Analysis:
     - Introdução: ./cluster_analysis/introducao.md
     - Algoritmos: .cluster_analysis/algoritmos.md
@@ -147,20 +147,12 @@ nav:
   - Decision Tree: ./decision_tree.md
   - Random Forest: ./random_forest.md
   - Support Vector Machines: ./svm.md
-
-  - Page Rank:
-    - Introdução ao Page Rank: .pagerank/introducao.md
-    - Algoritmo Page Rank: .pagerank/algoritmo.md
-    - Aplicações do Page Rank: .pagerank/aplicacoes.md
-    - Avaliação do Page Rank: .pagerank/avaliacao.md
-    - Implementação do Page Rank: .pagerank/implementacao.md
-    - Exemplos de Page Rank: .pagerank/exemplos.md
-
+  - Page Rank: ./page_rank.md
   - MLOps:
-    - Introdução aos MLOps: .mlops/introducao.md
-    - Pipeline de MLOps: .mlops/pipeline.md
-    - PySpark: .mlops/pyspark.md
-    - Alteryx: .mlops/alteryx.md
+    - Introdução aos MLOps: ./mlops/introducao.md
+    - Pipeline de MLOps: ./mlops/pipeline.md
+    - PySpark: ./mlops/pyspark.md
+    - Alteryx: ./mlops/alteryx.md
 
   - Versions:
     - 2025.2: ./versions/2025.2.md
