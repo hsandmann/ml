@@ -158,9 +158,9 @@ nav:
     - Algoritmos de Agrupamento: .ml/agrupamento.md
 
   - Cluster Analysis:
-    - Introdução: .cluster_analysis/introducao.md
+    - Introdução: ./cluster_analysis/introducao.md
     - Algoritmos: .cluster_analysis/algoritmos.md
-    - KNN Clustering: .cluster/knn.md
+    - KNN Clustering: ./cluster/knn.md
     - K-Means Clustering: .cluster_analysis/kmeans.md
     - Hierarchical Clustering: .cluster_analysis/hierarchical.md
     - DBSCAN Clustering: .cluster_analysis/dbscan.md
