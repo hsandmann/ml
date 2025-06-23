@@ -133,30 +133,8 @@ extra_css:
 nav:
   - Ementa: index.md
   - 2025.2: versions/2025.2.md
-  - Extração de Conhecimento (KDD):
-    - Introdução: .kdd/introducao.md
-    - Processo de KDD: .kdd/processo.md
-    - Pré-processamento: .kdd/preprocessamento.md
-    - Análise Exploratória: .kdd/analise_exploratoria.md
-    - Visualização de Dados: .kdd/visualizacao_dados.md
-    - Feature Engineering: .kdd/feature_engineering.md
-    - Feature Selection: .kdd/feature_selection.md
-    - Feature Extraction: .kdd/feature_extraction.md
-    - Modelagem: .kdd/modelagem.md
-    - Avaliação de Modelos: .kdd/avaliacao_modelos.md
-    - Validação Cruzada: .kdd/validacao_cruzada.md
-    - Overfitting e Underfitting: .kdd/overfitting_underfitting.md
-    - Pipeline de Machine Learning: .kdd/pipeline_ml.md
-    - Deploy de Modelos: .kdd/deploy_modelos.md
-    - Monitoramento de Modelos: .kdd/monitoramento_modelos.md
-
-  - Aprendizado de Máquina (ML):
-    - Introdução ao Aprendizado de Máquina: .ml/introducao.md
-    - Tipos de Aprendizado de Máquina: .ml/tipos_aprendizado.md
-    - Algoritmos de Classificação: .ml/classificacao.md
-    - Algoritmos de Regressão: .ml/regressao.md
-    - Algoritmos de Agrupamento: .ml/agrupamento.md
-
+  - KDD: ./kdd.md
+  - Machine Learning: ml.md
   - Cluster Analysis:
     - Introdução: ./cluster_analysis/introducao.md
     - Algoritmos: .cluster_analysis/algoritmos.md
@@ -166,22 +144,9 @@ nav:
     - DBSCAN Clustering: .cluster_analysis/dbscan.md
     - Avaliação de Clusters: .cluster_analysis/avaliacao.md
 
-  - Árvores de Decisão:
-    - Introdução às Árvores de Decisão: .decision_tree/introducao.md
-    - Construção de Árvores de Decisão: .decision_tree/construcao.md
-    - Poda de Árvores de Decisão: .decision_tree/poda.md
-    - Avaliação de Árvores de Decisão: .decision_tree/avaliacao.md
-
-  - Random Forest:
-    - Introdução ao Random Forest: .random_forest/introducao.md
-    - Construção de Random Forest: .random_forest/construcao.md
-    - Avaliação de Random Forest: .random_forest/avaliacao.md
-
-  - SVM (Support Vector Machines):
-    - Introdução ao SVM: .svm/introducao.md
-    - Construção de SVM: .svm/construcao.md
-    - Avaliação de SVM: .svm/avaliacao.md
-    - SVM com Kernel: .svm/kernel.md
+  - Árvores de Decisão: ./decision_tree.md
+  - Random Forest: ./random_forest.md
+  - SVM (Support Vector Machines): ./svm.md
 
   - Page Rank:
     - Introdução ao Page Rank: .pagerank/introducao.md
