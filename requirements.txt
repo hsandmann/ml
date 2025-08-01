@@ -9,4 +9,9 @@ mkdocs-git-authors-plugin
 mkdocs-git-committers-plugin-2
 mkdocs-git-revision-date-localized-plugin
 mkdocs-render-swagger-plugin
+neoteroi-mkdocs
 termynal
+matplotlib
+matplotlib_venn
+numpy
+pandas

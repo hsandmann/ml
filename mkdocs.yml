@@ -63,7 +63,6 @@ theme:
       example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
   # logo: assets/images/devops.png
-  logo: assets/images/insper.svg
 
 markdown_extensions:
   - admonition
@@ -131,28 +130,23 @@ extra_css:
   - assets/stylesheets/extra.css
 
 nav:
-  - Ementa: index.md
-  - 2025.2: versions/2025.2.md
-  - KDD: ./kdd.md
-  - Machine Learning: ./ml.md
-  - Cluster Analysis:
-    - Introdução: ./cluster_analysis/introducao.md
-    - Algoritmos: .cluster_analysis/algoritmos.md
-    - KNN Clustering: ./cluster/knn.md
-    - K-Means Clustering: .cluster_analysis/kmeans.md
-    - Hierarchical Clustering: .cluster_analysis/hierarchical.md
-    - DBSCAN Clustering: .cluster_analysis/dbscan.md
-    - Avaliação de Clusters: .cluster_analysis/avaliacao.md
+  - Apresentação: ./versions/2025.2/2025.2.md
+  - Aulas:
+    - 1. KDD: ./classroom/kdd/kdd.md
+    - 2. Conceitos: ./classroom/concepts/conceitos.md
+    - 3. Decision Tree: ./classroom/decision_tree/decision_tree.md
+    - 4. Geração de Dados: ./classroom/data_generation/geracao_dados.md
+    - 5. KNN: ./classroom/knn/knn.md
+    - 6. K-Means: ./classroom/kmeans/kmeans.md
+    - 7. Métricas de Avaliação: ./classroom/metrics/metricas.md
+    - 8. Random Forest: ./classroom/random_forest/random_forest.md
+    - 9. SVM: ./classroom/svm/svm.md
+    - 10. Page Rank: ./classroom/page_rank/page_rank.md
+    - 11. PySpark: ./classroom/pyspark/pyspark.md
 
-  - Decision Tree: ./decision_tree.md
-  - Random Forest: ./random_forest.md
-  - Support Vector Machines: ./svm.md
-  - Page Rank: ./page_rank.md
-  - MLOps:
-    - Introdução aos MLOps: ./mlops/introducao.md
-    - Pipeline de MLOps: ./mlops/pipeline.md
-    - PySpark: ./mlops/pyspark.md
-    - Alteryx: ./mlops/alteryx.md
-
-  - Versions:
-    - 2025.2: ./versions/2025.2.md
+  - Versões:
+    - 2025.2:
+      - Apresentação: ./versions/2025.2/2025.2.md
+      - Projetos:
+        - Projeto I: ./versions/2025.2/projects/1/projeto_i.md
+        - Projeto II: ./versions/2025.2/projects/2/projeto_ii.md
