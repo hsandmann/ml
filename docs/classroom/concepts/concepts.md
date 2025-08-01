@@ -73,19 +73,20 @@ Neural networks can be categorized into several types, including:
 
 Deep learning is a subset of machine learning that focuses on using deep neural networks with many layers to learn complex representations of data. It has achieved remarkable success in various domains, including computer vision, natural language processing, and speech recognition. Deep learning models are capable of automatically learning hierarchical features from raw data, eliminating the need for manual feature engineering. This has led to significant advancements in AI applications, enabling systems to perform tasks that were previously considered challenging or impossible.
 
-
-## Additional Resources
-
-<iframe width="100%" height="470" src="https://www.youtube.com/embed/21EiKfQYZXc" allowfullscreen></iframe>
-
-
 ---
 
 ## To do
 
 !!! example "Quiz"
 
-    Goes to Canvas and answer the questions about the concepts presented in this lesson.
+    Goes to LMS and answer the questions about the concepts presented in this lesson.
+
+---
+
+## Additional Resources
+
+<iframe width="100%" height="470" src="https://www.youtube.com/embed/21EiKfQYZXc" allowfullscreen></iframe>
+
 
 
 
