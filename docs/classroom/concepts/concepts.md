@@ -75,7 +75,7 @@ Deep learning is a subset of machine learning that focuses on using deep neural 
 
 ---
 
-## To do
+## To Do
 
 !!! example "Quiz"
 
