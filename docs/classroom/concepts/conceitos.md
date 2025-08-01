@@ -3,3 +3,7 @@
 - Algoritmos de Classificação: .ml/classificacao.md
 - Algoritmos de Regressão: .ml/regressao.md
 - Algoritmos de Agrupamento: .ml/agrupamento.md
+
+!!! example "Exercício"
+
+    Utilizando

@@ -4,3 +4,7 @@
 - Avaliação do Page Rank: .pagerank/avaliacao.md
 - Implementação do Page Rank: .pagerank/implementacao.md
 - Exemplos de Page Rank: .pagerank/exemplos.md
+
+!!! example "Exercício"
+
+    Utilizando

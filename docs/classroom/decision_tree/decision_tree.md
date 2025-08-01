@@ -8,3 +8,6 @@
 - Poda de Árvores de Decisão: .decision_tree/poda.md
 - Avaliação de Árvores de Decisão: .decision_tree/avaliacao.md
 
+!!! example "Exercício"
+
+    Utilizando

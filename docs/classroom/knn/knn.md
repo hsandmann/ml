@@ -9,3 +9,6 @@ Uma das principais vantagens do KNN é sua simplicidade e facilidade de implemen
 ## Implementação do KNN
 A implementação do KNN pode ser feita de várias maneiras, mas uma das mais comuns é usar a biblioteca `scikit-learn` em Python. Aqui está um exemplo básico de como implementar o KNN para classificação:
 
+!!! example "Exercício"
+
+    Utilizando
