@@ -81,6 +81,8 @@ Deep learning is a subset of machine learning that focuses on using deep neural 
 
 ---
 
+## To do
+
 !!! example "Quiz"
 
     Goes to Canvas and answer the questions about the concepts presented in this lesson.
