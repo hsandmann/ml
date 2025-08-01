@@ -80,6 +80,7 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji 
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.inlinehilite
+  - pymdownx.blocks.caption
   - pymdownx.snippets:
       url_download: true
   - pymdownx.superfences:
@@ -92,6 +93,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - footnotes
+  - neoteroi.timeline
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
@@ -106,7 +108,7 @@ plugins:
       enable_creation_date: true
   - git-authors
   - git-committers:
-      repository: hsandmann/ml
+      repository: insper/ann-dl
       branch: main
       token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
   - search
@@ -127,7 +129,10 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
+  - assets/stylesheets/neoteroi-mkdocs.min.css
+  - assets/stylesheets/neoteroi-timeline.css
   - assets/stylesheets/extra.css
+
 
 nav:
 
@@ -135,7 +140,7 @@ nav:
 
   - Aulas:
     - 1. KDD: ./classroom/kdd/kdd.md
-    - 2. Conceitos: ./classroom/concepts/conceitos.md
+    - 2. Conceitos: ./classroom/concepts/concepts.md
     - 3. Decision Tree: ./classroom/decision_tree/decision_tree.md
     - 4. Geração de Dados: ./classroom/data_generation/geracao_dados.md
     - 5. KNN: ./classroom/knn/knn.md

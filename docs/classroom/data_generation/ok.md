@@ -23,7 +23,3 @@
 - Monitoramento de Modelos: .kdd/monitoramento_modelos.md
 
 
-
-!!! example "Exercício"
-
-    Utilizando
