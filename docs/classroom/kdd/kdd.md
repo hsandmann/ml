@@ -11,18 +11,18 @@ KDD (Knowledge Discovery in Databases)
 
 ``` mermaid
 flowchart TD
-    A[1 - Seleção de Dados] --> B[2 - Pré-processamento]
-    B --> C[3 - Transformação de Dados]
-    C --> D[4 - Mineração de Dados]
-    D --> E[5 - Avaliação e Interpretação]
-    E --> F[6 - Apresentação e Uso do Conhecimento]
+    A@{ shape: database, label: "1 - Data Selection"} --> B@{ shape: procs, label: "2 - Data Preprocessing"}
+    B --> C@{ shape: notch-pent, label: "3 - Data Transformation"}
+    C --> D@{ shape: subproc, label: "4 - Data Mining"}
+    D --> E@{ shape: notch-rect, label: "5 - Evaluation and Interpretation"}
+    E --> F@{ shape: doc, label: "6 - Presentation and Use of Knowledge"}
     F --> A
     F --> D
 ```
 
 ---
 
-!!! info "1. **Seleção de Dados (Data Selection)**"
+### 1. Data Selection
 
 | **Descrição** | **Detalhes** |
 | --- | --- |
@@ -33,7 +33,7 @@ flowchart TD
 | **Desafios** | Garantir que os dados selecionados sejam representativos e suficientes para o problema. |
     
 
-!!! info "2. **Pré-processamento (Data Preprocessing)**"
+### 2. Data Preprocessing
 
 | **Descrição** | **Detalhes** |
 | --- | --- |
@@ -44,7 +44,7 @@ flowchart TD
 | **Desafios** | Preservar a integridade dos dados e evitar introdução de viés durante a limpeza. |
 
 
-!!! info "3. **Transformação de Dados (Data Transformation)**"
+### 3. Data Transformation
 
 | **Descrição** | **Detalhes** |
 | --- | --- |
@@ -55,7 +55,7 @@ flowchart TD
 | **Desafios** | Escolher transformações que maximizem a performance dos algoritmos de mineração. |
 
 
-!!! info "4. **Mineração de Dados (Data Mining)**"
+### 4. Data Mining
 
 | **Descrição** | **Detalhes** |
 | --- | --- |
@@ -66,7 +66,7 @@ flowchart TD
 | **Desafios** | Seleção do algoritmo certo, overfitting, escalabilidade em grandes datasets. |
 
 
-!!! info "5. **Avaliação e Interpretação (Pattern Evaluation and Interpretation)**"
+### 5. Pattern Evaluation and Interpretation
 
 | **Descrição** | **Detalhes** |
 | --- | --- |
@@ -77,7 +77,7 @@ flowchart TD
 | **Desafios** | Evitar padrões espúrios e garantir que os resultados sejam acionáveis. |
 
 
-!!! info "6. **Apresentação e Uso do Conhecimento (Knowledge Presentation and Use)**"
+### 6. Knowledge Presentation and Use
 
 | **Descrição** | **Detalhes** |
 | --- | --- |
