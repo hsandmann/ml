@@ -58,6 +58,21 @@ Also, there are **reinforcement learning** techniques, where an agent learns to 
 
 Machine learning techniques address a wide range of problems, primarily through **classification** and **regression**, which are core supervised learning tasks. Classification involves predicting discrete labels or categories based on input features, while regression focuses on predicting continuous values. These approaches are extensively applied across domains such as image recognition, natural language processing, and time series forecasting. However, machine learning also includes other techniques like clustering, dimensionality reduction, reinforcement learning, and anomaly detection, expanding its applicability to diverse challenges.
 
+Few examples of machine learning techniques include:
+
+| Technique          | Description                                                                                   |
+|-------------------|-----------------------------------------------------------------------------------------------|
+| Decision Trees    | A tree-like model used for classification and regression tasks, where each internal node represents a feature, each branch represents a decision rule, and each leaf node represents an outcome.
+| Random Forest     | An ensemble method that combines multiple decision trees to improve accuracy and reduce overfitting. It works by training multiple decision trees on different subsets of the data and averaging their predictions.
+| Support Vector Machines (SVM) | A supervised learning algorithm that finds the optimal hyperplane to separate different classes in the feature space. It is effective for high-dimensional data and can handle both linear and non-linear classification tasks.
+| K-Nearest Neighbors (KNN) | A simple algorithm that classifies new instances based on the majority class of their k-nearest neighbors in the feature space. It is a non-parametric method that can be used for both classification and regression tasks. |
+| Naive Bayes       | A probabilistic classifier based on Bayes' theorem, assuming independence between features. It is particularly effective for text classification tasks, such as spam detection and sentiment analysis. |
+| Linear Regression | A statistical method used to model the relationship between a dependent variable and one or more independent variables by fitting a linear equation to the observed data. It is commonly used for predicting continuous outcomes based on input features. |
+| Logistic Regression | A statistical method used for binary classification tasks, where the output is a probability that can be mapped to two classes. It models the relationship between input features and the log-odds of the outcome using a logistic function. |
+| K-Means Clustering | An unsupervised learning algorithm that partitions data into k clusters based on feature similarity. It iteratively assigns data points to the nearest cluster centroid and updates the centroids until convergence. |
+| Principal Component Analysis (PCA) | A dimensionality reduction technique that transforms high-dimensional data into a lower-dimensional space while preserving important features. It identifies the principal components that capture the most variance in the data, making it useful for visualization and feature extraction. |
+| Gradient Boosting | An ensemble learning technique that builds a series of weak learners (usually decision trees) in a sequential manner, where each new learner corrects the errors of the previous ones. It is effective for both classification and regression tasks and is widely used in machine learning competitions. |
+
 ## Neural Networks
 
 Neural networks are a class of machine learning models inspired by the structure and function of the human brain. They consist of interconnected nodes (neurons) organized in layers, where each connection has an associated weight that is adjusted during training. Neural networks are particularly effective for tasks involving complex patterns, such as image and speech recognition.

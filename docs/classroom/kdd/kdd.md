@@ -110,4 +110,4 @@ flowchart TD
 ---
 
 ## Resumo
-O KDD é um processo sistemático para transformar dados brutos em conhecimento acionável. Suas etapas (seleção, pré-processamento, transformação, mineração, avaliação e apresentação) são interdependentes e requerem uma combinação de técnicas computacionais e conhecimento do domínio. Para um estudante universitário, é essencial compreender tanto os aspectos técnicos (algoritmos, ferramentas) quanto os conceituais (validade, utilidade dos padrões) para aplicar o KDD de forma eficaz.
+O KDD é um processo sistemático para transformar dados brutos em conhecimento acionável. Suas etapas (seleção, pré-processamento, transformação, mineração, avaliação e apresentação) são interdependentes e requerem uma combinação de técnicas computacionais e conhecimento do domínio.
