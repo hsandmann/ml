@@ -140,7 +140,10 @@ nav:
 
   - Aulas:
     - 1. KDD: ./classroom/kdd/kdd.md
-    - 2. Conceitos: ./classroom/concepts/concepts.md
+    - 2. Conceitos:
+      - 2.1. Machine Learning: ./classroom/concepts/ml.md
+      - 2.2. Dados: ./classroom/concepts/data.md
+      - 2.3. Exercício: ./classroom/concepts/exercise.md
     - 3. Decision Tree: ./classroom/decision_tree/decision_tree.md
     - 4. Geração de Dados: ./classroom/data_generation/geracao_dados.md
     - 5. KNN: ./classroom/knn/knn.md

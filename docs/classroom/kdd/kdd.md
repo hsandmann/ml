@@ -1,8 +1,4 @@
 
-
-KDD (Knowledge Discovery in Databases)
-==========================
-
 **Knowledge Discovery in Databases (KDD)** é o processo de identificar padrões válidos, úteis e compreensíveis em grandes conjuntos de dados, combinando técnicas de mineração de dados, estatística, aprendizado de máquina e gerenciamento de banco de dados. É um processo iterativo e interativo, amplamente utilizado em áreas como ciência de dados, inteligência de negócios e pesquisa científica. O KDD foi formalizado por [Fayyad et al. (1996)](https://doi.org/10.1609/aimag.v17i3.1230){target="_blank"} e é composto por várias etapas, que podem variar ligeiramente dependendo do contexto, mas geralmente seguem a estrutura abaixo. A seguir, as etapas principais:
 
 ---

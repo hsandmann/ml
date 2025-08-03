@@ -15,3 +15,5 @@ matplotlib
 matplotlib_venn
 numpy
 pandas
+scikit-learn
+seaborn
