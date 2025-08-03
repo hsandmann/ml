@@ -21,20 +21,6 @@ A normalização é uma etapa importante no pré-processamento de dados, especia
 ### Estrutura do Documento
 Normalização (pré-processamento )
 
-Cálculo do coeficiente de Gini:
-
-$$
-g_i = 1 - \sum_{i=1}^{n} p_i^2
-$$
-
-onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
-
-Cálculo da entropia:
-$$
-h_i = - \sum_{i=1}^{n} p_i \log_2(p_i)
-$$
-
-onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
 
 ## Exemplos de DB
 

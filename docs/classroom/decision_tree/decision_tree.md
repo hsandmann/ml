@@ -70,6 +70,21 @@ Existem algumas métricas comuns usadas para medir a qualidade de uma divisão, 
 - **Chi-quadrado**: Usado para medir a independência entre variáveis categóricas, ajudando a identificar interações significativas entre atributos.
 
 
+Cálculo do coeficiente de Gini:
+
+$$
+g_i = 1 - \sum_{i=1}^{n} p_i^2
+$$
+
+onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
+
+Cálculo da entropia:
+$$
+h_i = - \sum_{i=1}^{n} p_i \log_2(p_i)
+$$
+
+onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
+
 
 ## Algoritmos
 
