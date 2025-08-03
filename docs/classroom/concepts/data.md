@@ -46,6 +46,8 @@ Para lidar com esses problemas, é comum realizar um processo de limpeza e pré-
 - **Transformação de variáveis**: aplicar técnicas como logaritmo, raiz quadrada ou Box-Cox para transformar variáveis não lineares em lineares.
 - **Codificação de variáveis categóricas**: converter variáveis categóricas em um formato que os algoritmos possam entender, como usando codificação one-hot ou label encoding.
 
+Além disso, é importante considerar a ordem dos dados, especialmente em problemas de séries temporais, onde a sequência dos dados é crucial para a análise e modelagem.
+
 ## Volume de Dados
 
 O volume de dados refere-se à quantidade de dados disponíveis para treinamento e teste de modelos de aprendizado de máquina. Quanto maior o volume de dados, mais informações o modelo pode aprender, o que geralmente resulta em melhor desempenho. No entanto, também é importante considerar a qualidade dos dados, pois dados ruidosos ou irrelevantes podem prejudicar o desempenho do modelo.
@@ -66,9 +68,15 @@ Ainda, os dados podem ser classificados em três categorias principais:
 
 ### Exemplos
 
-**Salmão vs Robalo**: Um exemplo de conjunto de dados fictício sobre salmão e robalo, onde cada registro é rotulado como "salmão" ou "robalo". As características podem incluir, por exemplo: tamanho e brilho[^5].
+#### **Salmão vs Robalo**
 
-**Iris Dataset** - [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris): O Iris Dataset é um conjunto de dados clássico usado para classificação de flores. Ele contém 150 amostras de três espécies diferentes de flores Iris (Iris setosa, Iris versicolor e Iris virginica), com quatro características: comprimento e largura das pétalas e sépalas.
+Um exemplo de conjunto de dados fictício sobre salmão e robalo, onde cada registro é rotulado como "salmão" ou "robalo". O objetivo é entender melhor como os dados podem ser utilizados para diferenciar as duas espécies. Nesse contexto, as características podem incluir, por exemplo: tamanho e brilho[^5].
+
+
+
+#### Iris Dataset
+
+[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris): o Iris Dataset é um conjunto de dados clássico usado para classificação de flores. Ele contém 150 amostras de três espécies diferentes de flores Iris (Iris setosa, Iris versicolor e Iris virginica), com quatro características: comprimento e largura das pétalas e sépalas.
 
 ![](iris_dataset.png)
 
@@ -87,6 +95,9 @@ Uma amostra do conjunto de dados Iris é apresentada na tabela abaixo:
 | 6.7     | 3.0     | 5.2     | 2.3     | virginica |
 | 6.3     | 2.5     | 5.0     | 1.9     | virginica |
 | 6.5     | 3.0     | 5.2     | 2.0     | virginica |
+/// caption
+Amostra do conjunto de dados Iris, contendo características como comprimento e largura das pétalas e sépalas, além da classe da flor.
+///
 
 Abaixo está um exemplo de como carregar o conjunto de dados Iris usando Python:
 
@@ -99,12 +110,18 @@ Também é possível visualizar o conjunto de dados usando bibliotecas como `mat
 ```python exec="1" html="1"
 --8<-- "docs/classroom/concepts/iris_visualization.py"
 ```
+/// caption
+Visualização do conjunto de dados Iris, mostrando a relação entre as características das flores e suas classes. Cada característica, representada por um eixo, é confrontada com as outras, permitindo identificar padrões e separações entre as classes.
+///
+
 
 ## Resumo
 
 Os dados são a base de qualquer modelo de aprendizado de máquina. A qualidade, quantidade e natureza dos dados disponíveis são fundamentais para o sucesso do modelo. É importante entender como os dados são estruturados, processados e utilizados para treinar modelos, além de considerar o volume de dados e o balanceamento das classes.
 
 Além disso, é essencial realizar um pré-processamento adequado dos dados, que pode incluir limpeza, transformação e normalização, para garantir que os modelos possam aprender de maneira eficaz e fazer previsões precisas.
+
+O grande desafio em aprendizado de máquina é buscar a melhor separação entre as classes, a fim de maximizar a precisão do modelo. Isso envolve não apenas a escolha do algoritmo, mas também o entendimento profundo dos dados e das relações entre as variáveis.
 
 
 
