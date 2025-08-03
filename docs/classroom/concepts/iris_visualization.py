@@ -19,5 +19,5 @@ sns.pairplot(df, hue='target', height=3)
 
 # Para imprimir na página HTML
 buffer = StringIO()
-plt.savefig(buffer, format="svg")
+plt.savefig(buffer, format="svg", transparent=True)
 print(buffer.getvalue())

@@ -66,17 +66,73 @@ Ainda, os dados podem ser classificados em três categorias principais:
 
 ---
 
-### Exemplos
+## Exemplos
 
-#### **Salmão vs Robalo**
+### **Salmão vs Robalo**
 
 Um exemplo de conjunto de dados fictício sobre salmão e robalo, onde cada registro é rotulado como "salmão" ou "robalo". O objetivo é entender melhor como os dados podem ser utilizados para diferenciar as duas espécies. Nesse contexto, as características podem incluir, por exemplo: tamanho e brilho[^5].
 
+#### Problema
 
+Imagine que você tem uma máquina de separação de peixes. Todos os dias os barcos pesqueiros despejam toneladas de peixes em uma esteira, o objetivo da máquina é separar os peixes, logo, classificar os peixes como "salmão" ou "robalo" com base em suas características.
 
-#### Iris Dataset
+A esteira possui sensores que medem o tamanho e o brilho dos peixes. Com base nessas medições, a máquina deve decidir se o peixe é um salmão ou um robalo.
 
-[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris): o Iris Dataset é um conjunto de dados clássico usado para classificação de flores. Ele contém 150 amostras de três espécies diferentes de flores Iris (Iris setosa, Iris versicolor e Iris virginica), com quatro características: comprimento e largura das pétalas e sépalas.
+$$
+\mathbf{x} = \begin{bmatrix}
+x_1 \\
+x_2 \\
+\end{bmatrix}
+$$
+
+onde \(x_1\) é o tamanho do peixe e \(x_2\) é o brilho do peixe.
+
+#### Amostra de Dados
+
+A fim de entender os dados, foi feita uma amostra de peixes, onde cada peixe é descrito por suas características de tamanho e brilho. A tabela abaixo apresenta uma amostra alguns dos dados coletados:
+
+| Tamanho (cm) | Brilho (0-10) | Espécie |
+|:--:|:--:|:--:|
+| 60 | 6 | salmão |
+| 45 | 5 | robalo |
+| 78 | 7 | salmão |
+| 90 | 5.2 | salmão |
+| 71 | 9 | salmão |
+| 80 | 3 | robalo |
+| 64 | 6 | salmão |
+| 58 | 2 | robalo |
+| 63 | 6.8 | robalo |
+| 50 | 4 | robalo |
+
+Ao apontar os dados em dois gráficos, um para cada classe, poderemos visualizar melhor a separação entre salmão e robalo.
+
+```python exec="1" html="1"
+--8<-- "docs/classroom/concepts/salmon_vs_seabass_1.py"
+```
+
+Nitidamente, não é possível traçar uma **boa** linha que separe as duas classes, salmão e robalo, com base exclusivamente, em apenas, uma dimensão.
+
+Já, se considerarmos duas dimensões, tamanho e brilho, podemos traçar uma linha que separe as duas classes. A seguir, um exemplo é ilustrado na figura da esquerda:
+
+```python exec="1" html="1"
+--8<-- "docs/classroom/concepts/salmon_vs_seabass_2.py"
+```
+/// caption
+Amostra de dados de salmão e robalo, onde cada peixe é descrito por suas características de tamanho e brilho. A separação entre as duas classes é feita com base nessas características.
+Quando um novo peixe é colocado na esteira - **X** verde no gráfico da direita -, a máquina deve decidir se ele é um salmão ou um robalo com base em suas características de tamanho e brilho.
+///
+
+A máquina deve aprender a traçar uma linha que separe as duas classes, salmão e robalo, com base nas características de tamanho e brilho. Essa linha é chamada de **fronteira de decisão**. Para que, assim que um novo peixe seja colocado na esteira, a máquina possa decidir se ele é um salmão ou um robalo com base em suas características de tamanho e brilho - conforme a figura da direita.
+
+De forma geral, no contexto de classificação, a máquina deve aprender a traçar **fronteiras de decisão** em um espaço de características multidimensionais. Permitindo que, quando um novo exemplo é apresentado, a máquina possa decidir a qual classe ele pertence com base nas características do exemplo.
+
+!!! warning "Atenção"
+
+    Nem sempre é possível traçar uma linha que separe as duas classes. Em alguns casos, as classes podem se sobrepor ou não serem linearmente separáveis. Nesses casos, é necessário utilizar técnicas mais avançadas, como kernels ou redes neurais, para encontrar uma separação adequada.
+
+### **Iris Dataset**
+
+[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris): o Iris Dataset é um conjunto de dados clássico e **reais** usado para classificação de flores. Ele contém 150 amostras de três espécies diferentes de flores Iris (Iris setosa, Iris versicolor e Iris virginica), com quatro características: comprimento e largura das pétalas e sépalas.
 
 ![](iris_dataset.png)
 
@@ -114,6 +170,13 @@ Também é possível visualizar o conjunto de dados usando bibliotecas como `mat
 Visualização do conjunto de dados Iris, mostrando a relação entre as características das flores e suas classes. Cada característica, representada por um eixo, é confrontada com as outras, permitindo identificar padrões e separações entre as classes.
 ///
 
+Nessa visualização, cada característica é representada por um eixo, e as flores são plotadas em um espaço multidimensional. As cores representam as diferentes classes de flores, permitindo identificar padrões e separações entre as classes. Note que para algumas configurações, como comprimento da pétala vs largura da pétala, as classes são bem separadas, enquanto em outras, como comprimento da sépala vs largura da sépala, as classes se sobrepõem.
+
+!!! quote "Mundo Real"
+
+    O Iris Dataset é um exemplo clássico de conjunto de dados usado para ensinar conceitos de aprendizado de máquina. Ele é simples o suficiente para ser facilmente compreendido, mas também apresenta desafios interessantes para modelos mais complexos. É amplamente utilizado em cursos e tutoriais de aprendizado de máquina, além de ser um benchmark para algoritmos de classificação.
+
+    Poderia imaginar que em problemas mais complexos, como reconhecimento de imagem ou processamento de linguagem natural, os dados podem ser muito mais complexos e desafiadores. Não permitindo sequer uma visualização clara da distribuição espacial das características. No entanto, os princípios fundamentais de aprendizado de máquina permanecem os mesmos: entender os dados, pré-processá-los adequadamente e escolher o modelo certo para a tarefa.
 
 ## Resumo
 
