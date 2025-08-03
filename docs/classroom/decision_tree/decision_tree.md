@@ -79,6 +79,7 @@ $$
 onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
 
 Cálculo da entropia:
+
 $$
 h_i = - \sum_{i=1}^{n} p_i \log_2(p_i)
 $$
