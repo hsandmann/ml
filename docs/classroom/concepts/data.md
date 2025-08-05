@@ -41,7 +41,7 @@ Para lidar com esses problemas, é comum realizar um processo de limpeza e pré-
 - **Remoção de dados ausentes**: excluir registros com valores ausentes ou imputar valores com base em outras observações.
 - **Remoção de duplicatas**: identificar e remover registros duplicados.
 - **Tratamento de dados ruidosos**: aplicar técnicas de suavização ou filtragem para reduzir o ruído nos dados.
-- **Balanceamento de classes**: técnicas como subamostragem ou superamostragem para lidar com classes desbalanceadas.
+- **Balanceamento de classes**: técnicas como subamostragem ou superamostragem - **data augmentation**[^6] - para lidar com classes desbalanceadas.
 - **Normalização**: ajustar os valores das variáveis para uma escala comum, garantindo que todas as variáveis contribuam igualmente para o modelo.
 - **Transformação de variáveis**: aplicar técnicas como logaritmo, raiz quadrada ou Box-Cox para transformar variáveis não lineares em lineares.
 - **Codificação de variáveis categóricas**: converter variáveis categóricas em um formato que os algoritmos possam entender, como usando codificação one-hot ou label encoding.
@@ -209,3 +209,5 @@ O grande desafio em aprendizado de máquina é buscar a melhor separação entre
 [^4]: [Iris Dataset - Wikipedia](https://en.wikipedia.org/wiki/Iris_flower_data_set){:target="_blank"}
 
 [^5]: Richard O. Duda, Peter E. Hart, and David G. Stork. 2000. [Pattern Classification (2nd Edition)](https://dl.acm.org/doi/book/10.5555/954544){:target="_blank"}. Wiley-Interscience, USA.
+
+[^6]: [Data Augmentation - Wikipedia](https://en.wikipedia.org/wiki/Data_augmentation){:target="_blank"}

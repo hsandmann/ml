@@ -20,32 +20,62 @@ for l in range(2):
 
 N = 1000
 
-# geração das amostras 1
-mean1 = [-2, -2]           # média da amostra 1
-cov1  = [[1, 0], [0, 1]]  # covariância da amostra 1
+#####################
+x1, y1 = np.random.multivariate_normal(
+    [-2.5, -2.5],
+     [[1, 0], [0, 1]],
+    N
+).T
 
-x1, y1 = np.random.multivariate_normal(mean1, cov1, N).T # gera 500 valores aleatoriamente
+x2, y2 = np.random.multivariate_normal(
+    [2.5, 2.5],
+    [[1, 0], [0, 1]],
+    N
+).T
 
-# geração das amostras 2 - verde
-mean2 = [2, 2]            # média da amostra 2
-cov2  = [[1, 0], [0, 1]]  # covariância da amostra 2
+ax[0][0].plot(
+    x1, y1, '.',
+    x2, y2, '.'
+)
+#####################
+x3, y3 = np.random.multivariate_normal(
+    [-2.5, 2.5],
+     [[1, 0], [0, 1]],
+    N
+).T
 
-x2, y2 = np.random.multivariate_normal(mean2, cov2, N).T
+x4, y4 = np.random.multivariate_normal(
+    [2.5, -2.5],
+    [[1, 0], [0, 1]],
+    N
+).T
 
-ax[0][0].plot(x1, y1, '.')
-ax[0][0].plot(x2, y2, '.')
+ax[0][1].plot(
+    np.hstack((x1, x2)), np.hstack((y1, y2)), '.',
+    np.hstack((x3, x4)), np.hstack((y3, y4)), '.'
+)
+#####################
+xc, yc = np.random.multivariate_normal(
+    [0, 0],
+    [[1, 0], [0, 1]],
+    N
+).T
+
+ax[1][0].plot(
+    xc, yc, '.',
+)
 
 
 
 
-X, y = twospirals(1000)
-ax[1][0].plot(X[y == 0, 0], X[y == 0, 1], '.')
-ax[1][0].plot(X[y == 1, 0], X[y == 1, 1], '.')
+#####################
+X, y = twospirals(N)
+ax[1][1].plot(X[y == 0, 0], X[y == 0, 1], '.')
+ax[1][1].plot(X[y == 1, 0], X[y == 1, 1], '.')
 
 
 plt.axis('equal')
 plt.subplots_adjust(wspace=0, hspace=0)
-
 
 # Display the plot
 buffer = StringIO()
