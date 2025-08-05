@@ -136,8 +136,6 @@ extra_css:
 
 nav:
 
-  - Apresentação: ./versions/2025.2/2025.2.md
-
   - Aulas:
     - 1. KDD: ./classroom/kdd/kdd.md
     - 2. Conceitos:
