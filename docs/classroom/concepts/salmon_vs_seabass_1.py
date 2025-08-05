@@ -24,8 +24,8 @@ for i in range(len(ax)):
 
     ax[i].plot(
         [[40, 100], [0, 10]][i], [0, 0], 'k',
-        [fish[i] for fish in salmon], zeros, 'ob',
-        [fish[i] for fish in seabass], zeros, 'or'
+        [fish[i] for fish in salmon], zeros, 'o',
+        [fish[i] for fish in seabass], zeros, 'o'
     )
 
 # Display the plot

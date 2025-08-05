@@ -18,11 +18,11 @@ for i in range(len(ax)):
 
         [fish[0] for fish in salmon],
         [fish[1] for fish in salmon],
-        'ob',
+        'o',
 
         [fish[0] for fish in seabass],
         [fish[1] for fish in seabass],
-        'or',
+        'o',
 
         [40, 100], [7, 3], '--m', lw=3
 
@@ -32,7 +32,7 @@ for i in range(len(ax)):
     ax[i].set_xlabel('Length')
     ax[i].set_ylabel('Lightness')
 
-ax[1].plot(70, 4, 'xg', markersize=10)
+ax[1].plot(70, 4, 'xg', markersize=12)
 
 # Display the plot
 buffer = StringIO()
