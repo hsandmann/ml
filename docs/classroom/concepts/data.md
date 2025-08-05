@@ -187,6 +187,9 @@ Ilustrações de algumas distribuições apenas com duas dimensões são apresen
 ```python exec="1" html="1"
 --8<-- "docs/classroom/concepts/distributions.py"
 ```
+/// caption
+Distribuições de dados em duas dimensões em diferentes formatos espaciais.
+///
 
 
 ## Resumo
