@@ -11,12 +11,15 @@ def twospirals(n_points, noise=0.7):
             np.hstack((np.zeros(n_points), np.ones(n_points))))
 
 # definindo o tamanho da figura
-fig, ax = plt.subplots(2, 2, figsize=(10, 10))
+fig, ax = plt.subplots(2, 2, figsize=(12, 12))
 
 for l in range(2):
     for c in range(2):
         ax[l][c].xaxis.set_visible(False)
         ax[l][c].yaxis.set_visible(False)
+        ax[l][c].set_aspect('equal', adjustable='box')
+        ax[l][c].set_xlim(-7, 7)
+        ax[l][c].set_ylim(-7, 7)
 
 N = 1000
 
@@ -61,19 +64,28 @@ xc, yc = np.random.multivariate_normal(
     N
 ).T
 
+noise = .5
+radius = 2.5
+theta = np.linspace(0, 2 * np.pi, N)
+
+xt = radius * np.cos(theta)
+yt = radius * np.sin(theta)
+
+xt = xt + np.random.normal(xt, noise)
+yt = yt + np.random.normal(yt, noise)
+
+# Plot the surface
 ax[1][0].plot(
     xc, yc, '.',
+    xt, yt, '.'
 )
-
-
-
 
 #####################
 X, y = twospirals(N)
 ax[1][1].plot(X[y == 0, 0], X[y == 0, 1], '.')
 ax[1][1].plot(X[y == 1, 0], X[y == 1, 1], '.')
 
-
+#####################
 plt.axis('equal')
 plt.subplots_adjust(wspace=0, hspace=0)
 

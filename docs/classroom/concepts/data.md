@@ -188,8 +188,10 @@ Ilustrações de algumas distribuições apenas com duas dimensões são apresen
 --8<-- "docs/classroom/concepts/distributions.py"
 ```
 /// caption
-Distribuições de dados em duas dimensões em diferentes formatos espaciais.
+Distribuições de dados em duas dimensões em diferentes formatos espaciais. Para cada superfície, a separação entre as classes é feita com base nas características dos dados. A distribuição dos dados pode afetar a capacidade do modelo de aprender e generalizar.
 ///
+
+A figura acima apresenta quatro distribuições diferentes de dados em duas dimensões, cada uma com suas próprias características espaciais. A separação entre as classes é feita com base nas características dos dados, e a distribuição dos dados pode afetar a capacidade do modelo de aprender e generalizar. De forma general, a função de uma técnica de aprendizado de máquina é encontrar uma separação entre as classes, a fim de maximizar a precisão do modelo.
 
 
 ## Resumo
