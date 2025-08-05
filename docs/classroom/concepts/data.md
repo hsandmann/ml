@@ -178,6 +178,17 @@ Nessa visualização, cada característica é representada por um eixo, e as flo
 
     Poderia imaginar que em problemas mais complexos, como reconhecimento de imagem ou processamento de linguagem natural, os dados podem ser muito mais complexos e desafiadores. Não permitindo sequer uma visualização clara da distribuição espacial das características. No entanto, os princípios fundamentais de aprendizado de máquina permanecem os mesmos: entender os dados, pré-processá-los adequadamente e escolher o modelo certo para a tarefa.
 
+### **Outras Distribuições**
+
+A distribuição dos dados é um aspecto crucial em aprendizado de máquina, pois afeta diretamente a capacidade do modelo de aprender e generalizar. Usualmente, a natureza dos dados pode ser visualizada em gráficos de dispersão, histogramas ou boxplots, permitindo identificar padrões, tendências e anomalias nos dados - claro, quando os dados possuem um número baixo de dimensões (2 ou 3).
+
+Ilustrações de algumas distribuições apenas com duas dimensões são apresentadas abaixo:
+
+```python exec="1" html="1"
+--8<-- "docs/classroom/concepts/distributions.py"
+```
+
+
 ## Resumo
 
 Os dados são a base de qualquer modelo de aprendizado de máquina. A qualidade, quantidade e natureza dos dados disponíveis são fundamentais para o sucesso do modelo. É importante entender como os dados são estruturados, processados e utilizados para treinar modelos, além de considerar o volume de dados e o balanceamento das classes.
