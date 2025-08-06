@@ -143,7 +143,7 @@ nav:
       - 1.3. Dados: ./classes/concepts/data/data.md
       - 1.4. Exercício: ./classes/concepts/exercise/exercise.md
     - 2. Decision Tree: ./classes/decision_tree/decision_tree.md
-    - 3. Pré-processamento: ./classes/pre_processing/pre_processing.md
+    - 3. Pré-processamento: ./classes/pre_processing/preprocessing.md
     - 4. KNN: ./classes/knn/knn.md
     - 5. K-Means: ./classes/kmeans/kmeans.md
     - 6. Métricas de Avaliação: ./classes/metrics/metricas.md
