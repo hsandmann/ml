@@ -143,7 +143,7 @@ nav:
       - 2.2. Dados: ./classroom/concepts/data.md
       - 2.3. Exercício: ./classroom/concepts/exercise.md
     - 3. Decision Tree: ./classroom/decision_tree/decision_tree.md
-    - 4. Geração de Dados: ./classroom/data_generation/geracao_dados.md
+    - 4. Pré-processamento: ./classroom/pre_processing/pre_processing.md
     - 5. KNN: ./classroom/knn/knn.md
     - 6. K-Means: ./classroom/kmeans/kmeans.md
     - 7. Métricas de Avaliação: ./classroom/metrics/metricas.md
