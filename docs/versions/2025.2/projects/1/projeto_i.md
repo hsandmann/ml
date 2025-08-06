@@ -6,12 +6,12 @@
     :material-account-group: Grupo do Projeto Integrador
 
     :simple-target: Entrega do link do projeto via [Canvas](https://canvas.espm.br/){:target="_blank"}.
+
+    ---
+
+    O link deve apontar para uma página pública do GitHub contendo a documentação (relatório) e o repositório do projeto.
     
-    !!! danger "Link do Projeto"
-    
-    O link deve apontar para uma página pública do GitHub contendo a documentação (relatório) e o repositório do projeto. **Obrigatório**: o uso de mkdocs ou similar para a documentação do projeto.
-    
-    Utilize o template: [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}.
+    **Obrigatório**: o uso de mkdocs ou similar para a documentação do projeto. Utilize o template: [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}.
 
 O Projeto I é uma atividade prática que visa aplicar os conceitos aprendidos nas aulas de Machine Learning. O objetivo é desenvolver um modelo de aprendizado de máquina utilizando um conjunto de dados real, realizando desde a exploração dos dados até a avaliação do modelo.
 
