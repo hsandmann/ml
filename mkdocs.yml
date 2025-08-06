@@ -152,9 +152,9 @@ nav:
     - 10. Page Rank: ./classroom/page_rank/page_rank.md
     - 11. PySpark: ./classroom/pyspark/pyspark.md
 
+  - Projetos:
+    - Projeto I: ./versions/2025.2/projects/1/projeto_i.md
+    - Projeto II: ./versions/2025.2/projects/2/projeto_ii.md
+
   - Versões:
-    - 2025.2:
-      - 2025.2: ./versions/2025.2/2025.2.md
-      - Projetos:
-        - Projeto I: ./versions/2025.2/projects/1/projeto_i.md
-        - Projeto II: ./versions/2025.2/projects/2/projeto_ii.md
+    - 2025.2: ./versions/2025.2/2025.2.md
