@@ -138,19 +138,19 @@ nav:
 
   - Aulas:
     - 1. Conceitos:
-      - 1.1. Machine Learning: ./classroom/concepts/ml/ml.md
-      - 1.2. KDD: ./classroom/concepts/kdd/kdd.md
-      - 1.3. Dados: ./classroom/concepts/data/data.md
-      - 1.4. Exercício: ./classroom/concepts/exercise/exercise.md
-    - 2. Decision Tree: ./classroom/decision_tree/decision_tree.md
-    - 3. Pré-processamento: ./classroom/pre_processing/pre_processing.md
-    - 4. KNN: ./classroom/knn/knn.md
-    - 5. K-Means: ./classroom/kmeans/kmeans.md
-    - 6. Métricas de Avaliação: ./classroom/metrics/metricas.md
-    - 7. Random Forest: ./classroom/random_forest/random_forest.md
-    - 8. SVM: ./classroom/svm/svm.md
-    - 9. Page Rank: ./classroom/page_rank/page_rank.md
-    - 10. PySpark: ./classroom/pyspark/pyspark.md
+      - 1.1. Machine Learning: ./classes/concepts/ml/ml.md
+      - 1.2. KDD: ./classes/concepts/kdd/kdd.md
+      - 1.3. Dados: ./classes/concepts/data/data.md
+      - 1.4. Exercício: ./classes/concepts/exercise/exercise.md
+    - 2. Decision Tree: ./classes/decision_tree/decision_tree.md
+    - 3. Pré-processamento: ./classes/pre_processing/pre_processing.md
+    - 4. KNN: ./classes/knn/knn.md
+    - 5. K-Means: ./classes/kmeans/kmeans.md
+    - 6. Métricas de Avaliação: ./classes/metrics/metricas.md
+    - 7. Random Forest: ./classes/random_forest/random_forest.md
+    - 8. SVM: ./classes/svm/svm.md
+    - 9. Page Rank: ./classes/page_rank/page_rank.md
+    - 10. PySpark: ./classes/pyspark/pyspark.md
 
   - Projetos:
     - Projeto I: ./versions/2025.2/projects/1/projeto_i.md
