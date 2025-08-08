@@ -136,13 +136,13 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
 === "code"
 
     ```python exec="0"
-    --8<-- "docs/classroom/decision_tree/decision_tree_iris.py"
+    --8<-- "docs/classes/decision_tree/decision_tree/decision_tree_iris.py"
     ```
 
 === "output"
 
     ```python exec="1" html="1"
-    --8<-- "docs/classroom/decision_tree/decision_tree_iris.py"
+    --8<-- "docs/classes/decision_tree/decision_tree_iris.py"
     ```
 
 
