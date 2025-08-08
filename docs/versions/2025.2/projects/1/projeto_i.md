@@ -24,10 +24,13 @@ O projeto deve incluir as seguintes etapas:
 1. **Exploração dos Dados**: Análise inicial do conjunto de dados, incluindo visualizações e estatísticas descritivas.
 2. **Pré-processamento**: Limpeza dos dados, tratamento de valores ausentes e normalização.
 3. **Divisão dos Dados**: Separação do conjunto de dados em treino e teste.
+
 4. **Treinamento do Modelo**:
+
     a. Decision Tree.
     b. K-Nearest Neighbors (KNN).
     c. K-Means.
+
 5. **Avaliação dos Modelos**: Avaliação do desempenho dos modelos utilizandos com as métricas apropriadas.
 6. **Relatório Final**: Documentação do processo, resultados obtidos e possíveis melhorias.
 
