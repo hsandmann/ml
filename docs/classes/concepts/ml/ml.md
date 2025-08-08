@@ -10,7 +10,7 @@ AI can be categorized into three main paradigms, each with its own strengths and
 | Neuro-Symbolic AI | Combines the strengths of both symbolic and connectionist AI, aiming to create systems that can reason about complex problems while also learning from data. It leverages symbolic reasoning capabilities alongside neural networks to enhance interpretability and reasoning abilities. Examples include neuro-symbolic systems that integrate symbolic logic with neural networks, such as knowledge-augmented language models and graph neural networks. |
 
 ```python exec="on" html="1"
---8<-- "docs/classroom/concepts/relations.py"
+--8<-- "docs/classes/concepts/ml/relations.py"
 ```
 
 Neuro-Symbolic AI combines symbolic reasoning with neural networks, leveraging the strengths of both approaches. It aims to create systems that can reason about complex problems while also learning from data.
@@ -20,7 +20,7 @@ This approach is particularly useful in tasks that require both high-level reaso
 There are several approaches to implementing AI. Machine learning (ML) is one of the most common methods, where algorithms learn from data to make predictions or decisions. Neural networks, a subset of ML, are inspired by the structure and function of the human brain and are particularly effective in tasks like image and speech recognition. Deep learning, a more advanced form of neural networks, uses multiple layers of processing to extract complex patterns from large datasets.
 
 ```python exec="on" html="1"
---8<-- "docs/classroom/concepts/hierarchical.py"
+--8<-- "docs/classes/concepts/ml/hierarchical.py"
 ```
 
 
@@ -31,7 +31,7 @@ Neural networks are the backbone of many modern AI applications, enabling machin
 
 ## Milestones
 
-[timeline left alternate(./docs/classroom/concepts/timeline.json)]
+[timeline left alternate(./docs/classes/concepts/ml/timeline.json)]
 
 
 ## Machine Learning

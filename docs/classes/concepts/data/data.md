@@ -107,7 +107,7 @@ A fim de entender os dados, foi feita uma amostra de peixes, onde cada peixe é 
 Ao apontar os dados em dois gráficos, um para cada classe, poderemos visualizar melhor a separação entre salmão e robalo.
 
 ```python exec="1" html="1"
---8<-- "docs/classroom/concepts/salmon_vs_seabass_1.py"
+--8<-- "docs/classes/concepts/data/salmon_vs_seabass_1.py"
 ```
 
 Nitidamente, não é possível traçar uma **boa** linha que separe as duas classes, salmão e robalo, com base exclusivamente, em apenas, uma dimensão.
@@ -115,7 +115,7 @@ Nitidamente, não é possível traçar uma **boa** linha que separe as duas clas
 Já, se considerarmos duas dimensões, tamanho e brilho, podemos traçar uma linha que separe as duas classes. A seguir, um exemplo é ilustrado na figura da esquerda:
 
 ```python exec="1" html="1"
---8<-- "docs/classroom/concepts/salmon_vs_seabass_2.py"
+--8<-- "docs/classes/concepts/data/salmon_vs_seabass_2.py"
 ```
 /// caption
 Amostra de dados de salmão e robalo, onde cada peixe é descrito por suas características de tamanho e brilho. A separação entre as duas classes é feita com base nessas características.
@@ -158,13 +158,13 @@ Amostra do conjunto de dados Iris, contendo características como comprimento e 
 Abaixo está um exemplo de como carregar o conjunto de dados Iris usando Python:
 
 ```pyodide install="pandas,scikit-learn" exec="on" html="1"
---8<-- "docs/classroom/concepts/iris_data.py"
+--8<-- "docs/classes/concepts/data/iris_data.py"
 ```
 
 Também é possível visualizar o conjunto de dados usando bibliotecas como `matplotlib` e `seaborn`. A seguir, um exemplo de visualização do conjunto de dados Iris:
 
 ```python exec="1" html="1"
---8<-- "docs/classroom/concepts/iris_visualization.py"
+--8<-- "docs/classes/concepts/data/iris_visualization.py"
 ```
 /// caption
 Visualização do conjunto de dados Iris, mostrando a relação entre as características das flores e suas classes. Cada característica, representada por um eixo, é confrontada com as outras, permitindo identificar padrões e separações entre as classes.
@@ -185,7 +185,7 @@ A distribuição dos dados é um aspecto crucial em aprendizado de máquina, poi
 Ilustrações de algumas distribuições apenas com duas dimensões são apresentadas abaixo:
 
 ```python exec="1" html="1"
---8<-- "docs/classroom/concepts/distributions.py"
+--8<-- "docs/classes/concepts/data/distributions.py"
 ```
 /// caption
 Distribuições de dados em duas dimensões em diferentes formatos espaciais. Para cada superfície, a separação entre as classes é feita com base nas características dos dados. A distribuição dos dados pode afetar a capacidade do modelo de aprender e generalizar.
