@@ -17,3 +17,4 @@ numpy
 pandas
 scikit-learn
 seaborn
+kagglehub

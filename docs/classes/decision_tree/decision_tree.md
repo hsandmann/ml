@@ -145,6 +145,11 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
     --8<-- "docs/classes/decision_tree/decision_tree_iris.py"
     ```
 
+[download](../../assets/data/kaggle/titanic-dataset.csv){:download="titanic-dataset.csv"}
+
+```pyodide install="pandas,scikit-learn,kagglehub" exec="on" html="1"
+--8<-- "docs/classes/decision_tree/titanic_dataset.py"
+```
 
 
 !!! example "Exercício"
