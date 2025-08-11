@@ -30,7 +30,7 @@ for i in range(len(ax)):
     ax[i].set_xlim(40, 100)
     ax[i].set_ylim(0, 10)
     ax[i].set_xlabel('Length')
-    ax[i].set_ylabel('Lightness')
+    ax[i].set_ylabel('Brightness')
 
 ax[1].plot(70, 4, 'xg', markersize=12)
 

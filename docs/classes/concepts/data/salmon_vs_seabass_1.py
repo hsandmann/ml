@@ -20,7 +20,7 @@ for i in range(len(ax)):
     ax[i].yaxis.set_visible(False)
     ax[i].spines['left'].set_position('zero')
     ax[i].spines['bottom'].set_position('zero')
-    ax[i].set_xlabel(['Length', 'Lightness'][i])
+    ax[i].set_xlabel(['Length', 'Brightness'][i])
 
     ax[i].plot(
         [[40, 100], [0, 10]][i], [0, 0], 'k',
