@@ -70,7 +70,7 @@ Existem algumas métricas comuns usadas para medir a qualidade de uma divisão, 
 - **Chi-quadrado**: Usado para medir a independência entre variáveis categóricas, ajudando a identificar interações significativas entre atributos.
 
 
-Cálculo do coeficiente de Gini:
+Para o cálculo do coeficiente de Gini (mais usado em árvores de decisão):
 
 $$
 g_i = 1 - \sum_{i=1}^{n} p_i^2
@@ -78,60 +78,78 @@ $$
 
 onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
 
-Cálculo da entropia:
-
-$$
-h_i = - \sum_{i=1}^{n} p_i \log_2(p_i)
-$$
-
-onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
+Mais baixo a impureza, mais puro o nó.
 
 
-## Algoritmos
+### Exemplos
 
-Os algoritmos mais comuns para construir árvores de decisão incluem:
+!!! example "Fraude"
 
-- **ID3 (Iterative Dichotomiser 3)**: Um dos primeiros algoritmos, que usa a entropia para selecionar o atributo mais informativo.
-- **C4.5**: Uma extensão do ID3 que lida com dados contínuos e ausentes, usando o ganho de informação.
-- **CART (Classification and Regression Trees)**: Utiliza o índice Gini para classificação e a soma dos quadrados dos resíduos para regressão.
-- **CHAID (Chi-squared Automatic Interaction Detector)**: Baseado em testes qui-quadrado, é usado para identificar interações entre variáveis.
-- **MARS (Multivariate Adaptive Regression Splines)**: Um método que combina árvores de decisão com splines adaptativos, permitindo modelar relações não lineares complexas.
+=== "data sample (20 linhas)"
 
+    ```python exec="1"
+    --8<-- "docs/classes/decision_tree/fraude_dataset.py"
+    ```
 
-### Pseudocódigo
-O pseudocódigo para construir uma árvore de decisão pode ser descrito da seguinte forma:
-```plaintext
-Função construir_árvore(dados, atributos):
-    Se todos os exemplos em dados pertencem à mesma classe:
-        Retorne folha com essa classe
-    Se atributos estiver vazio:
-        Retorne folha com classe majoritária em dados
+=== "plot"
 
-    MelhorAtributo = escolher_melhor_atributo(dados, atributos)
-    Arvore = novo_nó(MelhorAtributo)
+    ```python exec="1" html="1"
+    --8<-- "docs/classes/decision_tree/fraude_plot.py"
+    ```
 
-    Para cada valor em MelhorAtributo:
-        Subconjunto = filtrar_dados(dados, MelhorAtributo, valor)
-        Se Subconjunto não estiver vazio:
-            Arvore.filhos[valor] = construir_árvore(Subconjunto, atributos - {MelhorAtributo})
-        Senão:
-            Arvore.filhos[valor] = folha com classe majoritária em dados
+Neste exemplo, temos um conjunto de dados sobre transações financeiras, onde cada transação é classificada como "Fraude" ou "Normal". A árvore de decisão pode ser usada para prever se uma nova transação é fraudulenta ou não, com base em características como o valor da transação e o período.
 
-    Retorne Arvore
-Função escolher_melhor_atributo(dados, atributos):
-    MelhorAtributo = None
-    MelhorGanho = -infinito
-    Para cada atributo em atributos:
-        Ganho = calcular_ganho(dados, atributo)
-        Se Ganho > MelhorGanho:
-            MelhorGanho = Ganho
-            MelhorAtributo = atributo
-    Retorne MelhorAtributo
-```
+Para construir a árvore de decisão, os dados são divididos em nós com base nas características mais informativas, minimizando a impureza dos nós. Para construir a árvore, o algoritmo avalia cada atributo e escolhe aquele que melhor separa as classes, utilizando métricas como o índice Gini ou entropia.
+
+#### Passo a passo
+
+1. Definir o nó com os dados daquele ramo.
+2. Calcular a impureza de cada atributo.
+3. Escolher o atributo que melhor separa os dados.
+4. Dividir os dados com base no atributo escolhido.
+5. Repetir o processo para cada subconjunto até que um critério de parada seja atendido (e.g., todos os exemplos em um nó pertencem à mesma classe ou um número mínimo de exemplos é atingido).
+
+Para definir o nó raiz, o algoritmo avalia todos os atributos e calcula a impureza de cada um. O atributo com a menor impureza é escolhido como o nó raiz. Em seguida, os dados são divididos com base nesse atributo, criando ramos na árvore. O processo é repetido recursivamente para cada ramo até que todos os nós sejam folhas (ou seja, não possam ser divididos mais).
+
+| Feature | | Sim | Não |
+|:-------|:--|:---:|:---:|
+| Valor >= 3000   | | 18 | 20 |
+| | Fraude        | 5 | 1  |
+| | Normal        | 13 | 19 |
+| Periodo = Noturno | | 14 | 24 |
+| | Fraude        | 4 | 2  |
+| | Normal        | 10 | 22 |
+
+Cálculo do índice de Gini para cada atributo:
+
+=== "Valor >= 3000"
+
+    $$
+    \text{Gini}(\text{Critério}) = 1 - \left(\frac{fraude}{fraude + normal}\right)^2 - \left(\frac{normal}{fraude + normal}\right)^2 
+    $$
+
+    $$
+    \text{Gini}(\text{Valor}\geq 3000) = 1 - \left(\frac{5}{18}\right)^2 + \left(\frac{13}{18}\right)^2 = 0.4012
+    $$
+
+    $$
+    \text{Gini}(\text{Valor} < 3000) = 1 - \left(\frac{1}{20}\right)^2 + \left(\frac{19}{20}\right)^2 = 0.0950
+    $$
+
+    Normalizando os valores, temos:
+
+    $$
+    \text{Pureza do nó} = \frac{\text{18}}{38} \cdot 0.4012 + \frac{20}{38} \cdot 0.0950 = 0.2401
+    $$
+
+=== "Periodo = Noturno"
+    
 
 ### Implementação com Bibliotecas
 
 As árvores de decisão podem ser implementadas usando bibliotecas populares como `scikit-learn` em Python, que oferece uma interface simples para criar e treinar modelos de árvores de decisão. A seguir é um exemplo básico de como criar uma árvore de decisão para classificação:
+
+!!! example "Iris Dataset"
 
 === "code"
 
@@ -145,7 +163,7 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
     --8<-- "docs/classes/decision_tree/decision_tree_iris.py"
     ```
 
-x
+!!! example "Titanic Dataset"
 
 === "data sample"
 
