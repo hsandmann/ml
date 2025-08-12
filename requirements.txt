@@ -9,6 +9,7 @@ mkdocs-git-authors-plugin
 mkdocs-git-committers-plugin-2
 mkdocs-git-revision-date-localized-plugin
 mkdocs-render-swagger-plugin
+mkdocs-pdf
 neoteroi-mkdocs
 termynal
 matplotlib
@@ -18,3 +19,4 @@ pandas
 scikit-learn
 seaborn
 tabulate
+graphviz

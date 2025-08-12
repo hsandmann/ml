@@ -116,6 +116,7 @@ plugins:
       minify_html: true
   - badges
   - markdown-exec
+  - mkdocs-pdf
   - render_swagger:
       allow_arbitrary_locations : true
   - termynal:

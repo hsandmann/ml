@@ -81,7 +81,9 @@ onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
 Mais baixo a impureza, mais puro o nó.
 
 
-### Exemplos
+### Exemplo de Construção
+
+Neste exemplo, temos um conjunto de dados sobre transações financeiras, onde cada transação é classificada como "Fraude" ou "Normal". A árvore de decisão pode ser usada para prever se uma nova transação é fraudulenta ou não, com base em características como o valor da transação e o período.
 
 !!! example "Fraude"
 
@@ -96,8 +98,6 @@ Mais baixo a impureza, mais puro o nó.
     ```python exec="1" html="1"
     --8<-- "docs/classes/decision_tree/fraude_plot.py"
     ```
-
-Neste exemplo, temos um conjunto de dados sobre transações financeiras, onde cada transação é classificada como "Fraude" ou "Normal". A árvore de decisão pode ser usada para prever se uma nova transação é fraudulenta ou não, com base em características como o valor da transação e o período.
 
 Para construir a árvore de decisão, os dados são divididos em nós com base nas características mais informativas, minimizando a impureza dos nós. Para construir a árvore, o algoritmo avalia cada atributo e escolhe aquele que melhor separa as classes, utilizando métricas como o índice Gini ou entropia.
 
@@ -170,25 +170,25 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
 
 !!! example "Iris Dataset"
 
-=== "code"
-
-    ```python exec="0"
-    --8<-- "docs/classes/decision_tree/decision_tree_iris.py"
-    ```
-
 === "output"
 
     ```python exec="1" html="1"
-    --8<-- "docs/classes/decision_tree/decision_tree_iris.py"
+    --8<-- "docs/classes/decision_tree/iris_decision_tree.py"
+    ```
+
+=== "dataset"
+
+    ```python exec="1"
+    --8<-- "docs/classes/decision_tree/iris_dataset.py"
+    ```
+
+=== "code"
+
+    ```python exec="0"
+    --8<-- "docs/classes/decision_tree/iris_decision_tree.py"
     ```
 
 !!! example "Titanic Dataset"
-
-=== "data sample"
-
-    ```python exec="1"
-    --8<-- "docs/classes/decision_tree/titanic_dataset.py"
-    ```
 
 === "decision tree"
 
@@ -196,7 +196,13 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
     --8<-- "docs/classes/decision_tree/titanic_decision_tree.py"
     ```
 
-=== "source"
+=== "dataset"
+
+    ```python exec="1"
+    --8<-- "docs/classes/decision_tree/titanic_dataset.py"
+    ```
+
+=== "code"
 
     ```python exec="0"
     --8<-- "docs/classes/decision_tree/titanic_decision_tree.py"
@@ -207,6 +213,11 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
 
     Utilizando
 
+---
+
+## Adicional
+
+![](arvores_de_decisao_01.pdf){ type=application/pdf style="min-height:45vh;width:100%" }
 
 
 [^1]: [Aulas - Árvores](https://saulo.arisa.com.br/wiki/index.php/%C3%81rvores){:target="_blank"}
