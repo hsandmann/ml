@@ -145,17 +145,28 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
     --8<-- "docs/classes/decision_tree/decision_tree_iris.py"
     ```
 
-[download](../../assets/data/kaggle/titanic-dataset.csv){:download="titanic-dataset.csv"}
+x
 
-```pyodide install="pandas,scikit-learn,kagglehub" exec="on" html="1"
---8<-- "docs/classes/decision_tree/titanic_dataset.py"
-```
+=== "data sample"
+
+    ```python exec="1"
+    --8<-- "docs/classes/decision_tree/titanic_dataset.py"
+    ```
+
+=== "decision tree"
+
+    ```python exec="1" html="true"
+    --8<-- "docs/classes/decision_tree/titanic_decision_tree.py"
+    ```
 
 
 !!! example "Exercício"
 
     Utilizando
 
+```python exec="on"
+print("Hello Markdown!")
+```
 
 [^1]: [Aulas - Árvores](https://saulo.arisa.com.br/wiki/index.php/%C3%81rvores){:target="_blank"}
 [^2]: [Didatica Tech - Árvores de Decisão](https://didatica.tech/como-funciona-o-algoritmo-arvore-de-decisao/){:target="_blank"}
