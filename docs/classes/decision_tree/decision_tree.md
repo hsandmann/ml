@@ -120,13 +120,13 @@ Para definir o nó raiz, o algoritmo avalia todos os atributos e calcula a impur
 | | Fraude        | 4 | 2  |
 | | Normal        | 10 | 22 |
 
-Cálculo do índice de Gini para cada atributo:
+Cálculo do índice de Gini para cada critério sobre atributos:
+
+$$
+\text{Gini}(\text{Critério}) = 1 - \left(\frac{fraude}{fraude + normal}\right)^2 - \left(\frac{normal}{fraude + normal}\right)^2 
+$$
 
 === "Valor >= 3000"
-
-    $$
-    \text{Gini}(\text{Critério}) = 1 - \left(\frac{fraude}{fraude + normal}\right)^2 - \left(\frac{normal}{fraude + normal}\right)^2 
-    $$
 
     $$
     \text{Gini}(\text{Valor}\geq 3000) = 1 - \left(\frac{5}{18}\right)^2 + \left(\frac{13}{18}\right)^2 = 0.4012
@@ -143,7 +143,12 @@ Cálculo do índice de Gini para cada atributo:
     $$
 
 === "Periodo = Noturno"
-    
+
+
+Árvore obtida:
+
+- -8<-- "docs/classes/decision_tree/fraude_tree.md"
+
 
 ### Implementação com Bibliotecas
 
@@ -182,9 +187,7 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
 
     Utilizando
 
-```python exec="on"
-print("Hello Markdown!")
-```
+
 
 [^1]: [Aulas - Árvores](https://saulo.arisa.com.br/wiki/index.php/%C3%81rvores){:target="_blank"}
 [^2]: [Didatica Tech - Árvores de Decisão](https://didatica.tech/como-funciona-o-algoritmo-arvore-de-decisao/){:target="_blank"}
