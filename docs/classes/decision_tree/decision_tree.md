@@ -129,11 +129,11 @@ $$
 === "Valor >= 3000"
 
     $$
-    \text{Gini}(\text{Valor}\geq 3000) = 1 - \left(\frac{5}{18}\right)^2 + \left(\frac{13}{18}\right)^2 = 0.4012
+    \text{Gini}(\text{Valor}\geq 3000) = 1 - \left(\frac{5}{18}\right)^2 - \left(\frac{13}{18}\right)^2 = 0.4012
     $$
 
     $$
-    \text{Gini}(\text{Valor} < 3000) = 1 - \left(\frac{1}{20}\right)^2 + \left(\frac{19}{20}\right)^2 = 0.0950
+    \text{Gini}(\text{Valor} < 3000) = 1 - \left(\frac{1}{20}\right)^2 - \left(\frac{19}{20}\right)^2 = 0.0950
     $$
 
     Normalizando os valores, temos:
