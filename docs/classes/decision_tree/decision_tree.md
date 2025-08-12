@@ -85,7 +85,7 @@ Mais baixo a impureza, mais puro o nó.
 
 !!! example "Fraude"
 
-=== "data sample (20 linhas)"
+=== "data sample (20/38)"
 
     ```python exec="1"
     --8<-- "docs/classes/decision_tree/fraude_dataset.py"
@@ -144,10 +144,24 @@ $$
 
 === "Periodo = Noturno"
 
+    $$
+    \text{Gini}(\text{Periodo} = \text{Noturno}) = 1 - \left(\frac{4}{14}\right)^2 - \left(\frac{10}{14}\right)^2 = 0.4082
+    $$
+
+    $$
+    \text{Gini}(\text{Periodo} \neq \text{Noturno}) = 1 - \left(\frac{2}{24}\right)^2 - \left(\frac{22}{24}\right)^2 = 0.1528
+    $$
+
+    Normalizando os valores, temos:
+
+    $$
+    \text{Pureza do nó} = \frac{\text{14}}{38} \cdot 0.4082 + \frac{24}{38} \cdot 0.1528 = 0.2469
+    $$
+
 
 Árvore obtida:
 
-- -8<-- "docs/classes/decision_tree/fraude_tree.md"
+--8<-- "docs/classes/decision_tree/fraude_tree.md"
 
 
 ### Implementação com Bibliotecas
@@ -179,6 +193,12 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
 === "decision tree"
 
     ```python exec="1" html="true"
+    --8<-- "docs/classes/decision_tree/titanic_decision_tree.py"
+    ```
+
+=== "source"
+
+    ```python exec="0"
     --8<-- "docs/classes/decision_tree/titanic_decision_tree.py"
     ```
 
