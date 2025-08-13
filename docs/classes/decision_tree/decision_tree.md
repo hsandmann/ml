@@ -224,7 +224,22 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
 
 !!! example "Exercício"
 
-    Utilizando
+    Dentre os [datasets disponíveis](/ml/classes/concepts/data/data/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize o algoritmo de árvore de decisão para treinar um modelo e avaliar seu desempenho.
+
+    Utilize as bibliotecas `pandas`, `numpy`, `matplotlib` e `scikit-learn` para auxiliar no desenvolvimento do projeto.
+
+    A entrega deve ser feita através do [Canvas](https://canvas.espm.br/) - **Exercício Árvore de Decisão**. Só serão aceitos links para repositórios públicos do GitHub contendo a documentação (relatório) e o código do projeto. Conforme exemplo do [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}.
+
+    A entrega deve incluir as seguintes etapas:
+
+    | Etapa | Critério | Descrição | Pontos |
+    |:-----:|----------|-----------|:------:|
+    | 1 | Exploração dos Dados | Análise inicial do conjunto de dados - com explicação sobre a natureza dos dados -, incluindo visualizações e estatísticas descritivas. | 20 |
+    | 2 | Pré-processamento | Limpeza dos dados, tratamento de valores ausentes e normalização. | 10 |
+    | 3 | Divisão dos Dados | Separação do conjunto de dados em treino e teste. | 20 |
+    | 4 | Treinamento do Modelo | Implementação do modelo Decision Tree. | 10 |
+    | 5 | Avaliação do Modelo | Avaliação do desempenho do modelo utilizando métricas apropriadas. | 20 |
+    | 6 | Relatório Final | Documentação do processo, resultados obtidos e possíveis melhorias. | 20 |
 
 ---
 
