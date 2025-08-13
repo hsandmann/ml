@@ -1,5 +1,5 @@
 
-!!! success "Entrega"
+!!! success inline end "Entrega"
 
     :calendar: **30.set** :clock3: **23:59**
 
