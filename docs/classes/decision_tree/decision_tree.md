@@ -81,7 +81,7 @@ onde \( p_i \) é a proporção de cada classe \( i \) no conjunto de dados.
 Mais baixo a impureza, mais puro o nó.
 
 
-### Exemplo de Construção
+## Construção
 
 Neste exemplo, temos um conjunto de dados sobre transações financeiras, onde cada transação é classificada como "Fraude" ou "Normal". A árvore de decisão pode ser usada para prever se uma nova transação é fraudulenta ou não, com base em características como o valor da transação e o período.
 
@@ -101,7 +101,7 @@ Neste exemplo, temos um conjunto de dados sobre transações financeiras, onde c
 
 Para construir a árvore de decisão, os dados são divididos em nós com base nas características mais informativas, minimizando a impureza dos nós. Para construir a árvore, o algoritmo avalia cada atributo e escolhe aquele que melhor separa as classes, utilizando métricas como o índice Gini ou entropia.
 
-#### Passo a passo
+### Passo a passo
 
 1. Definir o nó com os dados daquele ramo.
 2. Calcular a impureza de cada atributo.
@@ -221,25 +221,34 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
     --8<-- "docs/classes/decision_tree/titanic_decision_tree.py"
     ```
 
+---
 
-## "Exercício"
+## Exercício
 
-    Dentre os [datasets disponíveis](/ml/classes/concepts/data/data/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize o algoritmo de árvore de decisão para treinar um modelo e avaliar seu desempenho.
+!!! info inline end "Entrega"
 
-    Utilize as bibliotecas `pandas`, `numpy`, `matplotlib` e `scikit-learn` para auxiliar no desenvolvimento do projeto.
+    :calendar: **29.ago** :clock3: **9:00**
 
-    A entrega deve ser feita através do [Canvas](https://canvas.espm.br/) - **Exercício Árvore de Decisão**. Só serão aceitos links para repositórios públicos do GitHub contendo a documentação (relatório) e o código do projeto. Conforme exemplo do [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}.
+    :material-account: Individual
 
-    A entrega deve incluir as seguintes etapas:
+    :simple-target: Entrega do link via [Canvas](https://canvas.espm.br/){:target="_blank"}.
 
-    | Etapa | Critério | Descrição | Pontos |
-    |:-----:|----------|-----------|:------:|
-    | 1 | Exploração dos Dados | Análise inicial do conjunto de dados - com explicação sobre a natureza dos dados -, incluindo visualizações e estatísticas descritivas. | 20 |
-    | 2 | Pré-processamento | Limpeza dos dados, tratamento de valores ausentes e normalização. | 10 |
-    | 3 | Divisão dos Dados | Separação do conjunto de dados em treino e teste. | 20 |
-    | 4 | Treinamento do Modelo | Implementação do modelo Decision Tree. | 10 |
-    | 5 | Avaliação do Modelo | Avaliação do desempenho do modelo utilizando métricas apropriadas. | 20 |
-    | 6 | Relatório Final | Documentação do processo, resultados obtidos e possíveis melhorias. | 20 |
+Dentre os [datasets disponíveis](/ml/classes/concepts/data/data/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize o algoritmo de árvore de decisão para treinar um modelo e avaliar seu desempenho.
+
+Utilize as bibliotecas `pandas`, `numpy`, `matplotlib` e `scikit-learn` para auxiliar no desenvolvimento do projeto.
+
+A entrega deve ser feita através do [Canvas](https://canvas.espm.br/) - **Exercício Árvore de Decisão**. Só serão aceitos links para repositórios públicos do GitHub contendo a documentação (relatório) e o código do projeto. Conforme exemplo do [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}. ESTE EXERCÍCIO É INDIVIDUAL.
+
+A entrega deve incluir as seguintes etapas:
+
+| Etapa | Critério | Descrição | Pontos |
+|:-----:|----------|-----------|:------:|
+| 1 | Exploração dos Dados | Análise inicial do conjunto de dados - com explicação sobre a natureza dos dados -, incluindo visualizações e estatísticas descritivas. | 20 |
+| 2 | Pré-processamento | Limpeza dos dados, tratamento de valores ausentes e normalização. | 10 |
+| 3 | Divisão dos Dados | Separação do conjunto de dados em treino e teste. | 20 |
+| 4 | Treinamento do Modelo | Implementação do modelo Decision Tree. | 10 |
+| 5 | Avaliação do Modelo | Avaliação do desempenho do modelo utilizando métricas apropriadas. | 20 |
+| 6 | Relatório Final | Documentação do processo, resultados obtidos e possíveis melhorias. **Obrigatório:** uso do template-projeto-integrador, individual. | 20 |
 
 ---
 
