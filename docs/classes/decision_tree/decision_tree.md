@@ -222,7 +222,7 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
     ```
 
 
-!!! example "Exercício"
+## "Exercício"
 
     Dentre os [datasets disponíveis](/ml/classes/concepts/data/data/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize o algoritmo de árvore de decisão para treinar um modelo e avaliar seu desempenho.
 
