@@ -158,11 +158,24 @@ $$
     \text{Pureza do nó} = \frac{\text{14}}{38} \cdot 0.4082 + \frac{24}{38} \cdot 0.1528 = 0.2469
     $$
 
+Árvore de decisão resultante pode ser representada da seguinte forma:
 
-Árvore obtida:
 
---8<-- "docs/classes/decision_tree/fraude_tree.md"
+=== "Árvore construída"
 
+    --8<-- "docs/classes/decision_tree/fraude_tree.md"
+
+=== "decision tree"
+
+    ```python exec="1" html="1"
+    --8<-- "docs/classes/decision_tree/fraude_decision_tree.py"
+    ```
+
+=== "code"
+
+    ```python exec="0"
+    --8<-- "docs/classes/decision_tree/fraude_decision_tree.py"
+    ```
 
 ### Implementação com Bibliotecas
 
