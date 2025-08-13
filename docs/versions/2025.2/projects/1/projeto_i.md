@@ -37,9 +37,9 @@ Pode ser utilizado bibliotecas como `pandas`, `numpy`, `matplotlib` e `scikit-le
 
 | Critério | Descrição | Pontos |
 |----------|-----------|:------:|
-| Exploração dos Dados | Análise inicial do conjunto de dados, incluindo visualizações e estatísticas descritivas. | 20 |
+| Exploração dos Dados | Análise inicial do conjunto de dados, incluindo visualizações e estatísticas descritivas. | 15 |
 | Pré-processamento | Limpeza dos dados, tratamento de valores ausentes e normalização. | 20 |
 | Divisão dos Dados | Separação do conjunto de dados em treino e teste. | 10 |
-| Treinamento do Modelo | Implementação dos modelos Decision Tree, KNN e K-Means. | 30 |
-| Avaliação dos Modelos | Avaliação do desempenho dos modelos utilizando métricas apropriadas. | 10 |
+| Treinamento do Modelo | Implementação dos modelos Decision Tree, KNN e K-Means. | 15 |
+| Avaliação dos Modelos | Avaliação e comparação do desempenho dos modelos utilizando métricas apropriadas. | 30 |
 | Relatório Final | Documentação do processo, resultados obtidos e possíveis melhorias. | 10 |
