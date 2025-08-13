@@ -1,4 +1,4 @@
-!!! success "Entrega"
+!!! success inline end "Entrega"
 
     :calendar: **05.dez** :clock3: **23:59**
 
