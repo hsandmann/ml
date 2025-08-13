@@ -225,7 +225,7 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
 
 ## Exercício
 
-!!! info inline end "Entrega"
+!!! success inline end "Entrega"
 
     :calendar: **29.ago** :clock3: **9:00**
 
