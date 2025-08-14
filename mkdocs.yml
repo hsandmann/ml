@@ -137,6 +137,7 @@ extra_css:
 
 nav:
 
+  - 2025.2: ./versions/2025.2/main.md
   - Aulas:
     - 1. Concepts:
       - 1.1. Machine Learning: ./classes/concepts/ml/ml.md
@@ -158,4 +159,4 @@ nav:
     - Projeto II: ./versions/2025.2/projects/2/projeto_ii.md
 
   - Versões:
-    - 2025.2: ./versions/2025.2/2025.2.md
+    - 2025.2: ./versions/2025.2/main.md
