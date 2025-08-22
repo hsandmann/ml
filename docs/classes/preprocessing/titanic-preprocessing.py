@@ -19,7 +19,7 @@ def preprocess(df):
 
 # Load the Titanic dataset
 df = pd.read_csv('https://raw.githubusercontent.com/hsandmann/ml/refs/heads/main/data/kaggle/titanic-dataset.csv')
-df = df.sample(n=10)
+df = df.sample(n=10, random_state=42)
 
 # Preprocessing
 df = preprocess(df)
