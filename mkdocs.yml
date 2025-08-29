@@ -138,7 +138,7 @@ extra_css:
 nav:
 
   - 2025.2: ./versions/2025.2/main.md
-  - Aulas:
+  - Classes:
     - 1. Concepts:
       - 1.1. Machine Learning: ./classes/concepts/ml/main.md
       - 1.2. KDD: ./classes/concepts/kdd/kdd.md
@@ -148,15 +148,18 @@ nav:
     - 3. Preprocessing: ./classes/preprocessing/main.md
     - 4. KNN: ./classes/knn/main.md
     - 5. K-Means: ./classes/kmeans/main.md
-    - 6. Evaluation Metrics: ./classes/metrics/main.md
+    - 6. Metrics and Evaluation:
+      - 6.1. Classification: ./classes/metrics/classification/main.md
+      - 6.2. Regression: ./classes/metrics/regression/main.md
+      - 6.3. Exercise: ./classes/metrics/exercise/main.md
     - 7. Random Forest: ./classes/random_forest/main.md
     - 8. SVM: ./classes/svm/main.md
     - 9. Page Rank: ./classes/page_rank/main.md
     - 10. PySpark: ./classes/pyspark/main.md
 
-  - Projetos:
-    - Projeto I: ./versions/2025.2/projects/1/projeto_i.md
-    - Projeto II: ./versions/2025.2/projects/2/projeto_ii.md
+  - Projects:
+    - Project I: ./versions/2025.2/projects/1/projeto_i.md
+    - Project II: ./versions/2025.2/projects/2/projeto_ii.md
 
-  - Versões:
+  - Versions:
     - 2025.2: ./versions/2025.2/main.md

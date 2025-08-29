@@ -174,6 +174,11 @@ Eigenfaces, a PCA variant, is used in face recognition tasks to reduce image dim
 For time-series in RNNs, techniques include Fast Fourier Transform (FFT) for frequency domain conversion or segmentation into fixed windows. In text preprocessing for sentiment analysis, advanced steps encompass negation handling (e.g., marking "not good" as "not_pos"), intensification (e.g., "very good" as "strong_pos"), and POS tagging to retain sentiment-bearing words. For images in CNNs, advanced signal processing like wavelet transforms or conversion to spectrograms enhances fault diagnosis applications.
 
 
+---
+
+## Appendix
+
+--8<-- "docs/classes/preprocessing/normalization-vs-standardization.md"
 
 
 [^1]: [Scikit-learn - Preprocessing data](https://scikit-learn.org/stable/modules/preprocessing.html){target='_blank'}
