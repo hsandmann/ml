@@ -31,7 +31,6 @@ sns.scatterplot(x=X[:, 0], y=X[:, 1], hue=y, style=y, palette="deep", s=100)
 plt.xlabel("Feature 1")
 plt.ylabel("Feature 2")
 plt.title("KNN Decision Boundary (k=3)")
-plt.show()
 
 # Display the plot
 buffer = StringIO()

@@ -128,7 +128,7 @@ print(f"Accuracy: {accuracy_score(y_test, predictions):.2f}")
 
 
 === "Result"
-    ```python exec="1"
+    ```python exec="1" html="1"
     --8<-- "docs/classes/knn/knn-sklearn.py"
     ```
 
