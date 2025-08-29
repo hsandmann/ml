@@ -84,6 +84,9 @@ This implementation includes a basic KNN classifier using Euclidean distance.
 
 ``` python
 import numpy as np
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 
 class KNNClassifier:
     def __init__(self, k=3):
@@ -109,27 +112,31 @@ class KNNClassifier:
         return most_common
 
 # Example usage
-if __name__ == "__main__":
-    from sklearn.datasets import make_classification
-    from sklearn.model_selection import train_test_split
-    from sklearn.metrics import accuracy_score
-    
-    # Generate synthetic dataset
-    X, y = make_classification(n_samples=100, n_features=2, n_classes=2, n_clusters_per_class=1, random_state=42)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    
-    # Train and predict
-    knn = KNNClassifier(k=3)
-    knn.fit(X_train, y_train)
-    predictions = knn.predict(X_test)
-    print(f"Accuracy: {accuracy_score(y_test, predictions):.2f}")
+
+# Generate synthetic dataset
+X, y = make_classification(n_samples=100, n_features=2, n_informative=2, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train and predict
+knn = KNNClassifier(k=3)
+knn.fit(X_train, y_train)
+predictions = knn.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, predictions):.2f}")
 ```
 
 ### Using Scikit-Learn
 
-```python exec="0"
---8<-- "docs/classes/knn/knn-sklearn.py"
-```
+
+=== "Result"
+    ```python exec="1"
+    --8<-- "docs/classes/knn/knn-sklearn.py"
+    ```
+
+=== "Code"
+    ```python exec="0"
+    --8<-- "docs/classes/knn/knn-sklearn.py"
+    ```
+
 
 ---
 
