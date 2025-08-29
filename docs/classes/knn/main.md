@@ -112,7 +112,7 @@ This implementation includes a basic KNN classifier using Euclidean distance.
 
 !!! success inline end "Entrega"
 
-    :calendar: **29.ago** :clock3: **9:00**
+    :calendar: **16.sep** :clock3: **23:59**
 
     :material-account: Individual
 
