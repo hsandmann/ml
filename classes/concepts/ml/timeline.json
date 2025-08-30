@@ -1,0 +1,209 @@
+[
+    {
+        "title": "Foundations of Neural Networks",
+        "content": "
+        **Laid the theoretical groundwork for ANNs, inspiring future computational models of the brain.**<br>
+        Warren McCulloch and Walter Pitts publish a paper introducing the first mathematical model of a neural network, describing neurons as logical decision-making units.<br><br>
+        <small>McCulloch, & W. S., Pitts, W. (1943). A logical calculus of the ideas immanent in nervous activity.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1007/BF02478259){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/A_Logical_Calculus_of_the_Ideas_Immanent_in_Nervous_Activity){target='_blank'}",
+        "icon": ":octicons-rocket-24:",
+        "sub_title": "1943"
+    },
+    {
+        "title": "Turing Test Proposed",
+        "content": "
+        **Established a benchmark for assessing AI capabilities, influencing the philosophical and practical development of AI.**<br>
+        Alan Turing publishes \"Computing Machinery and Intelligence,\" proposing the Turing Test to evaluate a machine's ability to exhibit intelligent behavior indistinguishable from that of a human.<br><br>
+        <small>Turing, A. M. (1950). Computing Machinery and Intelligence.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1093/mind/LIX.236.433){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Turing_test){target='_blank'}
+        [:octicons-download-24:](https://courses.cs.umbc.edu/471/papers/turing.pdf){target='_blank'}",
+        "icon": ":octicons-sun-16:",
+        "sub_title": "1950"
+    },
+    {
+        "title": "Birth of AI as a Discipline",
+        "content": "
+        **Marked the formal establishment of AI as a field of study, fostering research into machine intelligence.**<br>
+        The Dartmouth Conference, organized by John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon, coins the term **artificial intelligence.**<br><br>
+        <small>McCarthy, J., Minsky, M., Rochester, N., Shannon, C. (1955). Dartmouth Conference Proposal.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1609/aimag.v27i4.1904){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Dartmouth_workshop){target='_blank'}
+        [:octicons-download-24:](http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf){target='_blank'}",
+        "icon": ":fontawesome-solid-bullhorn:",
+        "sub_title": "1956"
+    },
+    {
+        "title": "Perceptron Introduced",
+        "content": "
+        **Pioneered the concept of a simple neural network, laying the foundation for future developments in machine learning and neural networks.**<br>
+        Frank Rosenblatt develops the Perceptron, an early artificial neural network capable of learning to classify patterns. It consists of a single layer of output nodes connected to input features, using a step function to produce binary outputs.<br><br>
+        <small>Rosenblatt, F. (1958). The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1037/h0042519){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Perceptron){target='_blank'}
+        [:octicons-download-24:](https://www.ling.upenn.edu/courses/cogs501/Rosenblatt1958.pdf){target='_blank'}",
+        "icon": ":octicons-light-bulb-24:",
+        "sub_title": "1958"
+    },
+    {
+        "title": "Limitations of Perceptrons → AI Winter",
+        "content": "
+        **Highlighted the limitations of early neural networks, leading to a temporary decline in interest in neural networks and AI.**<br>
+        Marvin Minsky and Seymour Papert publish \"Perceptrons,\" critiquing the limitations of single-layer perceptrons, particularly their inability to solve non-linearly separable problems like the XOR problem. This work leads to a decline in neural network research for over a decade. Led to the first \"AI winter,\" a period of reduced funding and interest in neural networks, shifting focus to symbolic AI.<br><br>
+        <small>Minsky, M., Papert, S. (1969). Perceptrons: An Introduction to Computational Geometry.</small><br>
+        [:octicons-book-24:](https://mitpress.mit.edu/9780262630221/perceptrons/){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Perceptrons_(book)){target='_blank'}
+        [:octicons-download-24:](https://rodsmith.nz/wp-content/uploads/Minsky-and-Papert-Perceptrons.pdf){target='_blank'}",
+        "icon": ":octicons-stop-24:",
+        "sub_title": "1969"
+    },
+    {
+        "title": "Backpropagation Rediscovered",
+        "content": "
+        **Revived interest in ANNs by overcoming limitations of single-layer perceptrons, paving the way for deep learning.**<br>
+        David E. Rumelhart, Geoffrey E. Hinton, and Ronald J. Williams publish a paper on backpropagation, enabling training of multi-layer neural networks.<br><br>
+        <small>Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning representations by back-propagating errors.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1038/323533a0){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Backpropagation){target='_blank'}
+        [:octicons-download-24:](https://www.cs.toronto.edu/~hinton/absps/naturebp.pdf){target='_blank'}
+        [:medal:](https://www.nobelprize.org/prizes/physics/2024/summary/){target='_blank'}",
+        "icon": ":octicons-arrow-right-24:",
+        "sub_title": "1986"
+    },
+    {
+        "title": "Universal Approximation Theorem",
+        "content": "
+        **Established the theoretical foundation for neural networks' ability to approximate any continuous function, leading to the development of deep learning.**<br>
+        George Cybenko proves that a feedforward neural network with a single hidden layer can approximate any continuous function on compact subsets of $R^n$ under mild conditions on the activation function.<br><br>
+        <small>Cybenko, G. (1989). Approximation by superpositions of a sigmoidal function.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1007/BF02551274){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Universal_approximation_theorem){target='_blank'}
+        [:octicons-download-24:](https://web.njit.edu/~usman/courses/cs677/10.1.1.441.7873.pdf){target='_blank'}",
+        "icon": ":octicons-pulse-24:",
+        "sub_title": "1989"
+    },
+    {
+        "title": "Deep Blue Defeats Chess Champion",
+        "content": "
+        **Showcased the potential of AI in strategic games, leading to advancements in game-playing AI and deep learning.**<br>
+        IBM's Deep Blue defeats world chess champion Garry Kasparov in a six-game match, marking a significant milestone in AI's ability to compete with human intelligence in complex tasks.<br><br>
+        <small>Campbell, M., Hoane, A. J., & Hsu, F. (2002). Deep Blue.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1016/S0004-3702(01)00129-1){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)){target='_blank'}
+        [:material-web:](https://www.ibm.com/history/deep-blue){target='_blank'}
+        [:simple-youtube:](https://youtu.be/KF6sLCeBj0s){target='_blank'}",
+        "icon": ":octicons-trophy-24:",
+        "sub_title": "1997"
+    },
+    {
+        "title": "Convolutional Neural Networks (CNNs)",
+        "content": "
+        **Revolutionized computer vision and image processing, enabling breakthroughs in object recognition and classification.**<br>
+        Yann LeCun, Yoshua Bengio, and Geoffrey Hinton publish a paper on CNNs, introducing the LeNet architecture for handwritten digit recognition.<br><br>
+        <small>LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P. (1998). Gradient-based learning applied to document recognition.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1109/5.726791){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Convolutional_neural_network){target='_blank'}
+        [:octicons-download-24:](http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf){target='_blank'}",
+        "icon": ":octicons-image-24:",
+        "sub_title": "1998"
+    },
+    {
+        "title": "Deep Learning Renaissance",
+        "content": "
+        **Sparked the modern deep learning era by showing that deep networks could be trained efficiently.**<br>
+        Geoffrey Hinton and colleagues introduce deep belief networks, demonstrating effective pre-training for deep neural networks.<br><br>
+        <small>Hinton, G. E., Osindero, S., & Teh, Y. W. (2006). A fast learning algorithm for deep belief nets.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1162/neco.2006.18.7.1527){target='_blank'} 
+        [:octicons-download-24:](https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf){target='_blank'}",
+        "icon": ":octicons-rocket-24:",
+        "sub_title": "2006"
+    },
+    {
+        "title": "AlexNet and the ImageNet Breakthrough",
+        "content": "
+        **Demonstrated the superiority of deep learning in computer vision, leading to widespread adoption.**<br>
+        Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton’s AlexNet wins the ImageNet competition, achieving unprecedented accuracy in image classification using deep CNNs.<br><br>
+        <small>Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). ImageNet classification with deep convolutional neural networks.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1145/3065386){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/AlexNet){target='_blank'}
+        [:octicons-download-24:](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf){target='_blank'}",
+        "icon": ":octicons-trophy-24:",
+        "sub_title": "2012"
+    },
+    {
+        "title": "Generative Adversarial Networks (GANs)",
+        "content": "
+        **Introduced a novel approach to generative modeling, enabling the creation of realistic synthetic data.**<br>
+        Ian Goodfellow and colleagues introduce GANs, a framework for training generative models using adversarial training.<br><br>
+        <small>Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., & Bengio, Y. (2014). Generative adversarial nets.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1145/3422622){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Generative_adversarial_network){target='_blank'}
+        [:octicons-download-24:](https://arxiv.org/pdf/1406.2661.pdf){target='_blank'}
+        [:octicons-play-24:](https://poloclub.github.io/ganlab/){target='_blank'}",
+        "icon": ":octicons-git-branch-24:",
+        "sub_title": "2014"
+    },
+    {
+        "title": "DeepMind’s AlphaGo",
+        "content": "
+        **Showcased deep learning’s ability to tackle complex strategic games, advancing AI research.**<br>
+        DeepMind’s AlphaGo, using deep reinforcement learning and neural networks, defeats professional Go player Lee Sedol.<br><br>
+        <small>Silver, D., et al. (2016). Mastering the game of Go with deep neural networks and tree search.</small><br>
+        [:octicons-book-24:](https://doi.org/10.1038/nature16961){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/AlphaGo){target='_blank'}
+        [:simple-youtube:](https://youtu.be/WXuK6gekU1Y){target='_blank'}",
+        "icon": ":octicons-trophy-24:",
+        "sub_title": "2015"
+    },
+    {
+        "title": "Transformers and Attention Mechanisms",
+        "content": "
+        **Revolutionized natural language processing and sequence modeling, enabling breakthroughs in machine translation and text generation.**<br>
+        Ashish Vaswani and colleagues introduce the Transformer architecture, which uses self-attention mechanisms to process sequences in parallel, significantly improving performance in NLP tasks.<br><br>
+        <small>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention is all you need.
+        </small><br>
+        [:octicons-book-24:](https://doi.org/10.48550/arxiv.1706.03762){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)){target='_blank'}
+        [:octicons-download-24:](https://arxiv.org/pdf/1706.03762.pdf){target='_blank'}",
+        "icon": ":octicons-code-24:",
+        "sub_title": "2017"
+    },
+    {
+        "title": "BERT and Pre-trained Language Models",
+        "content": "
+        **Set new standards in NLP by introducing pre-training and fine-tuning techniques, enabling models to understand context and semantics better.**<br>
+        Jacob Devlin and colleagues introduce BERT (Bidirectional Encoder Representations from Transformers), a pre-trained language model that achieves state-of-the-art results on various NLP benchmarks.<br><br>
+        <small>Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2018). BERT: Pre-training of deep bidirectional transformers for language understanding.</small><br>
+        [:octicons-book-24:](https://doi.org/10.48550/arxiv.1810.04805){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/BERT_(language_model)){target='_blank'}
+        [:octicons-download-24:](https://arxiv.org/pdf/1810.04805.pdf){target='_blank'}",
+        "icon": "::material-text:",
+        "sub_title": "2018"
+    },
+    {
+        "title": "GPT-3 and Large Language Models",
+        "content": "
+        **Showcased the capabilities of large-scale language models, enabling advancements in natural language understanding and generation.**<br>
+        OpenAI releases GPT-3, a 175 billion parameter language model, demonstrating impressive performance in various NLP tasks, including text generation, translation, and question answering.<br><br>
+        <small>Brown, T. B., Mann, B., Ryder, N., Subbiah, S., Kaplan, J., Dhariwal, P., Neelakantan, S., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T.,
+        Child, R., Ramesh, A., Ziegler, D. M., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, D., Litwin, M., Gray, S., Chess, B., Clark, J., Berridge, S., Zaremba, W., & Amodei, D. (2020). Language models are few-shot learners.</small><br>
+        [:octicons-book-24:](https://doi.org/10.48550/arxiv.2005.14165){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/GPT-3){target='_blank'}
+        [:octicons-download-24:](https://arxiv.org/pdf/2005.14165.pdf){target='_blank'}",
+        "icon": ":material-chat:",
+        "sub_title": "2020"
+    },
+    {
+        "title": "DALL-E and Image Generation",
+        "content": "
+        **Enabled the generation of high-quality images from textual descriptions, showcasing the potential of multimodal AI.**<br>
+        OpenAI introduces DALL-E, a model capable of generating images from textual descriptions, demonstrating the power of combining language and vision.<br><br>
+        <small>Ramesh, A., Pavlov, M., Goh, G., Gray, S., Voss, C., Radford, A., & Sutskever, I. (2021). Zero-Shot Text-to-Image Generation.</small><br>
+        [:octicons-book-24:](https://doi.org/10.48550/arxiv.2102.12092){target='_blank'} 
+        [:material-wikipedia:](https://en.wikipedia.org/wiki/DALL-E){target='_blank'}
+        [:octicons-download-24:](https://arxiv.org/pdf/2102.12092.pdf){target='_blank'}",
+        "icon": ":octicons-image-24:",
+        "sub_title": "2021"
+    }
+]
