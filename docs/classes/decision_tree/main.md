@@ -233,7 +233,7 @@ As árvores de decisão podem ser implementadas usando bibliotecas populares com
 
     :simple-target: Entrega do link via [Canvas](https://canvas.espm.br/){:target="_blank"}.
 
-Dentre os [datasets disponíveis](/ml/classes/concepts/data/data/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize o algoritmo de árvore de decisão para treinar um modelo e avaliar seu desempenho.
+Dentre os [datasets disponíveis](/ml/classes/concepts/data/main/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize o algoritmo de árvore de decisão para treinar um modelo e avaliar seu desempenho.
 
 Utilize as bibliotecas `pandas`, `numpy`, `matplotlib` e `scikit-learn` para auxiliar no desenvolvimento do projeto.
 

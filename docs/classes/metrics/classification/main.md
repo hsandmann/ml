@@ -43,5 +43,16 @@ Classification tasks involve predicting discrete class labels. The following met
 <!-- | Log Loss | Penalizes incorrect predictions based on predicted probabilities | \( \displaystyle -\frac{1}{N} \sum_{i=1}^N [y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)] \) | Common in probabilistic classifiers like neural networks with softmax outputs | -->
 
 
-Specific better ROC curves:
-![ROC Curve Example](https://upload.wikimedia.org/wikipedia/commons/1/13/ROC_curve.svg)
+### Explanation of ROC Curve (AUC-ROC)
+
+An ROC curve plots the True Positive Rate (TPR, or sensitivity/recall) against the False Positive Rate (FPR) at various classification thresholds. It helps visualize the trade-off between sensitivity and specificity for a classifier:
+
+- **True Positive Rate (TPR)**: The proportion of actual positives correctly identified (TP / (TP + FN)).
+
+- **False Positive Rate (FPR)**: The proportion of actual negatives incorrectly classified as positives (FP / (FP + TN)).
+
+- The **Area Under the Curve (AUC)** quantifies the overall performance, with AUC = 1 indicating a perfect classifier and AUC = 0.5 indicating a random classifier.
+
+```python exec="on" html="1"
+--8<-- "docs/classes/metrics/classification/auc-roc-example.py"
+```
