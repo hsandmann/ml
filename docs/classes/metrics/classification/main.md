@@ -36,7 +36,7 @@ Classification tasks involve predicting discrete class labels. The following met
 | F1-Score | Harmonic mean of precision and recall, balancing both metrics | \( \displaystyle 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \) | Useful for imbalanced datasets where both precision and recall matter |
 | AUC-ROC | Measures the model’s ability to distinguish between classes across all thresholds | Area under the curve plotting True Positive Rate (Recall) vs. False Positive Rate \( \displaystyle \left( \frac{FP}{FP + TN} \right) \) | Effective for binary classification and assessing model robustness |
 | AUC-PR | Focuses on precision and recall trade-off, especially for imbalanced datasets | Area under the curve plotting Precision vs. Recall | Preferred when positive class is rare (e.g., fraud detection) |
-| Confusion Matrix | Provides a tabular summary of prediction outcomes (TP, TN, FP, FN) | <table class="confusion-matrix"><tr><td>TP</td><td>TN</td></tr><tr><td>FP</td><td>FN</td></tr></table> | Offers detailed insights into class-specific performance, especially for multi-class problems |
+| Confusion Matrix | Provides a tabular summary of prediction outcomes (TP, TN, FP, FN) | ![](confusion-matrix.png)[^1] | Offers detailed insights into class-specific performance, especially for multi-class problems |
 | Hamming Loss | Calculates the fraction of incorrect labels to the total number of labels | \( \displaystyle \frac{1}{N} \sum_{i=1}^N \frac{1}{L} \sum_{j=1}^L \mathbf{1}(y_{ij} \neq \hat{y}_{ij}) \) | Suitable for multi-label classification tasks |
 | Balanced Accuracy | Average of recall obtained on each class, useful for imbalanced datasets | \( \displaystyle \frac{1}{C} \sum_{i=1}^C \frac{TP_i}{TP_i + FN_i} \) | Effective for multi-class problems with class imbalance |
 
@@ -56,3 +56,5 @@ An ROC curve plots the True Positive Rate (TPR, or sensitivity/recall) against t
 ```python exec="on" html="1"
 --8<-- "docs/classes/metrics/classification/auc-roc-example.py"
 ```
+
+[^1]: [:material-wikipedia: Confusion Matrix](https://en.wikipedia.org/wiki/Confusion_matrix)
