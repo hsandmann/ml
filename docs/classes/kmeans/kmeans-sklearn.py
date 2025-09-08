@@ -26,11 +26,11 @@ plt.xlabel('Feature 1')
 plt.ylabel('Feature 2')
 plt.legend()
 
-# Print centroids and inertia
-print("Final centroids:", kmeans.cluster_centers_)
-print("Inertia (WCSS):", kmeans.inertia_)
+# # Print centroids and inertia
+# print("Final centroids:", kmeans.cluster_centers_)
+# print("Inertia (WCSS):", kmeans.inertia_)
 
-# Display the plot
+# # Display the plot
 buffer = StringIO()
 plt.savefig(buffer, format="svg", transparent=True)
 print(buffer.getvalue())
