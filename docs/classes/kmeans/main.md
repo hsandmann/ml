@@ -73,7 +73,7 @@ After convergence, you might end up with two clusters: one around (1.5,1.5) and 
     --8<-- "docs/classes/kmeans/kmeans-sklearn.py"
     ```
 
-=== "Code""
+=== "Code"
 
     ```python exec="0"
     --8<-- "docs/classes/kmeans/kmeans-sklearn.py"
