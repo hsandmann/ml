@@ -57,4 +57,10 @@ An ROC curve plots the True Positive Rate (TPR, or sensitivity/recall) against t
 --8<-- "docs/classes/metrics/classification/auc-roc-example.py"
 ```
 
+---
+
+## Additional
+
+<iframe width="100%" height="470" src="https://www.youtube.com/embed/4jRBRDbJemM" title="ROC and AUC, Clearly Explained!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 [^1]: [:material-wikipedia: Confusion Matrix](https://en.wikipedia.org/wiki/Confusion_matrix)
