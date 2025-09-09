@@ -8,11 +8,11 @@
 
     :simple-target: Entrega do link via [Canvas](https://canvas.espm.br/){:target="_blank"}.
 
-Dentre os [datasets disponíveis](/ml/classes/concepts/data/main/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize o algoritmo de KNN para treinar um modelo e avaliar seu desempenho.
+Dentre os [datasets disponíveis](/ml/classes/concepts/data/main/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize os algoritmos de KNN e K-Means para treinar um modelo e avaliar seu desempenho.
 
 Utilize as bibliotecas `pandas`, `numpy`, `matplotlib` e `scikit-learn` para auxiliar no desenvolvimento do projeto.
 
-A entrega deve ser feita através do [Canvas](https://canvas.espm.br/) - **Exercício KNN**. Só serão aceitos links para repositórios públicos do GitHub contendo a documentação (relatório) e o código do projeto. Conforme exemplo do [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}. ESTE EXERCÍCIO É INDIVIDUAL.
+A entrega deve ser feita através do [Canvas](https://canvas.espm.br/) - **Exercício Métricas**. Só serão aceitos links para repositórios públicos do GitHub contendo a documentação (relatório) e o código do projeto. Conforme exemplo do [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}. ESTE EXERCÍCIO É INDIVIDUAL.
 
 A entrega deve incluir as seguintes etapas:
 
