@@ -2,7 +2,7 @@
 
 !!! success inline end "Entrega"
 
-    :calendar: **23.sep** :clock3: **23:59**
+    :calendar: **28.sep** :clock3: **23:59**
 
     :material-account: Individual
 

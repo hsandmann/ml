@@ -215,7 +215,7 @@ K-Means++ is a robust improvement over random initialization, widely used in pra
 
 !!! success inline end "Entrega"
 
-    :calendar: **19.sep** :clock3: **23:59**
+    :calendar: **21.sep** :clock3: **23:59**
 
     :material-account: Individual
 
