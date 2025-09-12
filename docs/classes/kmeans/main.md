@@ -211,6 +211,14 @@ The `init='k-means++'` parameter explicitly sets K-Means++ initialization (thoug
 
 K-Means++ is a robust improvement over random initialization, widely used in practice due to its balance of simplicity and effectiveness. If you have a dataset or want a visual demo of K-Means++ vs. random initialization, let me know!
 
+---
+
+## Additional
+
+<iframe width="100%" height="470" src="https://www.youtube.com/embed/njRYKzRKBPY" title="Algoritmo k-means (k-médias)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 ## Exercício
 
 !!! success inline end "Entrega"
