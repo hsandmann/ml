@@ -8,7 +8,7 @@
 
     :simple-target: Entrega do link via [Canvas](https://canvas.espm.br/){:target="_blank"}.
 
-Dentre os [datasets disponíveis](/ml/classes/concepts/data/main/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize os algoritmos de KNN e K-Means para treinar um modelo e avaliar seu desempenho.
+Dentre os [datasets disponíveis](/ml/classes/concepts/data/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize os algoritmos de KNN e K-Means para treinar um modelo e avaliar seu desempenho.
 
 Utilize as bibliotecas `pandas`, `numpy`, `matplotlib` e `scikit-learn` para auxiliar no desenvolvimento do projeto.
 
@@ -18,9 +18,9 @@ A entrega deve incluir as seguintes etapas:
 
 | Etapa | Critério | Descrição | Pontos |
 |:-----:|----------|-----------|:------:|
-| 1 | Exploração dos Dados | Análise inicial do conjunto de dados - com explicação sobre a natureza dos dados -, incluindo visualizações e estatísticas descritivas. | 20 |
-| 2 | Pré-processamento | Limpeza dos dados, tratamento de valores ausentes e normalização. | 10 |
-| 3 | Divisão dos Dados | Separação do conjunto de dados em treino e teste. | 20 |
-| 4 | Treinamento do Modelo | Implementação do modelo KNN. | 10 |
-| 5 | Avaliação do Modelo | Avaliação do desempenho do modelo utilizando métricas apropriadas. | 20 |
-| 6 | Relatório Final | Documentação do processo, resultados obtidos e possíveis melhorias. **Obrigatório:** uso do template-projeto-integrador, individual. | 20 |
+| 1 | Exploração dos Dados | Análise inicial do conjunto de dados - com explicação sobre a natureza dos dados -, incluindo visualizações e estatísticas descritivas. | 10 |
+| 2 | Aplicação das Técnicas | Implementação dos algoritmos KNN e K-Means para treinar modelos de classificação. | 10 |
+| 3 | Matrizes de Confusão | Geração de matrizes de confusão para cada modelo. | 20 |
+| 4 | Avaliação dos Modelos | Utilização de métricas como acurácia, precisão, recall e F1-score para avaliar o desempenho dos modelos. | 20 |
+| 5 | Comparação dos Resultados | Comparação e tabulação dos resultados obtidos pelos dois algoritmos, discutindo suas vantagens e desvantagens. | 20 |
+| 6 | Documentação | Relatório detalhado do processo, incluindo código comentado, visualizações e conclusões. | 20 |
