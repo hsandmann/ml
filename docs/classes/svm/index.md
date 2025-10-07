@@ -202,3 +202,5 @@ SVM is versatile and used in:
 [^6]: [Tutorial on Support Vector Machine (SVM)](https://www.tutorialspoint.com/machine_learning/machine_learning_support_vector_machine.htm){:target="_blank"}
 [^7]: [Implementing SVM from Scratch in Python - GeeksforGeeks](https://www.geeksforgeeks.org/implementing-svm-from-scratch-in-python/){:target="_blank"}
 [^8]: [Platt Scaling](https://en.wikipedia.org/wiki/Platt_scaling){:target="_blank"}
+
+<!-- https://grok.com/c/ffd527f7-0441-41b6-bca3-a11a43dd34b7 -->
