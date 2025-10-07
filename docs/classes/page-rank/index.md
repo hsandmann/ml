@@ -111,3 +111,6 @@ PageRank's influence extends beyond search—to recommendation systems, social n
 ## Additional
 
 <iframe width="100%" height="460" src="https://www.youtube.com/embed/y4ArAo8c73Y" title="PageRank: COMO funciona o ALGORITMO Matemático do GOOGLE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[^1]: [Wikipedia: PageRank](https://en.wikipedia.org/wiki/PageRank){:target="_blank"}
+[^2]: [GeeksforGeeks: PageRank Algorithm and Implementation](https://www.geeksforgeeks.org/python/page-rank-algorithm-implementation/){:target="_blank"}
