@@ -128,19 +128,80 @@ PageRank's influence extends beyond search—to recommendation systems, social n
 
     :simple-target: Entrega do link via [Canvas](https://canvas.espm.br/){:target="_blank"}.
 
-<!-- Dentre os [datasets disponíveis](/ml/classes/concepts/data/main/#datasets){:target="_blank"}, escolha um cujo objetivo seja prever uma variável categórica (classificação). Utilize o algoritmo de SVM para treinar um modelo e avaliar seu desempenho.
+O objetivo deste exercício é implementar e aplicar o algoritmo PageRank em um grafo dirigido (ou adaptado de um grafo não dirigido, tratando arestas como bidirecionais). O PageRank é um algoritmo clássico para medir a importância de nós em uma rede, baseado na estrutura de links (ou relações). Ele pode ser usado para ranquear páginas web, mas aqui focamos em aplicações variadas.
 
-Utilize as bibliotecas `pandas`, `numpy`, `matplotlib` e `scikit-learn` para auxiliar no desenvolvimento do projeto.
+**Tarefa Principal:**
+
+1. Escolha um dos datasets sugeridos (ou equivalente) de pelo menos um dos tipos de dados propostos;
+2. Carregue o grafo usando uma biblioteca como NetworkX (em Python) ou equivalente;
+3. Implemente o algoritmo PageRank do zero (usando a fórmula iterativa: \( PR(p_i) = \frac{1-d}{N} + d \sum_{p_j \in M(p_i)} \frac{PR(p_j)}{L(p_j)} \), onde \( d \) é o fator de amortecimento, tipicamente 0.85; \( N \) é o número de nós; \( M(p_i) \) são os nós que apontam para \( p_i \); \( L(p_j) \) é o número de saídas de \( p_j \));
+4. Compute os valores de PageRank para os nós do grafo (use um critério de convergência, como diferença menor que 0.0001 entre iterações);
+5. Compare os resultados com uma implementação pronta (ex.: `networkx.pagerank`);
+6. Analise os resultados: identifique os 10 nós mais importantes e explique o que eles representam no contexto do dataset (ex.: por que certos nós são mais "influentes"?);
+7. Varie o fator de amortecimento (ex.: 0.5, 0.85, 0.99) e discuta o impacto nos rankings.
+
+#### Sugestões de Datasets e Formas de Aplicação
+
+Escolha pelo menos um dataset de cada tipo para variedade, mas o exercício pode ser feito com apenas um. Todos os datasets sugeridos são públicos e gratuitos, disponíveis em repositórios como Stanford SNAP (https://snap.stanford.edu/data/) ou Network Repository (https://networkrepository.com/). Baixe os arquivos de arestas (geralmente em formato .txt ou .edges) e carregue como grafo dirigido ou não dirigido no NetworkX.
+
+1. **Tipo de Dados: Rede Social (ex.: rede de confiança ou amizades)**
+
+    - **Dataset Sugerido:** soc-Epinions1 (da Epinions, uma rede de confiança entre usuários de um site de reviews). Disponível em SNAP: https://snap.stanford.edu/data/soc-Epinions1.html. Tamanho: ~76k nós, ~509k arestas dirigidas (usuários confiam em outros).
+
+    - **Forma de Aplicação:** Modele o grafo como dirigido, onde uma aresta A → B significa que A confia em B. Aplique PageRank para identificar usuários mais "influentes" (aqueles com mais confiança indireta). Interprete: Nós com alto PageRank são influenciadores na comunidade, pois recebem confiança de fontes confiáveis. Use para analisar propagação de opiniões ou recomendações sociais.
+
+2. **Tipo de Dados: Rede de Citações Acadêmicas (ex.: papers citando outros)**
+
+    - **Dataset Sugerido:** cit-HepTh (citações em papers de Física de Alta Energia, do arXiv). Disponível em SNAP: https://snap.stanford.edu/data/cit-HepTh.html. Tamanho: ~28k nós (papers), ~353k arestas dirigidas (citações).
+
+    - **Forma de Aplicação:** Grafo dirigido: uma aresta A → B significa que paper A cita paper B (B é "importante" para A). PageRank ranqueia papers mais impactantes (aqueles citados por papers influentes). Interprete: Papers com alto score são fundamentais no campo, como trabalhos seminais. Útil para análise de impacto científico ou recomendação de leitura.
+
+3. **Tipo de Dados: Rede Biológica (ex.: interações entre proteínas)**
+
+    - **Dataset Sugerido:** bio-Dmela (interações proteína-proteína em Drosophila melanogaster, da mosca da fruta). Disponível em Network Repository: https://networkrepository.com/bio-Dmela.php. Tamanho: ~7k nós (proteínas), ~26k arestas não dirigidas (interações; adapte para bidirecional).
+
+    - **Forma de Aplicação:** Converta o grafo não dirigido em dirigido bidirecional (adicionando arestas em ambas direções). Aplique PageRank para identificar proteínas "centrais" na rede biológica. Interprete: Proteínas com alto PageRank são hubs em pathways metabólicos ou sinalização celular, potencialmente alvos para estudos de doenças. Útil em bioinformática para priorizar genes/proteínas.
+
+**Dicas Gerais para Aplicação:**
+
+- Para datasets grandes, use amostras (subgrafos) se o computation for lento.
+- Bibliotecas: NetworkX para grafos, NumPy para cálculos matriciais (PageRank pode ser implementado via matriz de transição).
+- Se precisar de mais opções: Outros datasets incluem roadNet-CA (redes de estradas, para análise de tráfego) ou ego-Facebook (redes sociais pessoais).
+
+#### Rubricas de Correção
+
+A correção será baseada em uma escala de 0 a 10 pontos, dividida em critérios. O total é somado e normalizado. Exija evidências no código e relatório.
+
+1. **Implementação do Algoritmo (3 pontos)**
+
+    - 3: Implementação correta do zero, com iterações, convergência e variação de d; compara com biblioteca pronta sem erros.
+    - 2: Implementação funcional, mas com pequenos erros ou sem variação de d.
+    - 1: Implementação parcial ou só usando biblioteca pronta.
+    - 0: Não implementado ou com erros graves.
+
+2. **Carregamento e Preparação do Dataset (2 pontos)**
+
+    - 2: Dataset escolhido corretamente carregado; grafo modelado adequadamente (dirigido/bidirecional); pelo menos um tipo de dados usado.
+    - 1: Carregamento ok, mas sem adaptação para o tipo de grafo ou escolha inadequada.
+    - 0: Erros no carregamento ou dataset irrelevante.
+
+3. **Análise e Interpretação dos Resultados (3 pontos)**
+
+    - 3: Identifica top nós com explicação contextual clara; discute impacto de d; inclui visualizações relevantes.
+    - 2: Análise básica, mas superficial ou sem discussão de variações.
+    - 1: Apenas lista resultados sem interpretação.
+    - 0: Sem análise.
+
+4. **Qualidade do Código e Relatório (1 ponto)**
+
+    - 1: Código limpo, comentado; relatório bem estruturado, sem plágio.
+    - 0.5: Código funcional mas bagunçado; relatório incompleto.
+    - 0: Código ilegível ou relatório ausente.
+
+5. **Originalidade e Profundidade (1 ponto)**
+
+    - 1: Usa mais de um dataset ou explora aplicações criativas; insights além do básico.
+    - 0.5: Atende ao mínimo.
+    - 0: Cópia ou superficial.
 
 A entrega deve ser feita através do [Canvas](https://canvas.espm.br/) - **Exercício SVM**. Só serão aceitos links para repositórios públicos do GitHub contendo a documentação (relatório) e o código do projeto. Conforme exemplo do [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}. ESTE EXERCÍCIO É INDIVIDUAL.
-
-A entrega deve incluir as seguintes etapas:
-
-| Etapa | Critério | Descrição | Pontos |
-|:-----:|----------|-----------|:------:|
-| 1 | Exploração dos Dados | Análise inicial do conjunto de dados - com explicação sobre a natureza dos dados -, incluindo visualizações e estatísticas descritivas. | 20 |
-| 2 | Pré-processamento | Limpeza dos dados, tratamento de valores ausentes e normalização. | 10 |
-| 3 | Divisão dos Dados | Separação do conjunto de dados em treino e teste. | 20 |
-| 4 | Treinamento do Modelo | Implementação do modelo SVM. | 10 |
-| 5 | Avaliação do Modelo | Avaliação do desempenho do modelo utilizando métricas apropriadas. | 20 |
-| 6 | Relatório Final | Documentação do processo, resultados obtidos e possíveis melhorias. **Obrigatório:** uso do template-projeto-integrador, individual. | 20 | -->
