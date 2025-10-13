@@ -134,7 +134,7 @@ O objetivo deste exercício é implementar e aplicar o algoritmo PageRank em um 
 
 1. Escolha um dos datasets sugeridos (ou equivalente) de pelo menos um dos tipos de dados propostos;
 2. Carregue o grafo usando uma biblioteca como NetworkX (em Python) ou equivalente;
-3. Implemente o algoritmo PageRank do zero (usando a fórmula iterativa: \( PR(p_i) = \frac{1-d}{N} + d \sum_{p_j \in M(p_i)} \frac{PR(p_j)}{L(p_j)} \), onde \( d \) é o fator de amortecimento, tipicamente 0.85; \( N \) é o número de nós; \( M(p_i) \) são os nós que apontam para \( p_i \); \( L(p_j) \) é o número de saídas de \( p_j \));
+3. Implemente o algoritmo PageRank do zero (usando a fórmula iterativa: \( \displaystyle PR(p_i) = \frac{1-d}{N} + d \sum_{p_j \in M(p_i)} \frac{PR(p_j)}{L(p_j)} \), onde \( d \) é o fator de amortecimento, tipicamente 0.85; \( N \) é o número de nós; \( M(p_i) \) são os nós que apontam para \( p_i \); \( L(p_j) \) é o número de saídas de \( p_j \));
 4. Compute os valores de PageRank para os nós do grafo (use um critério de convergência, como diferença menor que 0.0001 entre iterações);
 5. Compare os resultados com uma implementação pronta (ex.: `networkx.pagerank`);
 6. Analise os resultados: identifique os 10 nós mais importantes e explique o que eles representam no contexto do dataset (ex.: por que certos nós são mais "influentes"?);
