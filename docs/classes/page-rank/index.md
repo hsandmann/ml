@@ -204,4 +204,4 @@ A correção será baseada em uma escala de 0 a 10 pontos, dividida em critério
     - 0.5: Atende ao mínimo.
     - 0: Cópia ou superficial.
 
-A entrega deve ser feita através do [Canvas](https://canvas.espm.br/) - **Exercício SVM**. Só serão aceitos links para repositórios públicos do GitHub contendo a documentação (relatório) e o código do projeto. Conforme exemplo do [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}. ESTE EXERCÍCIO É INDIVIDUAL.
+A entrega deve ser feita através do [Canvas](https://canvas.espm.br/) - **Exercício Page Rank**. Só serão aceitos links para repositórios públicos do GitHub contendo a documentação (relatório) e o código do projeto. Conforme exemplo do [template-projeto-integrador](https://hsandmann.github.io/documentation.template/){:target="_blank"}. ESTE EXERCÍCIO É INDIVIDUAL.
