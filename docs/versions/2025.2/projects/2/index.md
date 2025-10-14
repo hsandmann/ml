@@ -22,9 +22,7 @@ O projeto deve incluir as seguintes etapas:
 
     Caso não haja um histórico significativo de dados, deve-se criar um conjunto de dados sintético que simule o cenário do projeto.
 
-2. **Regressão**:
-
-    - Objetivo: Prever uma variável contínua (ex.: preço, temperatura, vendas). Esse projeto deve ser focado em regressão, ou seja, prever valores numéricos contínuos.
+2. **Regressão**: Prever uma variável contínua (ex.: preço, temperatura, vendas). Esse projeto deve ser focado em regressão, ou seja, prever valores numéricos contínuos.
 
 3. **Seleção dos Modelos**: Escolha de pelo menos três algoritmos de Machine Learning para implementar.
 
