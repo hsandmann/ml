@@ -153,14 +153,15 @@ nav:
       - 6.2. Regression: ./classes/metrics/regression/index.md
       - 6.3. Exercise: ./classes/metrics/exercise/index.md
     - 7. Random Forest: ./classes/random_forest/index.md
-    - 8. Gradient boosting: ./classes/gradient_boosting/index.md
-    - 9. SVM: ./classes/svm/index.md
-    - 10. Page Rank: ./classes/page-rank/index.md
-    - 11. PySpark: ./classes/pyspark/index.md
-    - 12. Neural Networks:
-      - 12.1. Perceptron: ./classes/neural_network/perceptron/index.md
-      - 12.2. MLP: ./classes/neural_network/mlp/index.md
-      - 12.5. Exercise: ./classes/neural_network/exercise/index.md
+    - 8. Naive Bayes: ./classes/naive_bayes/index.md
+    - 9. Gradient boosting: ./classes/gradient_boosting/index.md
+    - 10. SVM: ./classes/svm/index.md
+    - 11. Page Rank: ./classes/page-rank/index.md
+    - 12. PySpark: ./classes/pyspark/index.md
+    - 13. Neural Networks:
+      - 13.1. Perceptron: ./classes/neural_network/perceptron/index.md
+      - 13.2. MLP: ./classes/neural_network/mlp/index.md
+      - 13.5. Exercise: ./classes/neural_network/exercise/index.md
 
   - Projects:
     - Project I: ./versions/2025.2/projects/1/index.md
