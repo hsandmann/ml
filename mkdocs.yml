@@ -153,7 +153,7 @@ nav:
       - 6.2. Regression: ./classes/metrics/regression/index.md
       - 6.3. Exercise: ./classes/metrics/exercise/index.md
     - 7. Random Forest: ./classes/random_forest/index.md
-    - 8. Naive Bayes: ./classes/naive_bayes/index.md
+    - 8. Naïve Bayes: ./classes/naive_bayes/index.md
     - 9. Gradient boosting: ./classes/gradient_boosting/index.md
     - 10. SVM: ./classes/svm/index.md
     - 11. Page Rank: ./classes/page-rank/index.md
