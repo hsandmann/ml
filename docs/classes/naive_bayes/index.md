@@ -268,10 +268,15 @@ Using this dataset, we can calculate the probabilities needed to predict whether
 The objective is to predict whether a person will play golf on a new, unseen day based on its weather conditions, such as:
 
 {==
+
 Outlook = Sunny,
+
 Temperature = Cool,
+
 Humidity = High,
+
 and Windy = True.
+
 ==}
 
 To make this prediction, we will calculate the posterior probabilities for both classes (Play = Yes and Play = No) using the Naive Bayes formula and then compare them.
