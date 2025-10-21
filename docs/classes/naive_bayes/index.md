@@ -43,7 +43,7 @@ The final prediction is:
 
 (Often computed in log space to avoid underflow: \( \log P(C_k) + \sum_{i=1}^n \log P(x_i|C_k) \).)
 
-## Numerical Simulation
+<!-- ## Numerical Simulation
 
 Let's walk through a simple example using Multinomial Naive Bayes for text classification. Suppose we classify fruits based on features: "sweet" (count), "crunchy" (count), "red" (count). We have this training data:
 
@@ -122,7 +122,7 @@ Higher for Orange, so classify as Orange.
     \end{align*}
     \]
 
-    \( exp(-3.01) > exp(-4.827) \), so Orange wins.
+    \( exp(-3.01) > exp(-4.827) \), so Orange wins. -->
 
 ## Implementation
 
@@ -285,9 +285,7 @@ To make this prediction, we will calculate the posterior probabilities for both 
 
 2. **Calculate likelihood probabilities**:
 
-    For each feature given the class, we calculate the likelihoods.
-
-    
+    For each feature given the class, we calculate the likelihoods:
 
     | Feature | P(Feature=Value\|Play=Yes) | P(Feature=Value\|Play=No) |
     |---------|----------------------------|---------------------------|
