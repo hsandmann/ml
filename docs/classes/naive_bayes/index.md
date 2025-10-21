@@ -293,7 +293,7 @@ To make this prediction, we will calculate the posterior probabilities for both 
     For each feature given the class, we calculate the likelihoods:
 
     | Feature | P(Feature=Value\|Play=Yes) | P(Feature=Value\|Play=No) |
-    |---------|----------------------------|---------------------------|
+    |---------|:--------------------------:|:-------------------------:|
     | **Outlook=Sunny** | \( \displaystyle P(\text{Sunny}\|\text{Yes}) = \frac{2}{9} \) | \( \displaystyle P(\text{Sunny}\|\text{No}) = \frac{3}{5} \) |
     | **Temperature=Cool** | \( \displaystyle P(\text{Cool}\|\text{Yes}) = \frac{3}{9} \) | \( \displaystyle P(\text{Cool}\|\text{No}) = \frac{1}{5} \) |
     | **Humidity=High** | \( \displaystyle P(\text{High}\|\text{Yes}) = \frac{3}{9} \) | \( \displaystyle P(\text{High}\|\text{No}) = \frac{4}{5} \) |
