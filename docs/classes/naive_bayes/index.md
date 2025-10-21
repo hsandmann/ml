@@ -322,3 +322,6 @@ To make this prediction, we will calculate the posterior probabilities for both 
     Since \( P(\text{No} | \text{Sunny, Cool, High, True}) \approx 0.02056 \) is greater than \( P(\text{Yes} | \text{Sunny, Cool, High, True}) \approx 0.0053 \), we predict that the person will **not** play golf on that day.
 
 <iframe width="100%" height="470" src="https://www.youtube.com/embed/CPqOCI0ahss" title="Naïve Bayes Classifier -  Fun and Easy Machine Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
