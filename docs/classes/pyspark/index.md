@@ -63,14 +63,14 @@ The configuration defines a Spark master, three worker nodes, and a history serv
 
 ```mermaid
 graph LR
-    user[User]
+    user@{ icon: ":octicons-person-24:", form: "square", label: "User", pos: "t", h: 60 }
     subgraph Spark Cluster
         direction LR
         master[Master Node]
         worker1([Worker Node 1])
         worker2([Worker Node 2])
         worker3([Worker Node 3])
-        history[{History Server}]
+        history[(History Server)]
     end
     user -->|Submits Jobs| master
     user -->|Accesses UI| history
