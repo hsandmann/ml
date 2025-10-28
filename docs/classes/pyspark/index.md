@@ -67,10 +67,10 @@ graph LR
     subgraph Spark Cluster
         direction LR
         master[Master Node]
-        worker1[Worker Node 1]
-        worker2[Worker Node 2]
-        worker3[Worker Node 3]
-        history[History Server]
+        worker1([Worker Node 1])
+        worker2([Worker Node 2])
+        worker3([Worker Node 3])
+        history[{History Server}]
     end
     user -->|Submits Jobs| master
     user -->|Accesses UI| history
