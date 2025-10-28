@@ -7,7 +7,7 @@ In this section, we will explore how to set up and run a Spark cluster using Doc
 
 The Docker setup for Spark includes a directory structure that organizes configuration files, data, scripts, and logs. Below is an overview of the directory structure and its contents:
 
-``` tree
+``` {.tree}
 docker/
     config/ # (1)
         log4j2.properties # (2)
@@ -85,8 +85,8 @@ docker compose up -d --build
 
 Once the Spark cluster is up and running, you can access the Spark Master UI and History Server UI through your web browser:
 
-- Spark Master UI: [http://localhost:8080](http://localhost:8080)
-- Spark History Server UI: [http://localhost:18080](http://localhost:18080)
+- Spark Master UI: [http://localhost:8080](http://localhost:8080){:target="_blank"}
+- Spark History Server UI: [http://localhost:18080](http://localhost:18080){:target="_blank"}
 
 These interfaces allow you to monitor the status of your Spark cluster, view running jobs, and analyze job history.
 
