@@ -116,7 +116,7 @@ The exercise will help you gain hands-on experience with Spark and enhance your 
     To plot graphs or visualize results, you might need to plot them in files (e.g., PNG) and then save them to the mounted `data/` directory for access outside the container.
 
 
-!!! warning "Adapting ARE NEEDED"
+!!! warning "Adaptation is needed"
 
     Pay attention that running Spark in Docker may require adapting the code to work correctly within the containerized environment. This includes ensuring that file paths, environment variables, and dependencies are correctly set up to match the Docker configuration.
 
