@@ -92,7 +92,7 @@ These interfaces allow you to monitor the status of your Spark cluster, view run
 
 ### Setup
 
-The whole sample with compose file, directory structure, and configuration could be found at [spark-docker.zip](./spark-docker.zip){:download="spark-docker.zip"} (~193 MB).
+The whole sample with compose file, directory structure, and configuration could be found at [spark-docker.zip](https://github.com/hsandmann/ml/raw/refs/heads/main/docs/classes/pyspark/spark-docker.zip){:download="spark-docker.zip"} (~193 MB).
 
 ---
 
