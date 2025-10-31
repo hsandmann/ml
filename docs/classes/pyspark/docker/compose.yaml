@@ -38,15 +38,15 @@ services:
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_WORKER_CORES=2
-      - SPARK_WORKER_MEMORY=2g
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=1g
       - SPARK_NO_DAEMONIZE=true
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     volumes:
       - ./config:/opt/spark/conf
       - ./logs:/opt/spark/logs
     deploy:
-      replicas: 2
+      replicas: 3
     depends_on:
       - spark-master
     networks:
