@@ -156,12 +156,12 @@ Also, this exercise can be delivered by sharing a brief report or summary of you
 
 ### Criteria
 
-| Points | Criteria                                                                                     |
-|--------|----------------------------------------------------------------------------------------------|
-|  2   | Spark cluster setup using Docker Compose is incomplete or not functional.                     |
-|  2   | Spark cluster is set up, but access to Spark UIs is not demonstrated.                        |
-|  1   | Executed at least one Pyspark example script.                           |
-|  3   | Successfully executed the all tutorial. With plots and visualizations.          |
+| Points | Criteria |
+|:-:|---|
+|  2   | Spark cluster setup using Docker Compose is incomplete or not functional. |
+|  2   | Spark cluster is set up, but access to Spark UIs is not demonstrated. |
+|  1   | Executed at least one Pyspark example script. |
+|  3   | Successfully executed the all tutorial. With plots and visualizations. |
 |  2   | Provided a comprehensive report on the experience.       |
 
 [^1]: [Running Spark using Docker Compose](https://karlchris.github.io/data-engineering/projects/spark-docker/#spark-history-server){:target="_blank"}
