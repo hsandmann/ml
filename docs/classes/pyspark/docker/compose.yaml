@@ -22,7 +22,7 @@ services:
       - PATH=/opt/spark/bin:$PATH
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
     ports:
-      - "8080:8080"  # Spark Master Web UI
+      - 8080:8080  # Spark Master Web UI
       - "7077:7077"  # Spark Master port
     volumes:
       - ./data:/opt/spark/data
@@ -46,7 +46,7 @@ services:
       - ./config:/opt/spark/conf
       - ./logs:/opt/spark/logs
     deploy:
-      replicas: 3
+      replicas: 2
     depends_on:
       - spark-master
     networks:

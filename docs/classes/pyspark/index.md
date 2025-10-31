@@ -89,4 +89,57 @@ Once the Spark cluster is up and running, you can access the Spark Master UI and
 
 These interfaces allow you to monitor the status of your Spark cluster, view running jobs, and analyze job history.
 
+---
+
+## Exercise
+
+To further explore Spark and its capabilities, consider following this comprehensive tutorial that guides you through the basics of Pyspark and how to get started with it:
+
+[Pyspark Tutorial: Getting Started with Pyspark](https://www.datacamp.com/tutorial/pyspark-tutorial-getting-started-with-pyspark){:target="_blank"}
+
+This tutorial covers essential topics such as setting up a Spark environment, loading and processing data, and performing basic data analysis using Pyspark. The dataset used in the tutorial can be found in the `data/` directory of the Docker setup. Also, feel free to experiment with the provided scripts in the `scripts/` directory to deepen your understanding of Spark's functionalities.
+
+The exercise will help you gain hands-on experience with Spark and enhance your data processing skills using Pyspark.
+
+!!! tip "Executing Scripts Inside the Spark Master Container"
+
+    To run a script inside the Spark master container, use the following command:
+
+    ```bash
+    docker exec -it spark-master /opt/spark/bin/spark-submit /opt/spark/scripts/<your_script.py>
+    ```
+
+    Replace `<your_script.py>` with the name of the script you want to execute. This command allows you to submit Spark jobs directly from within the master node of your Spark cluster.
+
+    The results could be accessed through the folder `data/` mounted inside the container at `/opt/spark/data/`.
+
+    To plot graphs or visualize results, you might need to plot them in files (e.g., PNG) and then save them to the mounted `data/` directory for access outside the container.
+
+
+!!! warning "Adapting ARE NEEDED"
+
+    Pay attention that running Spark in Docker may require adapting the code to work correctly within the containerized environment. This includes ensuring that file paths, environment variables, and dependencies are correctly set up to match the Docker configuration.
+
+### Delivering
+
+The exercise is considered complete when you have successfully set up the Spark cluster using Docker Compose, accessed the Spark UIs, executed at least one Pyspark script from the `scripts/` directory, and run the whole tutorial. Additionally, you should be able to analyze the results of your Spark jobs and visualize any outputs as needed.
+
+Also, this exercise can be delivered by sharing a brief report or summary of your experience, including any challenges faced and how you overcame them while working with Spark in a Dockerized environment. The report can include screenshots of the Spark UIs, code snippets from the executed scripts, and any insights gained from the data analysis performed using Pyspark. Add the report to your learning portfolio (github Pages) for future reference.
+
+
+### Docker Compose
+
+The whole sample with compose file, directory structure, and configuration could be found at [spark-docker.zip](./spark-docker.zip){:download="spark-docker.zip"} (~193 MB).
+
+
+### Criteria
+
+| Points | Criteria                                                                                     |
+|--------|----------------------------------------------------------------------------------------------|
+|  2   | Spark cluster setup using Docker Compose is incomplete or not functional.                     |
+|  2   | Spark cluster is set up, but access to Spark UIs is not demonstrated.                        |
+|  1   | Executed at least one Pyspark example script.                           |
+|  3   | Successfully executed the all tutorial. With plots and visualizations.          |
+|  2   | Provided a comprehensive report on the experience.       |
+
 [^1]: [Running Spark using Docker Compose](https://karlchris.github.io/data-engineering/projects/spark-docker/#spark-history-server){:target="_blank"}
