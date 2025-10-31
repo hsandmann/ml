@@ -102,7 +102,7 @@ To further explore Spark and its capabilities, consider following this comprehen
 
 [Pyspark Tutorial: Getting Started with Pyspark](https://www.datacamp.com/tutorial/pyspark-tutorial-getting-started-with-pyspark){:target="_blank"} (starting from **Step 1: Creating a SparkSession**)
 
-!!! tip inline end "ml.py"
+!!! tip inline end "Example"
 
     The [`ml.py`](https://github.com/hsandmann/ml/blob/main/docs/classes/pyspark/docker/scripts/ml.py){:target="_blank"} script in the `scripts/` directory provides a basic example of how to use Pyspark for machine learning tasks and this works with the same dataset as in the tutorial.
 
