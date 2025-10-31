@@ -98,11 +98,19 @@ The whole sample with compose file, directory structure, and configuration could
 
 ## Exercise
 
+!!! success inline end "Entrega"
+
+    :calendar: **28.nov** :clock3: **23:59**
+
+    :material-account: Individual
+
+    :simple-target: Entrega do link via [Canvas](https://canvas.espm.br/){:target="_blank"}.
+
 To further explore Spark and its capabilities, consider following this comprehensive tutorial that guides you through the basics of Pyspark and how to get started with it:
 
 [Pyspark Tutorial: Getting Started with Pyspark](https://www.datacamp.com/tutorial/pyspark-tutorial-getting-started-with-pyspark){:target="_blank"} (starting from **Step 1: Creating a SparkSession**)
 
-!!! tip inline end "Example"
+!!! example inline "Example"
 
     The [`ml.py`](https://github.com/hsandmann/ml/blob/main/docs/classes/pyspark/docker/scripts/ml.py){:target="_blank"} script in the `scripts/` directory provides a basic example of how to use Pyspark for machine learning tasks and this works with the same dataset as in the tutorial.
 
