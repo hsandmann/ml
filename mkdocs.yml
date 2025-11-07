@@ -1,8 +1,8 @@
 site_name: Machine Learning
 site_author: Sandmann, H.
-site_url: https://hsandmann.github.io/ml
-repo_url: https://github.com/hsandmann/ml
-repo_name: hsandmann/ml
+site_url: https://tech-espm.github.io/ml
+repo_url: https://github.com/tech-espm/ml
+repo_name: tech-espm/ml
 
 theme:
   name: material
@@ -108,7 +108,7 @@ plugins:
       enable_creation_date: true
   - git-authors
   - git-committers:
-      repository: insper/ann-dl
+      repository: tech-espm/ml
       branch: main
       token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
   - search
