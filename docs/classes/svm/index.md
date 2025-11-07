@@ -219,7 +219,7 @@ SVM is versatile and used in:
 
 !!! success inline end "Entrega"
 
-    :calendar: **07.nov** :clock3: **23:59**
+    :calendar: **04.dez** :clock3: **23:59**
 
     :material-account: Individual
 

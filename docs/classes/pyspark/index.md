@@ -100,7 +100,7 @@ The whole sample with compose file, directory structure, and configuration could
 
 !!! success inline end "Entrega"
 
-    :calendar: **28.nov** :clock3: **23:59**
+    :calendar: **04.dez** :clock3: **23:59**
 
     :material-account: Individual
 
