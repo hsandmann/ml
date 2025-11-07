@@ -7,10 +7,10 @@ fig.set_size_inches(8, 8)
 
 size = 0.3
 
-outer_colors = ['aliceblue', 'lightcyan']
+outer_colors = ['powderblue', 'pink']
 inner_colors = [
-    'cornflowerblue', 'skyblue', 'powderblue', 'lightsteelblue',
-    'turquoise', 'mediumturquoise', 'aquamarine', 'white'
+    'cornflowerblue', 'deepskyblue', 'skyblue', 'lightsteelblue',
+    'plum', 'orchid', 'hotpink'
 ]
 
 ax.pie(
