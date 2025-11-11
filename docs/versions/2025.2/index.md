@@ -42,7 +42,7 @@
 | MARTIM ROZANCZYK PONZIO |  |
 | MATEUS CARNEVALE COLMEAL | [colmeal.github.io](https://colmeal.github.io/machine-learning/){:target="_blank"} |
 | PABLO DIMITROF DE SIQUEIRA | [pablodimitrof.github.io](https://pablodimitrof.github.io/machine-learning/){:target="_blank"} |
-| PEDRO ALMEIDA MARICATE SANTOS |  |
+| PEDRO ALMEIDA MARICATE SANTOS | [pedromaricate.github.io](https://pedromaricate.github.io/machine-learning/){:target="_blank"} |
 | RAFAEL ARKCHIMOR LUCENA | [rafaarklu.github.io](https://rafaarklu.github.io/Machine-Learning/){:target="_blank"} |
 | THEO CAMURI GASPAR | [tigasparzin.github.io](https://tigasparzin.github.io/Machine-Learning/){:target="_blank"} |
 | YCARO CAMPOVILLA MENDES DE BARROS |  |
