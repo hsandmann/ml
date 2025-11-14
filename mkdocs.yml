@@ -144,20 +144,20 @@ nav:
       - 1.2. KDD: ./classes/concepts/kdd/index.md
       - 1.3. Data: ./classes/concepts/data/index.md
       - 1.4. Exercise: ./classes/concepts/exercise/index.md
-    - 2. Decision Tree: ./classes/decision_tree/index.md
-    - 3. Preprocessing: ./classes/preprocessing/index.md
-    - 4. KNN: ./classes/knn/index.md
-    - 5. K-Means: ./classes/kmeans/index.md
-    - 6. Metrics and Evaluation:
-      - 6.1. Classification: ./classes/metrics/classification/index.md
-      - 6.2. Regression: ./classes/metrics/regression/index.md
-      - 6.3. Exercise: ./classes/metrics/exercise/index.md
+    - 2. Preprocessing: ./classes/preprocessing/index.md
+    - 3. KNN: ./classes/knn/index.md
+    - 4. K-Means: ./classes/kmeans/index.md
+    - 5. Metrics and Evaluation:
+      - 5.1. Classification: ./classes/metrics/classification/index.md
+      - 5.2. Regression: ./classes/metrics/regression/index.md
+      - 5.3. Exercise: ./classes/metrics/exercise/index.md
+    - 6. Decision Tree: ./classes/decision_tree/index.md
     - 7. Random Forest: ./classes/random_forest/index.md
-    - 8. Naïve Bayes: ./classes/naive_bayes/index.md
-    - 9. Gradient boosting: ./classes/gradient_boosting/index.md
-    - 10. SVM: ./classes/svm/index.md
-    - 11. Page Rank: ./classes/page-rank/index.md
-    - 12. PySpark: ./classes/pyspark/index.md
+    - 8. Gradient boosting: ./classes/gradient_boosting/index.md
+    - 9. Naïve Bayes: ./classes/naive_bayes/index.md
+    - 10. Page Rank: ./classes/page-rank/index.md
+    - 11. PySpark: ./classes/pyspark/index.md
+    - 12. SVM: ./classes/svm/index.md
     - 13. Neural Networks: https://insper.github.io/ann-dl/classes/ann/
 
   - Projects:
