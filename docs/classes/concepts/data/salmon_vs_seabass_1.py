@@ -32,3 +32,5 @@ for i in range(len(ax)):
 buffer = StringIO()
 plt.savefig(buffer, format="svg", transparent=True)
 print(buffer.getvalue())
+
+plt.close()

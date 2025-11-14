@@ -93,3 +93,5 @@ plt.subplots_adjust(wspace=0, hspace=0)
 buffer = StringIO()
 plt.savefig(buffer, format="svg", transparent=True)
 print(buffer.getvalue())
+
+plt.close()
