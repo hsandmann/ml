@@ -21,6 +21,9 @@ The kernel trick allows SVM to operate in a high-dimensional space without expli
 === "2D to 3D"
 
     ![](./svm_kernel_2d_to_3d_example.png)
+    /// caption
+    Mapping from 2D to 3D space. The kernel function allows SVM to find a linear separator in the higher-dimensional space, which corresponds to a non-linear boundary in the original space. Souce: [^2].
+    ///
 
 Common kernel functions include:
 
