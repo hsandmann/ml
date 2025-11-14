@@ -2,9 +2,9 @@ Support Vector Machine (SVM) is a supervised machine learning algorithm primaril
 
 SVM can be "hard-margin" (no misclassifications allowed, assuming perfect separability) or "soft-margin" (allows some misclassifications via a regularization parameter C to handle noise or overlaps).
 
-For linearly separable data, the hyperplane is a straight line (in 2D) or a plane (in higher dimensions). However, ==real-world data is often not linearly separable. This is where the "kernel trick" comes in—it implicitly maps the data into a higher-dimensional space where it becomes linearly separable==, without explicitly computing the transformation. Common kernels include linear, polynomial, radial basis function (RBF), and sigmoid.
-
 ![](./svm_details.png){width=100%}
+
+For linearly separable data, the hyperplane is a straight line (in 2D) or a plane (in higher dimensions). However, ==real-world data is often not linearly separable. This is where the "kernel trick" comes in—it implicitly maps the data into a higher-dimensional space where it becomes linearly separable==, without explicitly computing the transformation. Common kernels include linear, polynomial, radial basis function (RBF), and sigmoid.
 
 ## Kernel Trick
 
