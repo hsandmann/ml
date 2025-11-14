@@ -1,12 +1,10 @@
 Support Vector Machine (SVM) is a supervised machine learning algorithm primarily used for classification tasks, though it can also handle regression. At its core, SVM aims to find the optimal hyperplane that separates data points of different classes with the maximum possible margin. The margin is the distance between the hyperplane and the nearest data points from each class, known as support vectors. By maximizing this margin, SVM promotes better generalization to unseen data.
 
-
+SVM can be "hard-margin" (no misclassifications allowed, assuming perfect separability) or "soft-margin" (allows some misclassifications via a regularization parameter C to handle noise or overlaps).
 
 For linearly separable data, the hyperplane is a straight line (in 2D) or a plane (in higher dimensions). However, ==real-world data is often not linearly separable. This is where the "kernel trick" comes in—it implicitly maps the data into a higher-dimensional space where it becomes linearly separable==, without explicitly computing the transformation. Common kernels include linear, polynomial, radial basis function (RBF), and sigmoid.
 
 ![](./svm_details.png){width=100%}
-
-SVM can be "hard-margin" (no misclassifications allowed, assuming perfect separability) or "soft-margin" (allows some misclassifications via a regularization parameter C to handle noise or overlaps).
 
 ## Kernel Trick
 
