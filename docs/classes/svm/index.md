@@ -79,11 +79,14 @@ SVM is versatile and used in:
     - **Hard Margin**: No misclassifications allowed; assumes perfect separability.
     - **Soft Margin**: Allows some misclassifications via slack variables (ξ_i) to handle noise/overlap.
 - **Kernel Trick**: A method to compute inner products in a high-dimensional space without explicitly mapping data points, enabling non-linear decision boundaries.
-- **Decision Function**: The function used to classify new data points: \( f(x) = \sign(\sum \alpha_i y_i K(x_i, x) + b) \)
+- **Decision Function**: The function used to classify new data points:
+
+    \[ f(x) = \sum \alpha_i y_i K(x_i, x) + b) > 0 \]
+    
 - **Kernel Function**: A function that computes the similarity between data points in a transformed feature space.
 - **Lagrange Multipliers (α)**: Variables used in the dual formulation to solve the optimization problem.
 - **Regularization Parameter (C)**: Controls the trade-off between maximizing the margin and minimizing classification errors in soft-margin SVM.
-- **Bias (b)**: The offset term in the decision function \( f(x) = \sign(w \cdot x + b) \).
+- **Bias (b)**: The offset term in the decision function \( f(x) = w \cdot x + b > 0 \).
 - **Dual Problem**: A reformulation of the primal optimization problem, which is easier to solve, especially with kernels.
 
 
