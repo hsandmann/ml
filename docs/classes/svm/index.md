@@ -30,7 +30,7 @@ Common kernel functions include:
 | Linear | \( K(x,y) = x \cdot y \) |
 | Sigmoid | \( K(x,y) = \tanh(ax \cdot y + b) \) |
 | Polynomial | \( K(x,y) = (1 + x \cdot y)^d \) |
-| Radial Basis Function (RBF) | \( K(x,y) = e^{(-\gamma \|x-y\|^2)} \) |
+| Radial Basis Function (RBF) | \( K(x,y) = e^{-\gamma \|x-y\|^2} \) |
 
 === "Result"
     ```python exec="1" html="1"
