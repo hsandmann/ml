@@ -42,7 +42,7 @@ Common kernel functions include:
     --8<-- "docs/classes/svm/svm_breast_cancer.py"
     ```
 
-### Applications
+## Applications
 
 SVM is versatile and used in:
 
@@ -52,7 +52,7 @@ SVM is versatile and used in:
 - Finance (e.g., stock trend prediction).
 - Face detection in computer vision.
 
-### Pros and Cons
+## Pros and Cons
 
 <div class="grid cards" markdown>
 
@@ -78,7 +78,7 @@ SVM is versatile and used in:
 
 ---
 
-### Terminology
+## Terminology
 
 - **Hyperplane**: The decision boundary that separates classes. In 2D, it's a line; in 3D, a plane.
 - **Support Vectors**: The data points closest to the hyperplane that influence its position and orientation. Only these points matter for the model.
