@@ -12,9 +12,15 @@ SVM can be "hard-margin" (no misclassifications allowed, assuming perfect separa
 
 The kernel trick allows SVM to operate in a high-dimensional space without explicitly computing the coordinates of the data in that space. Instead, it computes the inner products between all pairs of data points in the original space using a kernel function. This enables SVM to find non-linear decision boundaries efficiently.
 
-```python exec="1" html="1"
---8<-- "docs/classes/svm/svm_kernel_transformation.py"
-```
+=== "1D to 2D"
+
+    ```python exec="1" html="1"
+    --8<-- "docs/classes/svm/svm_kernel_transformation.py"
+    ```
+
+=== "2D to 3D"
+
+    ![](./svm_kernel_2d_to_3d_example.png)
 
 Common kernel functions include:
 
@@ -82,7 +88,7 @@ SVM is versatile and used in:
 - **Decision Function**: The function used to classify new data points:
 
     \[ f(x) = \sum \alpha_i y_i K(x_i, x) + b) > 0 \]
-    
+
 - **Kernel Function**: A function that computes the similarity between data points in a transformed feature space.
 - **Lagrange Multipliers (α)**: Variables used in the dual formulation to solve the optimization problem.
 - **Regularization Parameter (C)**: Controls the trade-off between maximizing the margin and minimizing classification errors in soft-margin SVM.
@@ -108,14 +114,13 @@ SVM is versatile and used in:
 
 
 [^1]: [The Nature of Statistical Learning Theory, Vapnik, 1999](1999 - The Nature of Statistical Learning Theory - Vapnik.pdf){:target="_blank"}.
-[^2]: [Support Vector Machines: A Guide for Beginners - QuantStart](https://www.quantstart.com/articles/Support-Vector-Machines-A-Guide-for-Beginners/){:target="_blank"}
-[^3]: [An Idiot's Guide to Support Vector Machines (SVMs) - MIT](https://web.mit.edu/6.034/wwwbob/svm.pdf){:target="_blank"}
-[^4]: [Understanding Support Vector Machine (SVM) Algorithm from Examples - Medium](https://medium.com/analytics-vidhya/understanding-support-vector-machine-svm-algorithm-from-examples-4b8e2f3f0b1e){:target="_blank"}
-[^5]: [Support Vector Machine (SVM) Algorithm - GeeksforGeeks](https://www.geeksforgeeks.org/machine-learning/support-vector-machine-algorithm/){:target="_blank"}
-[^6]: [Scikit-learn SVM Tutorial with Python - DataCamp](https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python){:target="_blank"}
-[^7]: [Tutorial on Support Vector Machine (SVM)](https://www.tutorialspoint.com/machine_learning/machine_learning_support_vector_machine.htm){:target="_blank"}
-[^8]: [Implementing SVM from Scratch in Python - GeeksforGeeks](https://www.geeksforgeeks.org/implementing-svm-from-scratch-in-python/){:target="_blank"}
-[^9]: [Multi-class classification using Support Vector Machines (SVM)](https://www.geeksforgeeks.org/machine-learning/multi-class-classification-using-support-vector-machines-svm/){:target="_blank"}
+[^2]: [Support Vector Machines: A Simple Explanation](https://www.kdnuggets.com/2016/07/support-vector-machines-simple-explanation.html){:target="_blank"}
+[^3]: [Support Vector Machines: A Guide for Beginners - QuantStart](https://www.quantstart.com/articles/Support-Vector-Machines-A-Guide-for-Beginners/){:target="_blank"}
+[^4]: [Support Vector Machine (SVM) Algorithm - GeeksforGeeks](https://www.geeksforgeeks.org/machine-learning/support-vector-machine-algorithm/){:target="_blank"}
+[^5]: [Scikit-learn SVM Tutorial with Python - DataCamp](https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python){:target="_blank"}
+[^6]: [Tutorial on Support Vector Machine (SVM)](https://www.tutorialspoint.com/machine_learning/machine_learning_support_vector_machine.htm){:target="_blank"}
+[^7]: [Implementing SVM from Scratch in Python - GeeksforGeeks](https://www.geeksforgeeks.org/implementing-svm-from-scratch-in-python/){:target="_blank"}
+[^8]: [Multi-class classification using Support Vector Machines (SVM)](https://www.geeksforgeeks.org/machine-learning/multi-class-classification-using-support-vector-machines-svm/){:target="_blank"}
 
 ---
 
