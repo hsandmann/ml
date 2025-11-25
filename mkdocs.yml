@@ -100,7 +100,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - tables
-
+  - toc:
+      title: ' '
 
 plugins:
   - glightbox
