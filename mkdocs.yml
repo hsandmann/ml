@@ -154,12 +154,12 @@ nav:
       - 5.3. Exercise: ./classes/metrics/exercise/index.md
     - 6. Decision Tree: ./classes/decision_tree/index.md
     - 7. Random Forest: ./classes/random_forest/index.md
-    - 8. Gradient boosting: ./classes/gradient_boosting/index.md
-    - 9. Naïve Bayes: ./classes/naive_bayes/index.md
-    - 10. Page Rank: ./classes/page-rank/index.md
-    - 11. PySpark: ./classes/pyspark/index.md
-    - 12. SVM: ./classes/svm/index.md
-    - 13. Neural Networks: https://insper.github.io/ann-dl/classes/ann/
+    # - 8. Gradient boosting: ./classes/gradient_boosting/index.md
+    - 8. Naïve Bayes: ./classes/naive_bayes/index.md
+    - 9. Page Rank: ./classes/page-rank/index.md
+    - 10. PySpark: ./classes/pyspark/index.md
+    - 11. SVM: ./classes/svm/index.md
+    - 12. Neural Networks: https://insper.github.io/ann-dl/classes/ann/
 
   - Projects:
     - Project I: ./versions/2025.2/projects/1/index.md
