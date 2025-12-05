@@ -38,7 +38,7 @@
 | MARCELA PAVÃO DE MARTINI | [marcelademartini.github.io](https://marcelademartini.github.io/Machine-Learning-1/){:target="_blank"} |
 | MÁRCIO ALEXANDRONI DA SILVA FILHO |  |
 | MARIA GABRIELA VIEIRA DOS SANTOS | [mgabriel4.github.io](https://mgabriel4.github.io/machine-learning/){:target="_blank"} |
-| MARIA LUIZA OLIVEIRA DE SOUZA |  |
+| MARIA LUIZA OLIVEIRA DE SOUZA | [marialuizazz.github.io](https://marialuizazz.github.io/MACHINE-LEARNING-PESSOAL/){:target="_blank"} |
 | MARTIM ROZANCZYK PONZIO |  |
 | MATEUS CARNEVALE COLMEAL | [colmeal.github.io](https://colmeal.github.io/machine-learning/){:target="_blank"} |
 | PABLO DIMITROF DE SIQUEIRA | [pablodimitrof.github.io](https://pablodimitrof.github.io/machine-learning/){:target="_blank"} |
