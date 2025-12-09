@@ -4,7 +4,7 @@
 
 <div class="grid cards" markdown>
 
--   __[![](https://upload.wikimedia.org/wikipedia/commons/6/66/Logo_ESPM.png)](./versions/2025.2/)__
+-   __[![](./versions/2025.2/2025.2.jpg){ .rounded-corners .width-full}](./versions/2025.2/)__
 
     ---
 
