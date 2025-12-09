@@ -3,7 +3,7 @@ from io import StringIO
 
 fig, ax = plt.subplots(1, 1)
 
-fig.set_size_inches(8, 8)
+fig.set_size_inches(10, 10)
 
 size = 0.3
 

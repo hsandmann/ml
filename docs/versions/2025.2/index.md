@@ -38,7 +38,7 @@
 | LUIZ FERNANDO PAZDZIORA COSTA |  |
 | LUZIVANIA JESUS BONFIM | [bonfim1.github.io](https://bonfim1.github.io/Machine-Learning/){:target="_blank"} |
 | MARCELA PAVÃO DE MARTINI | [marcelademartini.github.io](https://marcelademartini.github.io/Machine-Learning-1/){:target="_blank"} |
-| MÁRCIO ALEXANDRONI DA SILVA FILHO |  |
+| MÁRCIO ALEXANDRONI DA SILVA FILHO | [marcio-alexandroni.github.io](https://marcio-alexandroni.github.io/Machine-Learning-25.2/){:target="_blank"} |
 | MARIA GABRIELA VIEIRA DOS SANTOS | [mgabriel4.github.io](https://mgabriel4.github.io/machine-learning/){:target="_blank"} |
 | MARIA LUIZA OLIVEIRA DE SOUZA | [marialuizazz.github.io](https://marialuizazz.github.io/MACHINE-LEARNING-PESSOAL/){:target="_blank"} |
 | MARTIM ROZANCZYK PONZIO |  |
