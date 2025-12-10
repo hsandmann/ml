@@ -1,0 +1,75 @@
+name: spark-cluster
+
+services:
+
+  spark-master:
+    build:
+      dockerfile_inline: |
+        FROM spark:latest
+        USER root
+        RUN apt update && apt install -y bash curl wget && \
+            python3 -m pip install --upgrade pip && \
+            pip3 install numpy pandas matplotlib seaborn scikit-learn requests && \
+            rm -rf /var/lib/apt/lists/*
+        USER spark
+        ENV SPARK_HOME=/opt/spark
+        WORKDIR /opt/spark
+    container_name: spark-master
+    hostname: spark-master
+    environment:
+      - SPARK_MODE=master
+      - SPARK_NO_DAEMONIZE=true
+      - PATH=/opt/spark/bin:$PATH
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+    ports:
+      - 8080:8080  # Spark Master Web UI
+      - "7077:7077"  # Spark Master port
+    volumes:
+      - ./data:/opt/spark/data
+      - ./apps:/opt/spark/apps
+      - ./scripts:/opt/spark/scripts
+      - ./config:/opt/spark/conf
+      - ./logs:/opt/spark/logs
+    networks:
+      - spark-network
+
+  spark-worker:
+    image: spark:latest
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=1g
+      - SPARK_NO_DAEMONIZE=true
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    volumes:
+      - ./config:/opt/spark/conf
+      - ./logs:/opt/spark/logs
+    deploy:
+      replicas: 3
+    depends_on:
+      - spark-master
+    networks:
+      - spark-network
+
+  spark-history:
+    image: spark:latest
+    container_name: spark-history
+    hostname: spark-history
+    environment:
+      - SPARK_NO_DAEMONIZE=true
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.history.HistoryServer
+    ports:
+      - "18080:18080"  # Spark History Server Web UI
+    volumes:
+      - ./config:/opt/spark/conf
+      - ./logs:/opt/spark/logs
+    depends_on:
+      - spark-master
+    networks:
+      - spark-network
+
+networks:
+  spark-network:
+    driver: bridge
+

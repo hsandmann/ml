@@ -1,0 +1,904 @@
+<!DOCTYPE html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Sandmann, H."><link href=https://hsandmann.github.io/ml/classes/metrics/classification/ rel=canonical><link href=../../kmeans/ rel=prev><link href=../regression/ rel=next><link rel=icon href=../../../assets/images/favicon.png><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.7.0"><title>5.1. Classification - Machine Learning</title><link rel=stylesheet href=../../../assets/stylesheets/main.618322db.min.css><link rel=stylesheet href=../../../assets/stylesheets/palette.ab4e12ef.min.css><style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M64%20480c-35.3%200-64-28.7-64-64V96c0-35.3%2028.7-64%2064-64h320c35.3%200%2064%2028.7%2064%2064v213.5c0%2017-6.7%2033.3-18.7%2045.3L322.7%20461.3c-12%2012-28.3%2018.7-45.3%2018.7zm325.5-176H296c-13.3%200-24%2010.7-24%2024v93.5z%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M384%20512H96c-53%200-96-43-96-96V96C0%2043%2043%200%2096%200h304c26.5%200%2048%2021.5%2048%2048v288c0%2020.9-13.4%2038.7-32%2045.3V448c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032zM96%20384c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032h256v-64zm32-232c0%2013.3%2010.7%2024%2024%2024h176c13.3%200%2024-10.7%2024-24s-10.7-24-24-24H152c-13.3%200-24%2010.7-24%2024m24%2072c-13.3%200-24%2010.7-24%2024s10.7%2024%2024%2024h176c13.3%200%2024-10.7%2024-24s-10.7-24-24-24z%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512a256%20256%200%201%200%200-512%20256%20256%200%201%200%200%20512m-32-352a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200m-8%2064h48c13.3%200%2024%2010.7%2024%2024v88h8c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-80c-13.3%200-24-10.7-24-24s10.7-24%2024-24h24v-64h-24c-13.3%200-24-10.7-24-24s10.7-24%2024-24%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M461.2%2018.9C472.7%2024%20480%2035.4%20480%2048v416c0%2012.6-7.3%2024-18.8%2029.1s-24.8%203.2-34.3-5.1l-46.6-40.7c-43.6-38.1-98.7-60.3-156.4-63V480c0%2017.7-14.3%2032-32%2032h-32c-17.7%200-32-14.3-32-32v-96C57.3%20384%200%20326.7%200%20256s57.3-128%20128-128h84.5c61.8-.2%20121.4-22.7%20167.9-63.3L427%2024c9.4-8.3%2022.9-10.2%2034.3-5.1zM224%20320v.2c70.3%202.7%20137.8%2028.5%20192%2073.4V118.3c-54.2%2044.9-121.7%2070.7-192%2073.4z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M434.8%2070.1c14.3%2010.4%2017.5%2030.4%207.1%2044.7l-256%20352c-5.5%207.6-14%2012.3-23.4%2013.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200l101.5%20101.5%20234-321.7c10.4-14.3%2030.4-17.5%2044.7-7.1z%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512a256%20256%200%201%200%200-512%20256%20256%200%201%200%200%20512m0-336c-17.7%200-32%2014.3-32%2032%200%2013.3-10.7%2024-24%2024s-24-10.7-24-24c0-44.2%2035.8-80%2080-80s80%2035.8%2080%2080c0%2047.2-36%2067.2-56%2074.5v3.8c0%2013.3-10.7%2024-24%2024s-24-10.7-24-24v-8.1c0-20.5%2014.8-35.2%2030.1-40.2%206.4-2.1%2013.2-5.5%2018.2-10.3%204.3-4.2%207.7-10%207.7-19.6%200-17.7-14.3-32-32-32zm-32%20192a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200c14.7%200%2028.2%208.1%2035.2%2021l216%20400c6.7%2012.4%206.4%2027.4-.8%2039.5S486.1%20480%20472%20480H40c-14.1%200-27.2-7.4-34.4-19.5s-7.5-27.1-.8-39.5l216-400c7-12.9%2020.5-21%2035.2-21m0%20352a32%2032%200%201%200%200%2064%2032%2032%200%201%200%200-64m0-192c-18.2%200-32.7%2015.5-31.4%2033.7l7.4%20104c.9%2012.5%2011.4%2022.3%2023.9%2022.3%2012.6%200%2023-9.7%2023.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M480-16c6.9%200%2013%204.4%2015.2%2010.9l13.5%2040.4%2040.4%2013.5C555.6%2051%20560%2057.1%20560%2064s-4.4%2013-10.9%2015.2l-40.4%2013.5-13.5%2040.4c-2.2%206.5-8.3%2010.9-15.2%2010.9s-13-4.4-15.2-10.9l-13.5-40.4-40.4-13.5C404.4%2077%20400%2070.9%20400%2064s4.4-13%2010.9-15.2l40.4-13.5%2013.5-40.4C467-11.6%20473.1-16%20480-16M321.4%2097.4c12.5-12.5%2032.8-12.5%2045.3%200l80%2080c12.5%2012.5%2012.5%2032.8%200%2045.3l-10.9%2010.9c7.9%2022%2012.2%2045.7%2012.2%2070.5%200%20114.9-93.1%20208-208%20208S32%20418.9%2032%20304%20125.1%2096%20240%2096c24.7%200%2048.5%204.3%2070.5%2012.3zM144%20304c0-53%2043-96%2096-96%2013.3%200%2024-10.7%2024-24s-10.7-24-24-24c-79.5%200-144%2064.5-144%20144%200%2013.3%2010.7%2024%2024%2024s24-10.7%2024-24%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M416%20427.4c58.5-44%2096-111.6%2096-187.4C512%20107.5%20397.4%200%20256%200S0%20107.5%200%20240c0%2075.8%2037.5%20143.4%2096%20187.4V464c0%2026.5%2021.5%2048%2048%2048h32v-40c0-13.3%2010.7-24%2024-24s24%2010.7%2024%2024v40h64v-40c0-13.3%2010.7-24%2024-24s24%2010.7%2024%2024v40h32c26.5%200%2048-21.5%2048-48zM96%20256a64%2064%200%201%201%20128%200%2064%2064%200%201%201-128%200m256-64a64%2064%200%201%201%200%20128%2064%2064%200%201%201%200-128%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M352%200c0-17.7-14.3-32-32-32s-32%2014.3-32%2032v64h-96c-53%200-96%2043-96%2096v224c0%2053%2043%2096%2096%2096h256c53%200%2096-43%2096-96V160c0-53-43-96-96-96h-96zM160%20368c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24m120%200c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24m120%200c0-13.3%2010.7-24%2024-24h32c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-32c-13.3%200-24-10.7-24-24M224%20176a48%2048%200%201%201%200%2096%2048%2048%200%201%201%200-96m144%2048a48%2048%200%201%201%2096%200%2048%2048%200%201%201-96%200m-304%200c0-17.7-14.3-32-32-32S0%20206.3%200%20224v96c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32zm544-32c-17.7%200-32%2014.3-32%2032v96c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32v-96c0-17.7-14.3-32-32-32%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M288%200H128c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032v151.5L7.5%20426.3C2.6%20435%200%20444.7%200%20454.7%200%20486.4%2025.6%20512%2057.3%20512h333.4c31.6%200%2057.3-25.6%2057.3-57.3%200-10-2.6-19.8-7.5-28.4L320%20215.5V64c17.7%200%2032-14.3%2032-32S337.7%200%20320%200zm-96%20215.5V64h64v151.5c0%2011.1%202.9%2022.1%208.4%2031.8L306%20320H142l41.6-72.7c5.5-9.7%208.4-20.6%208.4-31.8%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M0%20216C0%20149.7%2053.7%2096%20120%2096h8c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032h-8c-30.9%200-56%2025.1-56%2056v8h64c35.3%200%2064%2028.7%2064%2064v64c0%2035.3-28.7%2064-64%2064H64c-35.3%200-64-28.7-64-64zm256%200c0-66.3%2053.7-120%20120-120h8c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032h-8c-30.9%200-56%2025.1-56%2056v8h64c35.3%200%2064%2028.7%2064%2064v64c0%2035.3-28.7%2064-64%2064h-64c-35.3%200-64-28.7-64-64z%22/%3E%3C/svg%3E');}</style><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../../../assets/_markdown_exec_pyodide.css><link rel=stylesheet href=../../../assets/stylesheets/neoteroi-mkdocs.min.css><link rel=stylesheet href=../../../assets/stylesheets/neoteroi-timeline.css><link rel=stylesheet href=../../../assets/stylesheets/extra.css><link rel=stylesheet href=../../../assets/stylesheets/badge.css><link rel=stylesheet href=../../../termynal.css><script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><link href=../../../assets/stylesheets/glightbox.min.css rel=stylesheet><script src=../../../assets/javascripts/glightbox.min.js></script><style id=glightbox-style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#classification-metrics class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class="md-header md-header--shadow" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../../.. title="Machine Learning" class="md-header__button md-logo" aria-label="Machine Learning" data-md-component=logo> <img src=../../../assets/images/logo.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Machine Learning </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> 5.1. Classification </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_0> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg> </label> <input class=md-option data-md-color-media=(prefers-color-scheme) data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to light mode" type=radio name=__palette id=__palette_1> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_2 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_2> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_3 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme=slate data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to system preference" type=radio name=__palette id=__palette_3> <label class="md-header__button md-icon" title="Switch to system preference" for=__palette_0 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg> </label> </form> <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap tabindex=0 data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/hsandmann/ml title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg> </div> <div class=md-source__repository> hsandmann/ml </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../../.. title="Machine Learning" class="md-nav__button md-logo" aria-label="Machine Learning" data-md-component=logo> <img src=../../../assets/images/logo.png alt=logo> </a> Machine Learning </label> <div class=md-nav__source> <a href=https://github.com/hsandmann/ml title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg> </div> <div class=md-source__repository> hsandmann/ml </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../versions/2025.2/ class=md-nav__link> <span class=md-ellipsis> 2025.2 </span> </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2 checked> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> Classes </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=true> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> Classes </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_1> <label class=md-nav__link for=__nav_2_1 id=__nav_2_1_label tabindex=0> <span class=md-ellipsis> 1. Concepts </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_2_1_label aria-expanded=false> <label class=md-nav__title for=__nav_2_1> <span class="md-nav__icon md-icon"></span> 1. Concepts </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../concepts/ml/ class=md-nav__link> <span class=md-ellipsis> 1.1. Machine Learning </span> </a> </li> <li class=md-nav__item> <a href=../../concepts/kdd/ class=md-nav__link> <span class=md-ellipsis> 1.2. KDD </span> </a> </li> <li class=md-nav__item> <a href=../../concepts/data/ class=md-nav__link> <span class=md-ellipsis> 1.3. Data </span> </a> </li> <li class=md-nav__item> <a href=../../concepts/exercise/ class=md-nav__link> <span class=md-ellipsis> 1.4. Exercise </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../../preprocessing/ class=md-nav__link> <span class=md-ellipsis> 2. Preprocessing </span> </a> </li> <li class=md-nav__item> <a href=../../knn/ class=md-nav__link> <span class=md-ellipsis> 3. KNN </span> </a> </li> <li class=md-nav__item> <a href=../../kmeans/ class=md-nav__link> <span class=md-ellipsis> 4. K-Means </span> </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_5 checked> <label class=md-nav__link for=__nav_2_5 id=__nav_2_5_label tabindex=0> <span class=md-ellipsis> 5. Metrics and Evaluation </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_2_5_label aria-expanded=true> <label class=md-nav__title for=__nav_2_5> <span class="md-nav__icon md-icon"></span> 5. Metrics and Evaluation </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> <span class=md-ellipsis> 5.1. Classification </span> <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> <span class=md-ellipsis> 5.1. Classification </span> </a> <nav class="md-nav md-nav--secondary" aria-label=" "> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#classification-metrics class=md-nav__link> <span class=md-ellipsis> Classification Metrics </span> </a> </li> <li class=md-nav__item> <a href=#loss-functions class=md-nav__link> <span class=md-ellipsis> Loss Functions </span> </a> </li> <li class=md-nav__item> <a href=#additional class=md-nav__link> <span class=md-ellipsis> Additional </span> </a> <nav class=md-nav aria-label=Additional> <ul class=md-nav__list> <li class=md-nav__item> <a href=#explanation-of-roc-curve-auc-roc class=md-nav__link> <span class=md-ellipsis> Explanation of ROC Curve (AUC-ROC) </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../regression/ class=md-nav__link> <span class=md-ellipsis> 5.2. Regression </span> </a> </li> <li class=md-nav__item> <a href=../exercise/ class=md-nav__link> <span class=md-ellipsis> 5.3. Exercise </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../../decision_tree/ class=md-nav__link> <span class=md-ellipsis> 6. Decision Tree </span> </a> </li> <li class=md-nav__item> <a href=../../random_forest/ class=md-nav__link> <span class=md-ellipsis> 7. Random Forest </span> </a> </li> <li class=md-nav__item> <a href=../../naive_bayes/ class=md-nav__link> <span class=md-ellipsis> 8. Naïve Bayes </span> </a> </li> <li class=md-nav__item> <a href=../../page-rank/ class=md-nav__link> <span class=md-ellipsis> 9. Page Rank </span> </a> </li> <li class=md-nav__item> <a href=../../pyspark/ class=md-nav__link> <span class=md-ellipsis> 10. PySpark </span> </a> </li> <li class=md-nav__item> <a href=../../svm/ class=md-nav__link> <span class=md-ellipsis> 11. SVM </span> </a> </li> <li class=md-nav__item> <a href=https://insper.github.io/ann-dl/classes/ann/ class=md-nav__link> <span class=md-ellipsis> 12. Neural Networks </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_3> <label class=md-nav__link for=__nav_3 id=__nav_3_label tabindex=0> <span class=md-ellipsis> Projects </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_3_label aria-expanded=false> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> Projects </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../versions/2025.2/projects/1/ class=md-nav__link> <span class=md-ellipsis> Project I </span> </a> </li> <li class=md-nav__item> <a href=../../../versions/2025.2/projects/2/ class=md-nav__link> <span class=md-ellipsis> Project II </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4> <label class=md-nav__link for=__nav_4 id=__nav_4_label tabindex=0> <span class=md-ellipsis> Versions </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_4_label aria-expanded=false> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> Versions </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../versions/2025.2/ class=md-nav__link> <span class=md-ellipsis> 2025.2 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label=" "> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#classification-metrics class=md-nav__link> <span class=md-ellipsis> Classification Metrics </span> </a> </li> <li class=md-nav__item> <a href=#loss-functions class=md-nav__link> <span class=md-ellipsis> Loss Functions </span> </a> </li> <li class=md-nav__item> <a href=#additional class=md-nav__link> <span class=md-ellipsis> Additional </span> </a> <nav class=md-nav aria-label=Additional> <ul class=md-nav__list> <li class=md-nav__item> <a href=#explanation-of-roc-curve-auc-roc class=md-nav__link> <span class=md-ellipsis> Explanation of ROC Curve (AUC-ROC) </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <nav class=md-path aria-label=Navigation> <ol class=md-path__list> <li class=md-path__item> <a href=../../concepts/ml/ class=md-path__link> <span class=md-ellipsis> Classes </span> </a> </li> <li class=md-path__item> <a href=./ class=md-path__link> <span class=md-ellipsis> 5. Metrics and Evaluation </span> </a> </li> </ol> </nav> <article class="md-content__inner md-typeset"> <h1>5.1. Classification</h1> <style>
+table.confusion-matrix {
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+table.confusion-matrix td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+table.confusion-matrix tr:nth-child(even){background-color: #f2f2f2;}
+table.confusion-matrix tr:hover {background-color: #ddd;}
+table.confusion-matrix th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+</style> <p>Below is a detailed list of metrics commonly used to evaluate the accuracy and performance of classification and regression models in machine learning, including neural networks. The metrics are categorized based on their applicability to classification or regression tasks, with explanations of their purpose and mathematical formulations where relevant.</p> <h2 id=classification-metrics>Classification Metrics</h2> <p>Classification tasks involve predicting discrete class labels. The following metrics assess the accuracy and effectiveness of such models:</p> <table> <thead> <tr> <th>Metric</th> <th>Purpose</th> <th>Use Case</th> </tr> </thead> <tbody> <tr> <td><strong>Accuracy</strong> <br> <span class=arithmatex>\( \displaystyle \frac{TP + TN}{TP + TN + FP + FN} \)</span></td> <td>Measures the proportion of correct predictions across all classes</td> <td>Suitable for balanced datasets but misleading for imbalanced ones</td> </tr> <tr> <td><strong>Precision</strong> <br> <span class=arithmatex>\( \displaystyle \frac{TP}{TP + FP} \)</span></td> <td>Evaluates the proportion of positive predictions that are actually correct</td> <td>Important when false positives are costly (e.g., spam detection)</td> </tr> <tr> <td><strong>Recall (Sensitivity)</strong> <br> <span class=arithmatex>\( \displaystyle \frac{TP}{TP + FN} \)</span></td> <td>Assesses the proportion of actual positives correctly identified</td> <td>Critical when false negatives are costly (e.g., disease detection)</td> </tr> <tr> <td><strong>F1-Score</strong> <br> <span class=arithmatex>\( \displaystyle 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \)</span></td> <td>Harmonic mean of precision and recall, balancing both metrics</td> <td>Useful for imbalanced datasets where both precision and recall matter</td> </tr> <tr> <td><strong>AUC-ROC</strong> <br> Area under the curve plotting True Positive Rate (Recall) vs. False Positive Rate <span class=arithmatex>\( \displaystyle \left( \frac{FP}{FP + TN} \right) \)</span></td> <td>Measures the model’s ability to distinguish between classes across all thresholds</td> <td>Effective for binary classification and assessing model robustness</td> </tr> <tr> <td><strong>AUC-PR</strong> <br> Area under the curve plotting Precision vs. Recall</td> <td>Focuses on precision and recall trade-off, especially for imbalanced datasets</td> <td>Preferred when positive class is rare (e.g., fraud detection)</td> </tr> <tr> <td><strong>Confusion Matrix</strong><sup id=fnref:1><a class=footnote-ref href=#fn:1>1</a></sup> <br> <a class=glightbox data-type=image data-width=auto data-height=auto href=confusion-matrix.png data-desc-position=bottom><img alt src=confusion-matrix.png></a></td> <td>Provides a tabular summary of prediction outcomes (TP, TN, FP, FN)</td> <td>Offers detailed insights into class-specific performance, especially for multi-class problems</td> </tr> <tr> <td><strong>Hamming Loss</strong> <br> <span class=arithmatex>\( \displaystyle \frac{1}{N} \sum_{i=1}^N \frac{1}{L} \sum_{j=1}^L \mathbf{1}(y_{ij} \neq \hat{y}_{ij}) \)</span></td> <td>Calculates the fraction of incorrect labels to the total number of labels</td> <td>Suitable for multi-label classification tasks</td> </tr> <tr> <td><strong>Balanced Accuracy</strong> <br> <span class=arithmatex>\( \displaystyle \frac{1}{C} \sum_{i=1}^C \frac{TP_i}{TP_i + FN_i} \)</span></td> <td>Average of recall obtained on each class, useful for imbalanced datasets</td> <td>Effective for multi-class problems with class imbalance</td> </tr> </tbody> </table> <!-- | Log Loss | Penalizes incorrect predictions based on predicted probabilities | \( \displaystyle -\frac{1}{N} \sum_{i=1}^N [y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)] \) | Common in probabilistic classifiers like neural networks with softmax outputs | --> <h2 id=loss-functions>Loss Functions</h2> <p>Loss functions commonly used in classification tasks:</p> <table> <thead> <tr> <th>Metric</th> <th>Purpose</th> <th>Use Case</th> </tr> </thead> <tbody> <tr> <td><strong>Cross-Entropy Loss</strong> <br> <span class=arithmatex>\( \displaystyle -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] \)</span></td> <td>Measures the performance of a classification model whose output is a probability value between 0 and 1. It increases as the predicted probability diverges from the actual label.</td> <td>Commonly used in classification tasks with probabilistic outputs.</td> </tr> <tr> <td><strong>Binary Cross-Entropy</strong> <br> <span class=arithmatex>\( \displaystyle -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] \)</span></td> <td>Used for binary classification tasks, measuring the difference between two probability distributions.</td> <td>Commonly used in binary classification problems.</td> </tr> <tr> <td><strong>Categorical Cross-Entropy</strong> <br> <span class=arithmatex>\( \displaystyle -\sum_{i=1}^{N} \sum_{c=1}^{C} y_{i,c} \log(\hat{y}_{i,c}) \)</span></td> <td>Used when there are two or more label classes. It is a generalization of binary cross-entropy to multi-class problems.</td> <td>Suitable for multi-class classification tasks with one-hot encoded labels.</td> </tr> <tr> <td><strong>Sparse Categorical Cross-Entropy</strong> <br> <span class=arithmatex>\( \displaystyle -\sum_{i=1}^{N} \log(\hat{y}_{i,y_i}) \)</span></td> <td>Similar to categorical cross-entropy but used when labels are provided as integers rather than one-hot encoded vectors.</td> <td>Useful for multi-class classification with integer labels.</td> </tr> <tr> <td><strong>Balanced Cross-Entropy</strong> <br> <span class=arithmatex>\( \displaystyle -\frac{1}{N} \sum_{i=1}^{N} \left[ w_1 y_i \log(\hat{y}_i) + w_0 (1 - y_i) \log(1 - \hat{y}_i) \right] \)</span></td> <td>Adjusts the standard cross-entropy loss to account for class imbalance by weighting classes inversely proportional to their frequency.</td> <td>Useful in imbalanced classification tasks.</td> </tr> <tr> <td><strong>Kullback-Leibler Divergence</strong> <br> <span class=arithmatex>\( \displaystyle D_{KL}(P \| Q) = \sum_{i} P(i) \log\left(\frac{P(i)}{Q(i)}\right) \)</span></td> <td>Measures how one probability distribution diverges from a second, expected probability distribution. It is often used in variational autoencoders and other probabilistic models.</td> <td>Useful in scenarios involving probabilistic models and distributions.</td> </tr> <tr> <td><strong>Hinge Loss</strong> <br> <span class=arithmatex>\( \displaystyle \sum_{i=1}^{N} \max(0, 1 - y_i \cdot \hat{y}_i) \)</span></td> <td>Used for "maximum-margin" classification, primarily for support vector machines (SVMs). It is designed to ensure that the correct class is not only predicted but also separated from the decision boundary by a margin.</td> <td>Effective for SVMs and tasks requiring a margin between classes.</td> </tr> <tr> <td><strong>Focal Loss</strong> <br> <span class=arithmatex>\( \displaystyle -\frac{1}{N} \sum_{i=1}^{N} \alpha_t (1 - p_t)^\gamma \log(p_t) \)</span></td> <td>A modified version of cross-entropy loss that addresses class imbalance by down-weighting easy examples and focusing training on hard negatives.</td> <td>Beneficial in scenarios with significant class imbalance, such as object detection.</td> </tr> <tr> <td><strong>Multi-Class Log Loss</strong> <br> <span class=arithmatex>\( \displaystyle -\frac{1}{N} \sum_{i=1}^{N} \sum_{c=1}^{C} y_{i,c} \log(\hat{y}_{i,c}) \)</span></td> <td>Extends binary log loss to multi-class classification problems, penalizing incorrect predictions based on predicted probabilities.</td> <td>Suitable for multi-class classification tasks.</td> </tr> <tr> <td><strong>Hamming Loss</strong> <br> <span class=arithmatex>\( \displaystyle \frac{1}{N} \sum_{i=1}^N \frac{1}{L} \sum_{j=1}^L \mathbf{1}(y_{ij} \neq \hat{y}_{ij}) \)</span></td> <td>Measures the fraction of incorrect labels to the total number of labels, useful for multi-label classification tasks.</td> <td>Effective for multi-label classification scenarios.</td> </tr> </tbody> </table> <hr> <h2 id=additional>Additional</h2> <h3 id=explanation-of-roc-curve-auc-roc>Explanation of ROC Curve (AUC-ROC)</h3> <p>An ROC curve plots the True Positive Rate (TPR, or sensitivity/recall) against the False Positive Rate (FPR) at various classification thresholds. It helps visualize the trade-off between sensitivity and specificity for a classifier:</p> <ul> <li> <p><strong>True Positive Rate (TPR)</strong>: The proportion of actual positives correctly identified (TP / (TP + FN)).</p> </li> <li> <p><strong>False Positive Rate (FPR)</strong>: The proportion of actual negatives incorrectly classified as positives (FP / (FP + TN)).</p> </li> <li> <p>The <strong>Area Under the Curve (AUC)</strong> quantifies the overall performance, with AUC = 1 indicating a perfect classifier and AUC = 0.5 indicating a random classifier.</p> </li> </ul> <!--?xml version="1.0" encoding="utf-8" standalone="no"?--> <svg xmlns:xlink=http://www.w3.org/1999/xlink width=576pt height=432pt viewbox="0 0 576 432" xmlns=http://www.w3.org/2000/svg version=1.1> <metadata> <rdf:rdf xmlns:dc=http://purl.org/dc/elements/1.1/ xmlns:cc=http://creativecommons.org/ns# xmlns:rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#> <cc:work> <dc:type rdf:resource=http://purl.org/dc/dcmitype/StillImage></dc:type> <dc:date>2025-12-10T12:33:56.727434</dc:date> <dc:format>image/svg+xml</dc:format> <dc:creator> <cc:agent> <dc:title>Matplotlib v3.10.7, https://matplotlib.org/</dc:title> </cc:agent> </dc:creator> </cc:work> </rdf:rdf> </metadata> <defs> <style type=text/css>*{stroke-linejoin: round; stroke-linecap: butt}</style> </defs> <g id=figure_1> <g id=patch_1> <path d="M 0 432 
+L 576 432 
+L 576 0 
+L 0 0 
+L 0 432 
+z
+" style="fill: none"></path> </g> <g id=axes_1> <g id=patch_2> <path d="M 72 384.48 
+L 518.4 384.48 
+L 518.4 51.84 
+L 72 51.84 
+L 72 384.48 
+z
+" style="fill: none"></path> </g> <g id=matplotlib.axis_1> <g id=xtick_1> <g id=line2d_1> <path d="M 92.290909 384.48 
+L 92.290909 51.84 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_2> <defs> <path id=m4457d458a6 d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"></path> </defs> <g> <use xlink:href=#m4457d458a6 x=92.290909 y=384.48 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_1> <!-- 0.0 --> <g transform="translate(84.339347 399.078438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-30 d="M 2034 4250 
+Q 1547 4250 1301 3770 
+Q 1056 3291 1056 2328 
+Q 1056 1369 1301 889 
+Q 1547 409 2034 409 
+Q 2525 409 2770 889 
+Q 3016 1369 3016 2328 
+Q 3016 3291 2770 3770 
+Q 2525 4250 2034 4250 
+z
+M 2034 4750 
+Q 2819 4750 3233 4129 
+Q 3647 3509 3647 2328 
+Q 3647 1150 3233 529 
+Q 2819 -91 2034 -91 
+Q 1250 -91 836 529 
+Q 422 1150 422 2328 
+Q 422 3509 836 4129 
+Q 1250 4750 2034 4750 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-2e d="M 684 794 
+L 1344 794 
+L 1344 0 
+L 684 0 
+L 684 794 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-30 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=xtick_2> <g id=line2d_3> <path d="M 173.454545 384.48 
+L 173.454545 51.84 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_4> <g> <use xlink:href=#m4457d458a6 x=173.454545 y=384.48 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_2> <!-- 0.2 --> <g transform="translate(165.502983 399.078438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-32 d="M 1228 531 
+L 3431 531 
+L 3431 0 
+L 469 0 
+L 469 531 
+Q 828 903 1448 1529 
+Q 2069 2156 2228 2338 
+Q 2531 2678 2651 2914 
+Q 2772 3150 2772 3378 
+Q 2772 3750 2511 3984 
+Q 2250 4219 1831 4219 
+Q 1534 4219 1204 4116 
+Q 875 4013 500 3803 
+L 500 4441 
+Q 881 4594 1212 4672 
+Q 1544 4750 1819 4750 
+Q 2544 4750 2975 4387 
+Q 3406 4025 3406 3419 
+Q 3406 3131 3298 2873 
+Q 3191 2616 2906 2266 
+Q 2828 2175 2409 1742 
+Q 1991 1309 1228 531 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-32 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=xtick_3> <g id=line2d_5> <path d="M 254.618182 384.48 
+L 254.618182 51.84 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_6> <g> <use xlink:href=#m4457d458a6 x=254.618182 y=384.48 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_3> <!-- 0.4 --> <g transform="translate(246.666619 399.078438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-34 d="M 2419 4116 
+L 825 1625 
+L 2419 1625 
+L 2419 4116 
+z
+M 2253 4666 
+L 3047 4666 
+L 3047 1625 
+L 3713 1625 
+L 3713 1100 
+L 3047 1100 
+L 3047 0 
+L 2419 0 
+L 2419 1100 
+L 313 1100 
+L 313 1709 
+L 2253 4666 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-34 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=xtick_4> <g id=line2d_7> <path d="M 335.781818 384.48 
+L 335.781818 51.84 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_8> <g> <use xlink:href=#m4457d458a6 x=335.781818 y=384.48 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_4> <!-- 0.6 --> <g transform="translate(327.830256 399.078438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-36 d="M 2113 2584 
+Q 1688 2584 1439 2293 
+Q 1191 2003 1191 1497 
+Q 1191 994 1439 701 
+Q 1688 409 2113 409 
+Q 2538 409 2786 701 
+Q 3034 994 3034 1497 
+Q 3034 2003 2786 2293 
+Q 2538 2584 2113 2584 
+z
+M 3366 4563 
+L 3366 3988 
+Q 3128 4100 2886 4159 
+Q 2644 4219 2406 4219 
+Q 1781 4219 1451 3797 
+Q 1122 3375 1075 2522 
+Q 1259 2794 1537 2939 
+Q 1816 3084 2150 3084 
+Q 2853 3084 3261 2657 
+Q 3669 2231 3669 1497 
+Q 3669 778 3244 343 
+Q 2819 -91 2113 -91 
+Q 1303 -91 875 529 
+Q 447 1150 447 2328 
+Q 447 3434 972 4092 
+Q 1497 4750 2381 4750 
+Q 2619 4750 2861 4703 
+Q 3103 4656 3366 4563 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-36 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=xtick_5> <g id=line2d_9> <path d="M 416.945455 384.48 
+L 416.945455 51.84 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_10> <g> <use xlink:href=#m4457d458a6 x=416.945455 y=384.48 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_5> <!-- 0.8 --> <g transform="translate(408.993892 399.078438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-38 d="M 2034 2216 
+Q 1584 2216 1326 1975 
+Q 1069 1734 1069 1313 
+Q 1069 891 1326 650 
+Q 1584 409 2034 409 
+Q 2484 409 2743 651 
+Q 3003 894 3003 1313 
+Q 3003 1734 2745 1975 
+Q 2488 2216 2034 2216 
+z
+M 1403 2484 
+Q 997 2584 770 2862 
+Q 544 3141 544 3541 
+Q 544 4100 942 4425 
+Q 1341 4750 2034 4750 
+Q 2731 4750 3128 4425 
+Q 3525 4100 3525 3541 
+Q 3525 3141 3298 2862 
+Q 3072 2584 2669 2484 
+Q 3125 2378 3379 2068 
+Q 3634 1759 3634 1313 
+Q 3634 634 3220 271 
+Q 2806 -91 2034 -91 
+Q 1263 -91 848 271 
+Q 434 634 434 1313 
+Q 434 1759 690 2068 
+Q 947 2378 1403 2484 
+z
+M 1172 3481 
+Q 1172 3119 1398 2916 
+Q 1625 2713 2034 2713 
+Q 2441 2713 2670 2916 
+Q 2900 3119 2900 3481 
+Q 2900 3844 2670 4047 
+Q 2441 4250 2034 4250 
+Q 1625 4250 1398 4047 
+Q 1172 3844 1172 3481 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-38 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=xtick_6> <g id=line2d_11> <path d="M 498.109091 384.48 
+L 498.109091 51.84 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_12> <g> <use xlink:href=#m4457d458a6 x=498.109091 y=384.48 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_6> <!-- 1.0 --> <g transform="translate(490.157528 399.078438) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-31 d="M 794 531 
+L 1825 531 
+L 1825 4091 
+L 703 3866 
+L 703 4441 
+L 1819 4666 
+L 2450 4666 
+L 2450 531 
+L 3481 531 
+L 3481 0 
+L 794 0 
+L 794 531 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-31></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-30 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=text_7> <!-- False Positive Rate (FPR) --> <g transform="translate(233.878125 412.756563) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-46 d="M 628 4666 
+L 3309 4666 
+L 3309 4134 
+L 1259 4134 
+L 1259 2759 
+L 3109 2759 
+L 3109 2228 
+L 1259 2228 
+L 1259 0 
+L 628 0 
+L 628 4666 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-61 d="M 2194 1759 
+Q 1497 1759 1228 1600 
+Q 959 1441 959 1056 
+Q 959 750 1161 570 
+Q 1363 391 1709 391 
+Q 2188 391 2477 730 
+Q 2766 1069 2766 1631 
+L 2766 1759 
+L 2194 1759 
+z
+M 3341 1997 
+L 3341 0 
+L 2766 0 
+L 2766 531 
+Q 2569 213 2275 61 
+Q 1981 -91 1556 -91 
+Q 1019 -91 701 211 
+Q 384 513 384 1019 
+Q 384 1609 779 1909 
+Q 1175 2209 1959 2209 
+L 2766 2209 
+L 2766 2266 
+Q 2766 2663 2505 2880 
+Q 2244 3097 1772 3097 
+Q 1472 3097 1187 3025 
+Q 903 2953 641 2809 
+L 641 3341 
+Q 956 3463 1253 3523 
+Q 1550 3584 1831 3584 
+Q 2591 3584 2966 3190 
+Q 3341 2797 3341 1997 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-6c d="M 603 4863 
+L 1178 4863 
+L 1178 0 
+L 603 0 
+L 603 4863 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-73 d="M 2834 3397 
+L 2834 2853 
+Q 2591 2978 2328 3040 
+Q 2066 3103 1784 3103 
+Q 1356 3103 1142 2972 
+Q 928 2841 928 2578 
+Q 928 2378 1081 2264 
+Q 1234 2150 1697 2047 
+L 1894 2003 
+Q 2506 1872 2764 1633 
+Q 3022 1394 3022 966 
+Q 3022 478 2636 193 
+Q 2250 -91 1575 -91 
+Q 1294 -91 989 -36 
+Q 684 19 347 128 
+L 347 722 
+Q 666 556 975 473 
+Q 1284 391 1588 391 
+Q 1994 391 2212 530 
+Q 2431 669 2431 922 
+Q 2431 1156 2273 1281 
+Q 2116 1406 1581 1522 
+L 1381 1569 
+Q 847 1681 609 1914 
+Q 372 2147 372 2553 
+Q 372 3047 722 3315 
+Q 1072 3584 1716 3584 
+Q 2034 3584 2315 3537 
+Q 2597 3491 2834 3397 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-65 d="M 3597 1894 
+L 3597 1613 
+L 953 1613 
+Q 991 1019 1311 708 
+Q 1631 397 2203 397 
+Q 2534 397 2845 478 
+Q 3156 559 3463 722 
+L 3463 178 
+Q 3153 47 2828 -22 
+Q 2503 -91 2169 -91 
+Q 1331 -91 842 396 
+Q 353 884 353 1716 
+Q 353 2575 817 3079 
+Q 1281 3584 2069 3584 
+Q 2775 3584 3186 3129 
+Q 3597 2675 3597 1894 
+z
+M 3022 2063 
+Q 3016 2534 2758 2815 
+Q 2500 3097 2075 3097 
+Q 1594 3097 1305 2825 
+Q 1016 2553 972 2059 
+L 3022 2063 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-20 transform=scale(0.015625)></path> <path id=DejaVuSans-50 d="M 1259 4147 
+L 1259 2394 
+L 2053 2394 
+Q 2494 2394 2734 2622 
+Q 2975 2850 2975 3272 
+Q 2975 3691 2734 3919 
+Q 2494 4147 2053 4147 
+L 1259 4147 
+z
+M 628 4666 
+L 2053 4666 
+Q 2838 4666 3239 4311 
+Q 3641 3956 3641 3272 
+Q 3641 2581 3239 2228 
+Q 2838 1875 2053 1875 
+L 1259 1875 
+L 1259 0 
+L 628 0 
+L 628 4666 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-6f d="M 1959 3097 
+Q 1497 3097 1228 2736 
+Q 959 2375 959 1747 
+Q 959 1119 1226 758 
+Q 1494 397 1959 397 
+Q 2419 397 2687 759 
+Q 2956 1122 2956 1747 
+Q 2956 2369 2687 2733 
+Q 2419 3097 1959 3097 
+z
+M 1959 3584 
+Q 2709 3584 3137 3096 
+Q 3566 2609 3566 1747 
+Q 3566 888 3137 398 
+Q 2709 -91 1959 -91 
+Q 1206 -91 779 398 
+Q 353 888 353 1747 
+Q 353 2609 779 3096 
+Q 1206 3584 1959 3584 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-69 d="M 603 3500 
+L 1178 3500 
+L 1178 0 
+L 603 0 
+L 603 3500 
+z
+M 603 4863 
+L 1178 4863 
+L 1178 4134 
+L 603 4134 
+L 603 4863 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-74 d="M 1172 4494 
+L 1172 3500 
+L 2356 3500 
+L 2356 3053 
+L 1172 3053 
+L 1172 1153 
+Q 1172 725 1289 603 
+Q 1406 481 1766 481 
+L 2356 481 
+L 2356 0 
+L 1766 0 
+Q 1100 0 847 248 
+Q 594 497 594 1153 
+L 594 3053 
+L 172 3053 
+L 172 3500 
+L 594 3500 
+L 594 4494 
+L 1172 4494 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-76 d="M 191 3500 
+L 800 3500 
+L 1894 563 
+L 2988 3500 
+L 3597 3500 
+L 2284 0 
+L 1503 0 
+L 191 3500 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-52 d="M 2841 2188 
+Q 3044 2119 3236 1894 
+Q 3428 1669 3622 1275 
+L 4263 0 
+L 3584 0 
+L 2988 1197 
+Q 2756 1666 2539 1819 
+Q 2322 1972 1947 1972 
+L 1259 1972 
+L 1259 0 
+L 628 0 
+L 628 4666 
+L 2053 4666 
+Q 2853 4666 3247 4331 
+Q 3641 3997 3641 3322 
+Q 3641 2881 3436 2590 
+Q 3231 2300 2841 2188 
+z
+M 1259 4147 
+L 1259 2491 
+L 2053 2491 
+Q 2509 2491 2742 2702 
+Q 2975 2913 2975 3322 
+Q 2975 3731 2742 3939 
+Q 2509 4147 2053 4147 
+L 1259 4147 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-28 d="M 1984 4856 
+Q 1566 4138 1362 3434 
+Q 1159 2731 1159 2009 
+Q 1159 1288 1364 580 
+Q 1569 -128 1984 -844 
+L 1484 -844 
+Q 1016 -109 783 600 
+Q 550 1309 550 2009 
+Q 550 2706 781 3412 
+Q 1013 4119 1484 4856 
+L 1984 4856 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-29 d="M 513 4856 
+L 1013 4856 
+Q 1481 4119 1714 3412 
+Q 1947 2706 1947 2009 
+Q 1947 1309 1714 600 
+Q 1481 -109 1013 -844 
+L 513 -844 
+Q 928 -128 1133 580 
+Q 1338 1288 1338 2009 
+Q 1338 2731 1133 3434 
+Q 928 4138 513 4856 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-46></use> <use xlink:href=#DejaVuSans-61 transform="translate(48.394531 0)"></use> <use xlink:href=#DejaVuSans-6c transform="translate(109.673828 0)"></use> <use xlink:href=#DejaVuSans-73 transform="translate(137.457031 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(189.556641 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(251.080078 0)"></use> <use xlink:href=#DejaVuSans-50 transform="translate(282.867188 0)"></use> <use xlink:href=#DejaVuSans-6f transform="translate(339.544922 0)"></use> <use xlink:href=#DejaVuSans-73 transform="translate(400.726562 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(452.826172 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(480.609375 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(519.818359 0)"></use> <use xlink:href=#DejaVuSans-76 transform="translate(547.601562 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(606.78125 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(668.304688 0)"></use> <use xlink:href=#DejaVuSans-52 transform="translate(700.091797 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(767.324219 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(828.603516 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(867.8125 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(929.335938 0)"></use> <use xlink:href=#DejaVuSans-28 transform="translate(961.123047 0)"></use> <use xlink:href=#DejaVuSans-46 transform="translate(1000.136719 0)"></use> <use xlink:href=#DejaVuSans-50 transform="translate(1057.65625 0)"></use> <use xlink:href=#DejaVuSans-52 transform="translate(1117.958984 0)"></use> <use xlink:href=#DejaVuSans-29 transform="translate(1187.441406 0)"></use> </g> </g> </g> <g id=matplotlib.axis_2> <g id=ytick_1> <g id=line2d_13> <path d="M 72 369.36 
+L 518.4 369.36 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_14> <defs> <path id=m244e52a708 d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"></path> </defs> <g> <use xlink:href=#m244e52a708 x=72 y=369.36 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_8> <!-- 0.0 --> <g transform="translate(49.096875 373.159219) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-30 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=ytick_2> <g id=line2d_15> <path d="M 72 308.88 
+L 518.4 308.88 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_16> <g> <use xlink:href=#m244e52a708 x=72 y=308.88 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_9> <!-- 0.2 --> <g transform="translate(49.096875 312.679219) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-32 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=ytick_3> <g id=line2d_17> <path d="M 72 248.4 
+L 518.4 248.4 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_18> <g> <use xlink:href=#m244e52a708 x=72 y=248.4 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_10> <!-- 0.4 --> <g transform="translate(49.096875 252.199219) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-34 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=ytick_4> <g id=line2d_19> <path d="M 72 187.92 
+L 518.4 187.92 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_20> <g> <use xlink:href=#m244e52a708 x=72 y=187.92 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_11> <!-- 0.6 --> <g transform="translate(49.096875 191.719219) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-36 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=ytick_5> <g id=line2d_21> <path d="M 72 127.44 
+L 518.4 127.44 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_22> <g> <use xlink:href=#m244e52a708 x=72 y=127.44 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_12> <!-- 0.8 --> <g transform="translate(49.096875 131.239219) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-30></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-38 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=ytick_6> <g id=line2d_23> <path d="M 72 66.96 
+L 518.4 66.96 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #b0b0b0; stroke-width: 0.8; stroke-linecap: square"></path> </g> <g id=line2d_24> <g> <use xlink:href=#m244e52a708 x=72 y=66.96 style="stroke: #000000; stroke-width: 0.8"></use> </g> </g> <g id=text_13> <!-- 1.0 --> <g transform="translate(49.096875 70.759219) scale(0.1 -0.1)"> <use xlink:href=#DejaVuSans-31></use> <use xlink:href=#DejaVuSans-2e transform="translate(63.623047 0)"></use> <use xlink:href=#DejaVuSans-30 transform="translate(95.410156 0)"></use> </g> </g> </g> <g id=text_14> <!-- True Positive Rate (TPR) --> <g transform="translate(43.017187 277.723281) rotate(-90) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-54 d="M -19 4666 
+L 3928 4666 
+L 3928 4134 
+L 2272 4134 
+L 2272 0 
+L 1638 0 
+L 1638 4134 
+L -19 4134 
+L -19 4666 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-72 d="M 2631 2963 
+Q 2534 3019 2420 3045 
+Q 2306 3072 2169 3072 
+Q 1681 3072 1420 2755 
+Q 1159 2438 1159 1844 
+L 1159 0 
+L 581 0 
+L 581 3500 
+L 1159 3500 
+L 1159 2956 
+Q 1341 3275 1631 3429 
+Q 1922 3584 2338 3584 
+Q 2397 3584 2469 3576 
+Q 2541 3569 2628 3553 
+L 2631 2963 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-75 d="M 544 1381 
+L 544 3500 
+L 1119 3500 
+L 1119 1403 
+Q 1119 906 1312 657 
+Q 1506 409 1894 409 
+Q 2359 409 2629 706 
+Q 2900 1003 2900 1516 
+L 2900 3500 
+L 3475 3500 
+L 3475 0 
+L 2900 0 
+L 2900 538 
+Q 2691 219 2414 64 
+Q 2138 -91 1772 -91 
+Q 1169 -91 856 284 
+Q 544 659 544 1381 
+z
+M 1991 3584 
+L 1991 3584 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-54></use> <use xlink:href=#DejaVuSans-72 transform="translate(46.333984 0)"></use> <use xlink:href=#DejaVuSans-75 transform="translate(87.447266 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(150.826172 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(212.349609 0)"></use> <use xlink:href=#DejaVuSans-50 transform="translate(244.136719 0)"></use> <use xlink:href=#DejaVuSans-6f transform="translate(300.814453 0)"></use> <use xlink:href=#DejaVuSans-73 transform="translate(361.996094 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(414.095703 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(441.878906 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(481.087891 0)"></use> <use xlink:href=#DejaVuSans-76 transform="translate(508.871094 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(568.050781 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(629.574219 0)"></use> <use xlink:href=#DejaVuSans-52 transform="translate(661.361328 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(728.59375 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(789.873047 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(829.082031 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(890.605469 0)"></use> <use xlink:href=#DejaVuSans-28 transform="translate(922.392578 0)"></use> <use xlink:href=#DejaVuSans-54 transform="translate(961.40625 0)"></use> <use xlink:href=#DejaVuSans-50 transform="translate(1022.490234 0)"></use> <use xlink:href=#DejaVuSans-52 transform="translate(1082.792969 0)"></use> <use xlink:href=#DejaVuSans-29 transform="translate(1152.275391 0)"></use> </g> </g> </g> <g id=line2d_25> <path d="M 92.290909 369.36 
+L 92.290909 367.409032 
+L 92.290909 252.301935 
+L 95.089655 252.301935 
+L 95.089655 228.890323 
+L 97.888401 228.890323 
+L 97.888401 223.037419 
+L 100.687147 223.037419 
+L 100.687147 221.086452 
+L 103.485893 221.086452 
+L 103.485893 215.233548 
+L 106.284639 215.233548 
+L 106.284639 205.47871 
+L 109.083386 205.47871 
+L 109.083386 195.723871 
+L 111.882132 195.723871 
+L 111.882132 189.870968 
+L 114.680878 189.870968 
+L 114.680878 162.557419 
+L 117.479624 162.557419 
+L 117.479624 160.606452 
+L 123.077116 160.606452 
+L 123.077116 158.655484 
+L 128.674608 158.655484 
+L 128.674608 156.704516 
+L 131.473354 156.704516 
+L 131.473354 146.949677 
+L 134.2721 146.949677 
+L 134.2721 129.390968 
+L 137.070846 129.390968 
+L 137.070846 127.44 
+L 139.869592 127.44 
+L 139.869592 125.489032 
+L 142.668339 125.489032 
+L 142.668339 109.88129 
+L 145.467085 109.88129 
+L 145.467085 107.930323 
+L 148.265831 107.930323 
+L 148.265831 104.028387 
+L 151.064577 104.028387 
+L 151.064577 102.077419 
+L 165.058307 102.077419 
+L 165.058307 98.175484 
+L 170.655799 98.175484 
+L 170.655799 96.224516 
+L 179.052038 96.224516 
+L 179.052038 94.273548 
+L 207.039498 94.273548 
+L 207.039498 92.322581 
+L 226.630721 92.322581 
+L 226.630721 88.420645 
+L 232.228213 88.420645 
+L 232.228213 86.469677 
+L 260.215674 86.469677 
+L 260.215674 84.51871 
+L 268.611912 84.51871 
+L 268.611912 82.567742 
+L 291.001881 82.567742 
+L 291.001881 80.616774 
+L 316.190596 80.616774 
+L 316.190596 78.665806 
+L 318.989342 78.665806 
+L 318.989342 76.714839 
+L 338.580564 76.714839 
+L 338.580564 74.763871 
+L 352.574295 74.763871 
+L 352.574295 72.812903 
+L 416.945455 72.812903 
+L 416.945455 70.861935 
+L 458.926646 70.861935 
+L 458.926646 68.910968 
+L 461.725392 68.910968 
+L 461.725392 66.96 
+L 498.109091 66.96 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke: #0000ff; stroke-width: 1.5; stroke-linecap: square"></path> </g> <g id=line2d_26> <path d="M 92.290909 369.36 
+L 498.109091 66.96 
+" clip-path=url(#p9d50c2e6e9) style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #ff0000; stroke-width: 1.5"></path> </g> <g id=patch_3> <path d="M 72 384.48 
+L 72 51.84 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"></path> </g> <g id=patch_4> <path d="M 518.4 384.48 
+L 518.4 51.84 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"></path> </g> <g id=patch_5> <path d="M 72 384.48 
+L 518.4 384.48 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"></path> </g> <g id=patch_6> <path d="M 72 51.84 
+L 518.4 51.84 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"></path> </g> <g id=text_15> <!-- Receiver Operating Characteristic (ROC) Curve --> <g transform="translate(154.4175 45.84) scale(0.12 -0.12)"> <defs> <path id=DejaVuSans-63 d="M 3122 3366 
+L 3122 2828 
+Q 2878 2963 2633 3030 
+Q 2388 3097 2138 3097 
+Q 1578 3097 1268 2742 
+Q 959 2388 959 1747 
+Q 959 1106 1268 751 
+Q 1578 397 2138 397 
+Q 2388 397 2633 464 
+Q 2878 531 3122 666 
+L 3122 134 
+Q 2881 22 2623 -34 
+Q 2366 -91 2075 -91 
+Q 1284 -91 818 406 
+Q 353 903 353 1747 
+Q 353 2603 823 3093 
+Q 1294 3584 2113 3584 
+Q 2378 3584 2631 3529 
+Q 2884 3475 3122 3366 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-4f d="M 2522 4238 
+Q 1834 4238 1429 3725 
+Q 1025 3213 1025 2328 
+Q 1025 1447 1429 934 
+Q 1834 422 2522 422 
+Q 3209 422 3611 934 
+Q 4013 1447 4013 2328 
+Q 4013 3213 3611 3725 
+Q 3209 4238 2522 4238 
+z
+M 2522 4750 
+Q 3503 4750 4090 4092 
+Q 4678 3434 4678 2328 
+Q 4678 1225 4090 567 
+Q 3503 -91 2522 -91 
+Q 1538 -91 948 565 
+Q 359 1222 359 2328 
+Q 359 3434 948 4092 
+Q 1538 4750 2522 4750 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-70 d="M 1159 525 
+L 1159 -1331 
+L 581 -1331 
+L 581 3500 
+L 1159 3500 
+L 1159 2969 
+Q 1341 3281 1617 3432 
+Q 1894 3584 2278 3584 
+Q 2916 3584 3314 3078 
+Q 3713 2572 3713 1747 
+Q 3713 922 3314 415 
+Q 2916 -91 2278 -91 
+Q 1894 -91 1617 61 
+Q 1341 213 1159 525 
+z
+M 3116 1747 
+Q 3116 2381 2855 2742 
+Q 2594 3103 2138 3103 
+Q 1681 3103 1420 2742 
+Q 1159 2381 1159 1747 
+Q 1159 1113 1420 752 
+Q 1681 391 2138 391 
+Q 2594 391 2855 752 
+Q 3116 1113 3116 1747 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-6e d="M 3513 2113 
+L 3513 0 
+L 2938 0 
+L 2938 2094 
+Q 2938 2591 2744 2837 
+Q 2550 3084 2163 3084 
+Q 1697 3084 1428 2787 
+Q 1159 2491 1159 1978 
+L 1159 0 
+L 581 0 
+L 581 3500 
+L 1159 3500 
+L 1159 2956 
+Q 1366 3272 1645 3428 
+Q 1925 3584 2291 3584 
+Q 2894 3584 3203 3211 
+Q 3513 2838 3513 2113 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-67 d="M 2906 1791 
+Q 2906 2416 2648 2759 
+Q 2391 3103 1925 3103 
+Q 1463 3103 1205 2759 
+Q 947 2416 947 1791 
+Q 947 1169 1205 825 
+Q 1463 481 1925 481 
+Q 2391 481 2648 825 
+Q 2906 1169 2906 1791 
+z
+M 3481 434 
+Q 3481 -459 3084 -895 
+Q 2688 -1331 1869 -1331 
+Q 1566 -1331 1297 -1286 
+Q 1028 -1241 775 -1147 
+L 775 -588 
+Q 1028 -725 1275 -790 
+Q 1522 -856 1778 -856 
+Q 2344 -856 2625 -561 
+Q 2906 -266 2906 331 
+L 2906 616 
+Q 2728 306 2450 153 
+Q 2172 0 1784 0 
+Q 1141 0 747 490 
+Q 353 981 353 1791 
+Q 353 2603 747 3093 
+Q 1141 3584 1784 3584 
+Q 2172 3584 2450 3431 
+Q 2728 3278 2906 2969 
+L 2906 3500 
+L 3481 3500 
+L 3481 434 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-43 d="M 4122 4306 
+L 4122 3641 
+Q 3803 3938 3442 4084 
+Q 3081 4231 2675 4231 
+Q 1875 4231 1450 3742 
+Q 1025 3253 1025 2328 
+Q 1025 1406 1450 917 
+Q 1875 428 2675 428 
+Q 3081 428 3442 575 
+Q 3803 722 4122 1019 
+L 4122 359 
+Q 3791 134 3420 21 
+Q 3050 -91 2638 -91 
+Q 1578 -91 968 557 
+Q 359 1206 359 2328 
+Q 359 3453 968 4101 
+Q 1578 4750 2638 4750 
+Q 3056 4750 3426 4639 
+Q 3797 4528 4122 4306 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-68 d="M 3513 2113 
+L 3513 0 
+L 2938 0 
+L 2938 2094 
+Q 2938 2591 2744 2837 
+Q 2550 3084 2163 3084 
+Q 1697 3084 1428 2787 
+Q 1159 2491 1159 1978 
+L 1159 0 
+L 581 0 
+L 581 4863 
+L 1159 4863 
+L 1159 2956 
+Q 1366 3272 1645 3428 
+Q 1925 3584 2291 3584 
+Q 2894 3584 3203 3211 
+Q 3513 2838 3513 2113 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-52></use> <use xlink:href=#DejaVuSans-65 transform="translate(64.982422 0)"></use> <use xlink:href=#DejaVuSans-63 transform="translate(126.505859 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(181.486328 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(243.009766 0)"></use> <use xlink:href=#DejaVuSans-76 transform="translate(270.792969 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(329.972656 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(391.496094 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(432.609375 0)"></use> <use xlink:href=#DejaVuSans-4f transform="translate(464.396484 0)"></use> <use xlink:href=#DejaVuSans-70 transform="translate(543.107422 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(606.583984 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(668.107422 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(709.220703 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(770.5 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(809.708984 0)"></use> <use xlink:href=#DejaVuSans-6e transform="translate(837.492188 0)"></use> <use xlink:href=#DejaVuSans-67 transform="translate(900.871094 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(964.347656 0)"></use> <use xlink:href=#DejaVuSans-43 transform="translate(996.134766 0)"></use> <use xlink:href=#DejaVuSans-68 transform="translate(1065.958984 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(1129.337891 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(1190.617188 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(1231.730469 0)"></use> <use xlink:href=#DejaVuSans-63 transform="translate(1293.009766 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(1347.990234 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(1387.199219 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(1448.722656 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(1489.835938 0)"></use> <use xlink:href=#DejaVuSans-73 transform="translate(1517.619141 0)"></use> <use xlink:href=#DejaVuSans-74 transform="translate(1569.71875 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(1608.927734 0)"></use> <use xlink:href=#DejaVuSans-63 transform="translate(1636.710938 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(1691.691406 0)"></use> <use xlink:href=#DejaVuSans-28 transform="translate(1723.478516 0)"></use> <use xlink:href=#DejaVuSans-52 transform="translate(1762.492188 0)"></use> <use xlink:href=#DejaVuSans-4f transform="translate(1831.974609 0)"></use> <use xlink:href=#DejaVuSans-43 transform="translate(1910.685547 0)"></use> <use xlink:href=#DejaVuSans-29 transform="translate(1980.509766 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(2019.523438 0)"></use> <use xlink:href=#DejaVuSans-43 transform="translate(2051.310547 0)"></use> <use xlink:href=#DejaVuSans-75 transform="translate(2121.134766 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(2184.513672 0)"></use> <use xlink:href=#DejaVuSans-76 transform="translate(2225.626953 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(2284.806641 0)"></use> </g> </g> <g id=legend_1> <g id=patch_7> <path d="M 355.790625 379.48 
+L 511.4 379.48 
+Q 513.4 379.48 513.4 377.48 
+L 513.4 349.12375 
+Q 513.4 347.12375 511.4 347.12375 
+L 355.790625 347.12375 
+Q 353.790625 347.12375 353.790625 349.12375 
+L 353.790625 377.48 
+Q 353.790625 379.48 355.790625 379.48 
+z
+" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"></path> </g> <g id=line2d_27> <path d="M 357.790625 355.222188 
+L 367.790625 355.222188 
+L 377.790625 355.222188 
+" style="fill: none; stroke: #0000ff; stroke-width: 1.5; stroke-linecap: square"></path> </g> <g id=text_16> <!-- ROC Curve (AUC = 0.91) --> <g transform="translate(385.790625 358.722188) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-41 d="M 2188 4044 
+L 1331 1722 
+L 3047 1722 
+L 2188 4044 
+z
+M 1831 4666 
+L 2547 4666 
+L 4325 0 
+L 3669 0 
+L 3244 1197 
+L 1141 1197 
+L 716 0 
+L 50 0 
+L 1831 4666 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-55 d="M 556 4666 
+L 1191 4666 
+L 1191 1831 
+Q 1191 1081 1462 751 
+Q 1734 422 2344 422 
+Q 2950 422 3222 751 
+Q 3494 1081 3494 1831 
+L 3494 4666 
+L 4128 4666 
+L 4128 1753 
+Q 4128 841 3676 375 
+Q 3225 -91 2344 -91 
+Q 1459 -91 1007 375 
+Q 556 841 556 1753 
+L 556 4666 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-3d d="M 678 2906 
+L 4684 2906 
+L 4684 2381 
+L 678 2381 
+L 678 2906 
+z
+M 678 1631 
+L 4684 1631 
+L 4684 1100 
+L 678 1100 
+L 678 1631 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-39 d="M 703 97 
+L 703 672 
+Q 941 559 1184 500 
+Q 1428 441 1663 441 
+Q 2288 441 2617 861 
+Q 2947 1281 2994 2138 
+Q 2813 1869 2534 1725 
+Q 2256 1581 1919 1581 
+Q 1219 1581 811 2004 
+Q 403 2428 403 3163 
+Q 403 3881 828 4315 
+Q 1253 4750 1959 4750 
+Q 2769 4750 3195 4129 
+Q 3622 3509 3622 2328 
+Q 3622 1225 3098 567 
+Q 2575 -91 1691 -91 
+Q 1453 -91 1209 -44 
+Q 966 3 703 97 
+z
+M 1959 2075 
+Q 2384 2075 2632 2365 
+Q 2881 2656 2881 3163 
+Q 2881 3666 2632 3958 
+Q 2384 4250 1959 4250 
+Q 1534 4250 1286 3958 
+Q 1038 3666 1038 3163 
+Q 1038 2656 1286 2365 
+Q 1534 2075 1959 2075 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-52></use> <use xlink:href=#DejaVuSans-4f transform="translate(69.482422 0)"></use> <use xlink:href=#DejaVuSans-43 transform="translate(148.193359 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(218.017578 0)"></use> <use xlink:href=#DejaVuSans-43 transform="translate(249.804688 0)"></use> <use xlink:href=#DejaVuSans-75 transform="translate(319.628906 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(383.007812 0)"></use> <use xlink:href=#DejaVuSans-76 transform="translate(424.121094 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(483.300781 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(544.824219 0)"></use> <use xlink:href=#DejaVuSans-28 transform="translate(576.611328 0)"></use> <use xlink:href=#DejaVuSans-41 transform="translate(615.625 0)"></use> <use xlink:href=#DejaVuSans-55 transform="translate(684.033203 0)"></use> <use xlink:href=#DejaVuSans-43 transform="translate(757.226562 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(827.050781 0)"></use> <use xlink:href=#DejaVuSans-3d transform="translate(858.837891 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(942.626953 0)"></use> <use xlink:href=#DejaVuSans-30 transform="translate(974.414062 0)"></use> <use xlink:href=#DejaVuSans-2e transform="translate(1038.037109 0)"></use> <use xlink:href=#DejaVuSans-39 transform="translate(1069.824219 0)"></use> <use xlink:href=#DejaVuSans-31 transform="translate(1133.447266 0)"></use> <use xlink:href=#DejaVuSans-29 transform="translate(1197.070312 0)"></use> </g> </g> <g id=line2d_28> <path d="M 357.790625 369.900312 
+L 367.790625 369.900312 
+L 377.790625 369.900312 
+" style="fill: none; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #ff0000; stroke-width: 1.5"></path> </g> <g id=text_17> <!-- Random Classifier --> <g transform="translate(385.790625 373.400312) scale(0.1 -0.1)"> <defs> <path id=DejaVuSans-64 d="M 2906 2969 
+L 2906 4863 
+L 3481 4863 
+L 3481 0 
+L 2906 0 
+L 2906 525 
+Q 2725 213 2448 61 
+Q 2172 -91 1784 -91 
+Q 1150 -91 751 415 
+Q 353 922 353 1747 
+Q 353 2572 751 3078 
+Q 1150 3584 1784 3584 
+Q 2172 3584 2448 3432 
+Q 2725 3281 2906 2969 
+z
+M 947 1747 
+Q 947 1113 1208 752 
+Q 1469 391 1925 391 
+Q 2381 391 2643 752 
+Q 2906 1113 2906 1747 
+Q 2906 2381 2643 2742 
+Q 2381 3103 1925 3103 
+Q 1469 3103 1208 2742 
+Q 947 2381 947 1747 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-6d d="M 3328 2828 
+Q 3544 3216 3844 3400 
+Q 4144 3584 4550 3584 
+Q 5097 3584 5394 3201 
+Q 5691 2819 5691 2113 
+L 5691 0 
+L 5113 0 
+L 5113 2094 
+Q 5113 2597 4934 2840 
+Q 4756 3084 4391 3084 
+Q 3944 3084 3684 2787 
+Q 3425 2491 3425 1978 
+L 3425 0 
+L 2847 0 
+L 2847 2094 
+Q 2847 2600 2669 2842 
+Q 2491 3084 2119 3084 
+Q 1678 3084 1418 2786 
+Q 1159 2488 1159 1978 
+L 1159 0 
+L 581 0 
+L 581 3500 
+L 1159 3500 
+L 1159 2956 
+Q 1356 3278 1631 3431 
+Q 1906 3584 2284 3584 
+Q 2666 3584 2933 3390 
+Q 3200 3197 3328 2828 
+z
+" transform=scale(0.015625)></path> <path id=DejaVuSans-66 d="M 2375 4863 
+L 2375 4384 
+L 1825 4384 
+Q 1516 4384 1395 4259 
+Q 1275 4134 1275 3809 
+L 1275 3500 
+L 2222 3500 
+L 2222 3053 
+L 1275 3053 
+L 1275 0 
+L 697 0 
+L 697 3053 
+L 147 3053 
+L 147 3500 
+L 697 3500 
+L 697 3744 
+Q 697 4328 969 4595 
+Q 1241 4863 1831 4863 
+L 2375 4863 
+z
+" transform=scale(0.015625)></path> </defs> <use xlink:href=#DejaVuSans-52></use> <use xlink:href=#DejaVuSans-61 transform="translate(67.232422 0)"></use> <use xlink:href=#DejaVuSans-6e transform="translate(128.511719 0)"></use> <use xlink:href=#DejaVuSans-64 transform="translate(191.890625 0)"></use> <use xlink:href=#DejaVuSans-6f transform="translate(255.367188 0)"></use> <use xlink:href=#DejaVuSans-6d transform="translate(316.548828 0)"></use> <use xlink:href=#DejaVuSans-20 transform="translate(413.960938 0)"></use> <use xlink:href=#DejaVuSans-43 transform="translate(445.748047 0)"></use> <use xlink:href=#DejaVuSans-6c transform="translate(515.572266 0)"></use> <use xlink:href=#DejaVuSans-61 transform="translate(543.355469 0)"></use> <use xlink:href=#DejaVuSans-73 transform="translate(604.634766 0)"></use> <use xlink:href=#DejaVuSans-73 transform="translate(656.734375 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(708.833984 0)"></use> <use xlink:href=#DejaVuSans-66 transform="translate(736.617188 0)"></use> <use xlink:href=#DejaVuSans-69 transform="translate(771.822266 0)"></use> <use xlink:href=#DejaVuSans-65 transform="translate(799.605469 0)"></use> <use xlink:href=#DejaVuSans-72 transform="translate(861.128906 0)"></use> </g> </g> </g> </g> </g> <defs> <clippath id=p9d50c2e6e9> <rect x=72 y=51.84 width=446.4 height=332.64></rect> </clippath> </defs> </svg> <iframe width=100% height=470 src=https://www.youtube.com/embed/4jRBRDbJemM title="ROC and AUC, Clearly Explained!" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy=strict-origin-when-cross-origin allowfullscreen></iframe> <div class=footnote> <hr> <ol> <li id=fn:1> <p><a href=https://en.wikipedia.org/wiki/Confusion_matrix><span class=twemoji><svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="m14.97 18.95-2.56-6.03c-1.02 1.99-2.14 4.08-3.1 6.03-.01.01-.47 0-.47 0C7.37 15.5 5.85 12.1 4.37 8.68 4.03 7.84 2.83 6.5 2 6.5v-.45h5.06v.45c-.6 0-1.62.4-1.36 1.05.72 1.54 3.24 7.51 3.93 9.03.47-.94 1.8-3.42 2.37-4.47-.45-.88-1.87-4.18-2.29-5-.32-.54-1.13-.61-1.75-.61 0-.15.01-.25 0-.44l4.46.01v.4c-.61.03-1.18.24-.92.82.6 1.24.95 2.13 1.5 3.28.17-.34 1.07-2.19 1.5-3.16.26-.65-.13-.91-1.21-.91.01-.12.01-.33.01-.43 1.39-.01 3.48-.01 3.85-.02v.42c-.71.03-1.44.41-1.82.99L13.5 11.3c.18.51 1.96 4.46 2.15 4.9l3.85-8.83c-.3-.72-1.16-.87-1.5-.87v-.45l4 .03v.42c-.88 0-1.43.5-1.75 1.25-.8 1.79-3.25 7.49-4.85 11.2z"></path></svg></span> Confusion Matrix</a>&nbsp;<a class=footnote-backref href=#fnref:1 title="Jump back to footnote 1 in the text">↩</a></p> </li> </ol> </div> <aside class=md-source-file> <span class=md-source-file__fact> <span class=md-icon title="Last update"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg> </span> <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 10, 2025 12:32:28 UTC">December 10, 2025</span> </span> <span class=md-source-file__fact> <span class=md-icon title=Created> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg> </span> <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 10, 2025 12:32:28 UTC">December 10, 2025</span> </span> <span class=md-source-file__fact> <span class=md-icon title=Contributors> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg> </span> <nav> <a href=mailto:hsandmann@ieee.org>Humberto Sandmann</a> </nav> </span> <span class=md-source-file__fact> <span class=md-icon title=Contributors> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg> </span> <span>GitHub</span> <nav> <a href=https://github.com/hsandmann class=md-author title=@hsandmann> <img src="https://avatars.githubusercontent.com/u/20843348?v=4&size=72" alt=hsandmann> </a> </nav> </span> </aside> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> <button type=button class="md-top md-icon" data-md-component=top hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg> Back to top </button> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <div class=md-progress data-md-component=progress role=progressbar></div> <script id=__config type=application/json>{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "content.tooltips", "navigation.instant", "navigation.instant.progress", "navigation.top", "navigation.path", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script> <script src=../../../assets/javascripts/bundle.e71a0d61.min.js></script> <script src=../../../assets/_markdown_exec_pyodide.js></script> <script src=../../../assets/javascripts/mathjax.js></script> <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script> <script src=../../../assets/javascripts/badge.js async></script> <script src=../../../termynal.js></script> <script id=init-glightbox>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
